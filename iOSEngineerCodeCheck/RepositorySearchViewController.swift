@@ -27,15 +27,6 @@ final class RepositorySearchViewController: UITableViewController {
     private var searchWord: String = ""
     private var searchAPITask: URLSessionTask?
 
-    // MARK: - Lifecycle
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "Detail" {
-            let destination = segue.destination as! RepositoryDetailViewController
-            destination.repositorySearchViewController = self
-        }
-    }
-
     // MARK: - Private
 
     private func searchRepositories() {
@@ -69,6 +60,14 @@ final class RepositorySearchViewController: UITableViewController {
         }
 
         searchAPITask?.resume()
+    }
+
+    // MARK: - Action
+
+    @IBSegueAction func pushToDetailViewController(_ coder: NSCoder) -> RepositoryDetailViewController? {
+        guard let searchTargetIndex = searchTargetIndex else { return nil }
+
+        return RepositoryDetailViewController(coder: coder, repository: repositories[searchTargetIndex])
     }
 
     // MARK: - UITableViewController

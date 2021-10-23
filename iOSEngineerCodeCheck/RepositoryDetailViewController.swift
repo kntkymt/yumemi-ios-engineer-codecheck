@@ -24,7 +24,19 @@ final class RepositoryDetailViewController: UIViewController {
 
     // MARK: - Property
     
-    var repositorySearchViewController: RepositorySearchViewController!
+    let repository: [String: Any]
+
+    // MARK: - Initializer
+
+    init?(coder: NSCoder, repository: [String: Any]) {
+        self.repository = repository
+
+        super.init(coder: coder)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     // MARK: - Lifecycle
         
@@ -37,13 +49,10 @@ final class RepositoryDetailViewController: UIViewController {
     // MARK: - Private
 
     private func setupUI() {
-        guard let searchTargetIndex = repositorySearchViewController.searchTargetIndex else { return }
-        let repository = repositorySearchViewController.repositories[searchTargetIndex]
-
         titleLabel.text = repository["full_name"] as? String ?? ""
         languageLabel.text = "Written in \(repository["language"] as? String ?? "")"
         starLabel.text = "\(repository["stargazers_count"] as? Int ?? 0) stars"
-        watchersLabel.text = "\(repository["wachers_count"] as? Int ?? 0) watchers"
+        watchersLabel.text = "\(repository["watchers_count"] as? Int ?? 0) watchers"
         forksLabel.text = "\(repository["forks_count"] as? Int ?? 0) forks"
         issuesLabel.text = "\(repository["open_issues_count"] as? Int ?? 0) open issues"
 
