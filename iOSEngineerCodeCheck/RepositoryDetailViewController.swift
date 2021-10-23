@@ -9,6 +9,8 @@
 import UIKit
 
 final class RepositoryDetailViewController: UIViewController {
+
+    // MARK: - Outlet
     
     @IBOutlet private weak var imageView: UIImageView!
     
@@ -19,12 +21,22 @@ final class RepositoryDetailViewController: UIViewController {
     @IBOutlet private weak var watchersLabel: UILabel!
     @IBOutlet private weak var forksLabel: UILabel!
     @IBOutlet private weak var issuesLabel: UILabel!
+
+    // MARK: - Property
     
     var repositorySearchViewController: RepositorySearchViewController!
+
+    // MARK: - Lifecycle
         
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupUI()
+    }
+
+    // MARK: - Private
+
+    private func setupUI() {
         let repository = repositorySearchViewController.repositories[repositorySearchViewController.searchTargetIndex]
 
         titleLabel.text = repository["full_name"] as? String
@@ -34,13 +46,6 @@ final class RepositoryDetailViewController: UIViewController {
         forksLabel.text = "\(repository["forks_count"] as? Int ?? 0) forks"
         issuesLabel.text = "\(repository["open_issues_count"] as? Int ?? 0) open issues"
 
-        getImage()
-        
-    }
-    
-    private func getImage(){
-        let repository = repositorySearchViewController.repositories[repositorySearchViewController.searchTargetIndex]
-        
         if let owner = repository["owner"] as? [String: Any] {
             if let imgURL = owner["avatar_url"] as? String {
                 URLSession.shared.dataTask(with: URL(string: imgURL)!) { (data, res, err) in
@@ -51,6 +56,5 @@ final class RepositoryDetailViewController: UIViewController {
                 }.resume()
             }
         }
-        
     }
 }
