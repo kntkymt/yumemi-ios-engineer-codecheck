@@ -101,14 +101,10 @@
 		BFD945DD244DC5E80012785A /* iOSEngineerCodeCheck */ = {
 			isa = PBXGroup;
 			children = (
-				BFD945DE244DC5E80012785A /* AppDelegate.swift */,
-				BFD945E0244DC5E80012785A /* SceneDelegate.swift */,
-				BFD945E2244DC5E80012785A /* RepositorySearchViewController.swift */,
-				BF0A658C244F2A3B00280FA6 /* RepositoryDetailViewController.swift */,
-				BFD945E4244DC5E80012785A /* Main.storyboard */,
-				BFD945E7244DC5EB0012785A /* Assets.xcassets */,
-				BFD945E9244DC5EB0012785A /* LaunchScreen.storyboard */,
-				BFD945EC244DC5EB0012785A /* Info.plist */,
+				E250704F272446F300013FF1 /* Configuration */,
+				E250704E272446E600013FF1 /* Resource */,
+				E25070482724465B00013FF1 /* Application */,
+				E25070472724465300013FF1 /* Presentation */,
 			);
 			path = iOSEngineerCodeCheck;
 			sourceTree = "<group>";
@@ -129,6 +125,90 @@
 				BFD94602244DC5EC0012785A /* Info.plist */,
 			);
 			path = iOSEngineerCodeCheckUITests;
+			sourceTree = "<group>";
+		};
+		E25070472724465300013FF1 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				E25070492724467500013FF1 /* Screen */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		E25070482724465B00013FF1 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				BFD945DE244DC5E80012785A /* AppDelegate.swift */,
+				BFD945E0244DC5E80012785A /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		E25070492724467500013FF1 /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				E250704B272446A400013FF1 /* Launch */,
+				E250704A2724467C00013FF1 /* Root */,
+				E25070502724471600013FF1 /* Main */,
+				E250704C272446B100013FF1 /* RepositorySearch */,
+				E250704D272446C300013FF1 /* RepositoryDetail */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
+		E250704A2724467C00013FF1 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		E250704B272446A400013FF1 /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				BFD945E9244DC5EB0012785A /* LaunchScreen.storyboard */,
+			);
+			path = Launch;
+			sourceTree = "<group>";
+		};
+		E250704C272446B100013FF1 /* RepositorySearch */ = {
+			isa = PBXGroup;
+			children = (
+				BFD945E2244DC5E80012785A /* RepositorySearchViewController.swift */,
+			);
+			path = RepositorySearch;
+			sourceTree = "<group>";
+		};
+		E250704D272446C300013FF1 /* RepositoryDetail */ = {
+			isa = PBXGroup;
+			children = (
+				BF0A658C244F2A3B00280FA6 /* RepositoryDetailViewController.swift */,
+			);
+			path = RepositoryDetail;
+			sourceTree = "<group>";
+		};
+		E250704E272446E600013FF1 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				BFD945E7244DC5EB0012785A /* Assets.xcassets */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		E250704F272446F300013FF1 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				BFD945EC244DC5EB0012785A /* Info.plist */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		E25070502724471600013FF1 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				BFD945E4244DC5E80012785A /* Main.storyboard */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
