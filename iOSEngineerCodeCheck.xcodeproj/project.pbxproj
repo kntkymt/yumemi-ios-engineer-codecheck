@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -25,6 +25,7 @@
 		E250705F27244BED00013FF1 /* SplashViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E250705E27244BED00013FF1 /* SplashViewController.storyboard */; };
 		E250706127244F3C00013FF1 /* RepositorySearchViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E250706027244F3C00013FF1 /* RepositorySearchViewController.storyboard */; };
 		E250706327244FC000013FF1 /* RepositoryDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E250706227244FC000013FF1 /* RepositoryDetailViewController.storyboard */; };
+		E250706727246E9700013FF1 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = E250706627246E9700013FF1 /* Moya */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E250706727246E9700013FF1 /* Moya in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,6 +125,7 @@
 				E250704E272446E600013FF1 /* Resource */,
 				E25070482724465B00013FF1 /* Application */,
 				E25070472724465300013FF1 /* Presentation */,
+				E250706427246DE100013FF1 /* Network */,
 			);
 			path = iOSEngineerCodeCheck;
 			sourceTree = "<group>";
@@ -246,6 +249,13 @@
 			path = Splash;
 			sourceTree = "<group>";
 		};
+		E250706427246DE100013FF1 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -262,6 +272,9 @@
 			dependencies = (
 			);
 			name = iOSEngineerCodeCheck;
+			packageProductDependencies = (
+				E250706627246E9700013FF1 /* Moya */,
+			);
 			productName = iOSEngineerCodeCheck;
 			productReference = BFD945DB244DC5E80012785A /* iOSEngineerCodeCheck.app */;
 			productType = "com.apple.product-type.application";
@@ -334,6 +347,9 @@
 				Base,
 			);
 			mainGroup = BFD945D2244DC5E80012785A;
+			packageReferences = (
+				E250706527246E9600013FF1 /* XCRemoteSwiftPackageReference "Moya" */,
+			);
 			productRefGroup = BFD945DC244DC5E80012785A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -720,6 +736,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E250706527246E9600013FF1 /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 15.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E250706627246E9700013FF1 /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E250706527246E9600013FF1 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BFD945D3244DC5E80012785A /* Project object */;
 }
