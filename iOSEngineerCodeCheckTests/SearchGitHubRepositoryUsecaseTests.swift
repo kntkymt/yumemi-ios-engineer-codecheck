@@ -14,7 +14,7 @@ final class SearchGitHubRepositoryUsecaseTests: XCTestCase {
 
     // MARK: - Property
 
-    private let usecase: SearchGitHubReposiotyUsecase = SearchGitHubRepositoryUsecaseImpl(gitHubRepositoryRepository: GitHubRepositoryRepositoryImpl())
+    private let usecase: GitHubReposiotySearchUsecase = SearchGitHubRepositoryUsecaseImpl(gitHubRepositoryRepository: GitHubRepositoryRepositoryImpl())
 
     override class func setUp() {
         super.setUp()

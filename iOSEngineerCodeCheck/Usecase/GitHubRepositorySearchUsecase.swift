@@ -1,17 +1,17 @@
 //
-//  SearchGitHubRepositoryUsecase.swift
+//  GitHubRepositorySearchUsecase.swift
 //  iOSEngineerCodeCheck
 //
 //  Created by kntk on 2021/10/24.
 //  Copyright © 2021 YUMEMI Inc. All rights reserved.
 //
 
-protocol SearchGitHubReposiotyUsecase {
+protocol GitHubReposiotySearchUsecase {
 
     func searchGitHubRepositories(by word: String) async throws -> [GitHubRepository]
 }
 
-final class SearchGitHubRepositoryUsecaseImpl: SearchGitHubReposiotyUsecase {
+final class SearchGitHubRepositoryUsecaseImpl: GitHubReposiotySearchUsecase {
 
     // MARK: - Property
 
