@@ -40,7 +40,7 @@ final class RepositoryDetailViewController: UIViewController {
         guard let searchTargetIndex = repositorySearchViewController.searchTargetIndex else { return }
         let repository = repositorySearchViewController.repositories[searchTargetIndex]
 
-        titleLabel.text = repository["full_name"] as? String
+        titleLabel.text = repository["full_name"] as? String ?? ""
         languageLabel.text = "Written in \(repository["language"] as? String ?? "")"
         starLabel.text = "\(repository["stargazers_count"] as? Int ?? 0) stars"
         watchersLabel.text = "\(repository["wachers_count"] as? Int ?? 0) watchers"
