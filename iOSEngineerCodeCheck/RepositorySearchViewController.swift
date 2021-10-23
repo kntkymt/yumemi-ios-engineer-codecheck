@@ -64,11 +64,11 @@ final class RepositorySearchViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        let rp = repositories[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Repository", for: indexPath)
+        let repository = repositories[indexPath.row]
 
-        cell.textLabel?.text = rp["full_name"] as? String ?? ""
-        cell.detailTextLabel?.text = rp["language"] as? String ?? ""
+        cell.textLabel?.text = repository["full_name"] as? String ?? ""
+        cell.detailTextLabel?.text = repository["language"] as? String ?? ""
         cell.tag = indexPath.row
 
         return cell
