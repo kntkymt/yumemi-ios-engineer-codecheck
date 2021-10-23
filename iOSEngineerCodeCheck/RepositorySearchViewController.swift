@@ -24,7 +24,7 @@ final class RepositorySearchViewController: UITableViewController {
     private(set) var repositories: [[String: Any]] = []
     private(set) var searchTargetIndex: Int!
 
-    private var searchWord: String!
+    private var searchWord: String = ""
     private var searchAPITask: URLSessionTask?
 
     // MARK: - Lifecycle
@@ -39,7 +39,8 @@ final class RepositorySearchViewController: UITableViewController {
     // MARK: - Private
 
     private func searchRepositories() {
-        guard let searchAPIURL = URL(string: "https://api.github.com/search/repositories?q=\(searchWord!)") else { return }
+        if searchWord.isEmpty { return }
+        guard let searchAPIURL = URL(string: "https://api.github.com/search/repositories?q=\(searchWord)") else { return }
 
         searchAPITask = URLSession.shared.dataTask(with: searchAPIURL) { [weak self] (data, _, error) in
             guard let self = self else { return }
@@ -106,8 +107,7 @@ extension RepositorySearchViewController: UISearchBarDelegate {
     }
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchWord = searchBar.text!
-        if searchWord.isEmpty { return }
+        searchWord = searchBar.text ?? ""
 
         searchRepositories()
     }
