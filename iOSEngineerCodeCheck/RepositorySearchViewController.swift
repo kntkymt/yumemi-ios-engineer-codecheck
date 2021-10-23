@@ -22,16 +22,15 @@ final class RepositorySearchViewController: UITableViewController {
     // MARK: - Property
     
     private(set) var repositories: [[String: Any]] = []
-    private(set) var searchTargetIndex: Int!
+    private(set) var searchTargetIndex: Int?
 
-    private var searchWord: String!
+    private var searchWord: String = ""
     private var searchAPITask: URLSessionTask?
-    private var searchAPIURL: String!
 
     // MARK: - Lifecycle
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "Detail"{
+        if segue.identifier == "Detail" {
             let destination = segue.destination as! RepositoryDetailViewController
             destination.repositorySearchViewController = self
         }
@@ -40,15 +39,32 @@ final class RepositorySearchViewController: UITableViewController {
     // MARK: - Private
 
     private func searchRepositories() {
-        searchAPIURL = "https://api.github.com/search/repositories?q=\(searchWord!)"
-        searchAPITask = URLSession.shared.dataTask(with: URL(string: searchAPIURL)!) { (data, _, _) in
-            if let object = try! JSONSerialization.jsonObject(with: data!) as? [String: Any] {
-                if let items = object["items"] as? [[String: Any]] {
+        if searchWord.isEmpty { return }
+        guard let searchAPIURL = URL(string: "https://api.github.com/search/repositories?q=\(searchWord)") else { return }
+
+        searchAPITask = URLSession.shared.dataTask(with: searchAPIURL) { [weak self] (data, _, error) in
+            guard let self = self else { return }
+            guard let data = data else {
+                // TODO: エラーハンドリング
+                print(error)
+                return
+            }
+
+            do {
+                if let object = try JSONSerialization.jsonObject(with: data) as? [String: Any],
+                   let items = object["items"] as? [[String: Any]] {
                     self.repositories = items
+
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
                     }
+                } else {
+                    // TODO: エラーハンドリング
+                    // パース失敗
                 }
+            } catch {
+                // TODO: エラーハンドリング
+                print(error)
             }
         }
 
@@ -93,8 +109,7 @@ extension RepositorySearchViewController: UISearchBarDelegate {
     }
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchWord = searchBar.text!
-        if searchWord.isEmpty { return }
+        searchWord = searchBar.text ?? ""
 
         searchRepositories()
     }
