@@ -20,11 +20,8 @@ final class GitHubRepositorySearchViewController: UITableViewController, Storybo
     }
 
     // MARK: - Property
-    
-    private var repositories: [[String: Any]] = []
 
-    private var searchWord: String = ""
-    private var searchAPITask: URLSessionTask?
+    var presenter: GitHubRepositorySearchPresentation!
 
     // MARK: - Build
 
@@ -40,63 +37,38 @@ final class GitHubRepositorySearchViewController: UITableViewController, Storybo
         title = "検索"
     }
 
-    // MARK: - Private
-
-    private func searchRepositories() {
-        if searchWord.isEmpty { return }
-        guard let searchAPIURL = URL(string: "https://api.github.com/search/repositories?q=\(searchWord)") else { return }
-
-        searchAPITask = URLSession.shared.dataTask(with: searchAPIURL) { [weak self] (data, _, error) in
-            guard let self = self else { return }
-            guard let data = data else {
-                // TODO: エラーハンドリング
-                print(error)
-                return
-            }
-
-            do {
-                if let object = try JSONSerialization.jsonObject(with: data) as? [String: Any],
-                   let items = object["items"] as? [[String: Any]] {
-                    self.repositories = items
-
-                    DispatchQueue.main.async {
-                        self.tableView.reloadData()
-                    }
-                } else {
-                    // TODO: エラーハンドリング
-                    // パース失敗
-                }
-            } catch {
-                // TODO: エラーハンドリング
-                print(error)
-            }
-        }
-
-        searchAPITask?.resume()
-    }
-
-    // MARK: - Action
-
     // MARK: - UITableViewController
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return repositories.count
+        return presenter.gitHubRepositoriesCount
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Repository", for: indexPath)
-        let repository = repositories[indexPath.row]
+        let gitHubRepository = presenter.gitHubRepository(at: indexPath.row)
 
-        cell.textLabel?.text = repository["full_name"] as? String ?? ""
-        cell.detailTextLabel?.text = repository["language"] as? String ?? ""
+        cell.textLabel?.text = gitHubRepository.fullName
+        cell.detailTextLabel?.text = gitHubRepository.language
         cell.tag = indexPath.row
 
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let detailViewController = GitHubRepositoryDetailViewController.build(repository: repositories[indexPath.row])
+        presenter.tableViewDidSelectRow(at: indexPath.row)
+    }
+}
 
+// MARK: - GitHubRepositorySearchView
+
+extension GitHubRepositorySearchViewController: GitHubRepositorySearchView {
+
+    func tableViewReloadData() {
+        self.tableView.reloadData()
+    }
+    
+    func pushToDetailView(gitHubRepository: GitHubRepository) {
+        let detailViewController = GitHubRepositoryDetailViewController.build(gitHubRepository: gitHubRepository)
         navigationController?.pushViewController(detailViewController, animated: true)
     }
 }
@@ -105,19 +77,11 @@ final class GitHubRepositorySearchViewController: UITableViewController, Storybo
 
 extension GitHubRepositorySearchViewController: UISearchBarDelegate {
 
-    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
-        // 入力を開始したら既存の検索語を削除する
-        searchBar.text = ""
-        return true
-    }
-
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        searchAPITask?.cancel()
+        presenter.searchBarSearchTextDidChange()
     }
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchWord = searchBar.text ?? ""
-
-        searchRepositories()
+        presenter.searchBarSearchButtonDidTap(searchText: searchBar.text ?? "")
     }
 }

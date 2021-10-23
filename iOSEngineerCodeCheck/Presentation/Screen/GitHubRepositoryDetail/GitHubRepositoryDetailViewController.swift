@@ -24,13 +24,13 @@ final class GitHubRepositoryDetailViewController: UIViewController, Storyboardab
 
     // MARK: - Property
     
-    var repository: [String: Any]!
+    var gitHubRepository: GitHubRepository!
 
     // MARK: - Build
 
-    static func build(repository: [String: Any]) -> Self {
+    static func build(gitHubRepository: GitHubRepository) -> Self {
         let viewController = initViewController()
-        viewController.repository = repository
+        viewController.gitHubRepository = gitHubRepository
 
         return viewController
     }
@@ -46,29 +46,24 @@ final class GitHubRepositoryDetailViewController: UIViewController, Storyboardab
     // MARK: - Private
 
     private func setupUI() {
-        titleLabel.text = repository["full_name"] as? String ?? ""
-        languageLabel.text = "Written in \(repository["language"] as? String ?? "")"
-        starLabel.text = "\(repository["stargazers_count"] as? Int ?? 0) stars"
-        watchersLabel.text = "\(repository["watchers_count"] as? Int ?? 0) watchers"
-        forksLabel.text = "\(repository["forks_count"] as? Int ?? 0) forks"
-        issuesLabel.text = "\(repository["open_issues_count"] as? Int ?? 0) open issues"
+        titleLabel.text = gitHubRepository.fullName
+        languageLabel.text = "Written in \(gitHubRepository.language)"
+        starLabel.text = "\(gitHubRepository.stargazersCount) stars"
+        watchersLabel.text = "\(gitHubRepository.watchersCount) watchers"
+        forksLabel.text = "\(gitHubRepository.forksCount) forks"
+        issuesLabel.text = "\(gitHubRepository.openIssuesCount) open issues"
 
-        if let owner = repository["owner"] as? [String: Any],
-           let imageURLString = owner["avatar_url"] as? String,
-           let imageURL = URL(string: imageURLString) {
+        URLSession.shared.dataTask(with: gitHubRepository.owner.avatarUrl) { [weak self] (data, _, error) in
+            guard let self = self else { return }
+            guard let data = data, let image = UIImage(data: data) else {
+                // TODO: エラーハンドリング
+                print(error)
+                return
+            }
 
-            URLSession.shared.dataTask(with: imageURL) { [weak self] (data, _, error) in
-                guard let self = self else { return }
-                guard let data = data, let image = UIImage(data: data) else {
-                    // TODO: エラーハンドリング
-                    print(error)
-                    return
-                }
-
-                DispatchQueue.main.async {
-                    self.imageView.image = image
-                }
-            }.resume()
-        }
+            DispatchQueue.main.async {
+                self.imageView.image = image
+            }
+        }.resume()
     }
 }

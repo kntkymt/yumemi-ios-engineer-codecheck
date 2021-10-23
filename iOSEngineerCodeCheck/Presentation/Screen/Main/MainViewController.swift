@@ -22,6 +22,7 @@ final class MainViewController: UINavigationController, Storyboardable {
         super.viewDidLoad()
 
         let viewController = GitHubRepositorySearchViewController.build()
+        viewController.presenter = GitHubRepositorySearchPresenter(view: viewController, gitHubRepositorySearchUsecase: AppContainer.shared.gitHubRepositorySearchUsecase)
         setViewControllers([viewController], animated: false)
     }
 }
