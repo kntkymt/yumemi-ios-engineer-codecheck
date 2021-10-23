@@ -26,7 +26,6 @@ final class RepositorySearchViewController: UITableViewController {
 
     private var searchWord: String!
     private var searchAPITask: URLSessionTask?
-    private var searchAPIURL: String!
 
     // MARK: - Lifecycle
     
@@ -40,15 +39,29 @@ final class RepositorySearchViewController: UITableViewController {
     // MARK: - Private
 
     private func searchRepositories() {
-        searchAPIURL = "https://api.github.com/search/repositories?q=\(searchWord!)"
-        searchAPITask = URLSession.shared.dataTask(with: URL(string: searchAPIURL)!) { (data, _, _) in
-            if let object = try! JSONSerialization.jsonObject(with: data!) as? [String: Any] {
-                if let items = object["items"] as? [[String: Any]] {
-                    self.repositories = items
-                    DispatchQueue.main.async {
-                        self.tableView.reloadData()
+        guard let searchAPIURL = URL(string: "https://api.github.com/search/repositories?q=\(searchWord!)") else { return }
+
+        searchAPITask = URLSession.shared.dataTask(with: searchAPIURL) { [weak self] (data, _, error) in
+            guard let self = self else { return }
+            guard let data = data else {
+                // TODO: エラーハンドリング
+                print(error)
+                return
+            }
+
+            do {
+                if let object = try JSONSerialization.jsonObject(with: data) as? [String: Any] {
+                    if let items = object["items"] as? [[String: Any]] {
+                        self.repositories = items
+
+                        DispatchQueue.main.async {
+                            self.tableView.reloadData()
+                        }
                     }
                 }
+            } catch {
+                // TODO: エラーハンドリング
+                print(error)
             }
         }
 
