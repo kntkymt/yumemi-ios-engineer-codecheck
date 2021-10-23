@@ -39,6 +39,24 @@ final class RepositorySearchViewController: UITableViewController {
         }
     }
 
+    // MARK: - Private
+
+    private func searchRepositories() {
+        searchAPIURL = "https://api.github.com/search/repositories?q=\(searchWord!)"
+        searchAPITask = URLSession.shared.dataTask(with: URL(string: searchAPIURL)!) { (data, res, err) in
+            if let obj = try! JSONSerialization.jsonObject(with: data!) as? [String: Any] {
+                if let items = obj["items"] as? [[String: Any]] {
+                    self.repositories = items
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                }
+            }
+        }
+
+        searchAPITask?.resume()
+    }
+
     // MARK: - UITableViewController
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -78,21 +96,8 @@ extension RepositorySearchViewController: UISearchBarDelegate {
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchWord = searchBar.text!
+        if searchWord.isEmpty { return }
 
-        if searchWord.count != 0 {
-            searchAPIURL = "https://api.github.com/search/repositories?q=\(searchWord!)"
-            searchAPITask = URLSession.shared.dataTask(with: URL(string: searchAPIURL)!) { (data, res, err) in
-                if let obj = try! JSONSerialization.jsonObject(with: data!) as? [String: Any] {
-                    if let items = obj["items"] as? [[String: Any]] {
-                        self.repositories = items
-                        DispatchQueue.main.async {
-                            self.tableView.reloadData()
-                        }
-                    }
-                }
-            }
-
-            searchAPITask?.resume()
-        }
+        searchRepositories()
     }
 }
