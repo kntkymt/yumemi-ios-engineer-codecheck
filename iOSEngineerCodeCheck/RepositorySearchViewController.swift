@@ -30,7 +30,7 @@ final class RepositorySearchViewController: UITableViewController {
     // MARK: - Lifecycle
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "Detail"{
+        if segue.identifier == "Detail" {
             let destination = segue.destination as! RepositoryDetailViewController
             destination.repositorySearchViewController = self
         }
