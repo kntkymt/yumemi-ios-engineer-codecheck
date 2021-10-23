@@ -8,16 +8,16 @@
 
 import UIKit
 
-class RepositorySearchViewController: UITableViewController, UISearchBarDelegate {
+final class RepositorySearchViewController: UITableViewController, UISearchBarDelegate {
 
-    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet private weak var searchBar: UISearchBar!
     
-    var repositories: [[String: Any]] = []
+    private(set) var repositories: [[String: Any]] = []
+    private(set) var searchTargetIndex: Int!
     
-    var searchAPITask: URLSessionTask?
-    var searchWord: String!
-    var searchAPIURL: String!
-    var searchTargetIndex: Int!
+    private var searchAPITask: URLSessionTask?
+    private var searchWord: String!
+    private var searchAPIURL: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
