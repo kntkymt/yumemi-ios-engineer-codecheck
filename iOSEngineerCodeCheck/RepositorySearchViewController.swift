@@ -51,14 +51,16 @@ final class RepositorySearchViewController: UITableViewController {
             }
 
             do {
-                if let object = try JSONSerialization.jsonObject(with: data) as? [String: Any] {
-                    if let items = object["items"] as? [[String: Any]] {
-                        self.repositories = items
+                if let object = try JSONSerialization.jsonObject(with: data) as? [String: Any],
+                   let items = object["items"] as? [[String: Any]] {
+                    self.repositories = items
 
-                        DispatchQueue.main.async {
-                            self.tableView.reloadData()
-                        }
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
                     }
+                } else {
+                    // TODO: エラーハンドリング
+                    // パース失敗
                 }
             } catch {
                 // TODO: エラーハンドリング
