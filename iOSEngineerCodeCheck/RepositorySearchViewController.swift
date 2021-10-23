@@ -32,8 +32,8 @@ final class RepositorySearchViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Detail"{
-            let dtl = segue.destination as! RepositoryDetailViewController
-            dtl.repositorySearchViewController = self
+            let destination = segue.destination as! RepositoryDetailViewController
+            destination.repositorySearchViewController = self
         }
     }
 
