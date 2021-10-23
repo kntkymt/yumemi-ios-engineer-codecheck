@@ -32,6 +32,14 @@ final class RepositorySearchViewController: UITableViewController, Storyboardabl
         return initViewController()
     }
 
+    // MARK: - Lifecycle
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        title = "検索"
+    }
+
     // MARK: - Private
 
     private func searchRepositories() {
