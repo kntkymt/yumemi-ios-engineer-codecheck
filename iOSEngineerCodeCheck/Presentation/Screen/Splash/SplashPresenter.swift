@@ -30,8 +30,8 @@ final class SplashPresenter: SplashPresentation {
 
     // viewDidAppearでしか遷移しない
     func viewDidAppear() {
-        DispatchQueue.main.async {
-            view?.routeToMain()
+        DispatchQueue.main.async { [weak self] in
+            self?.view?.routeToMain()
         }
     }
 
