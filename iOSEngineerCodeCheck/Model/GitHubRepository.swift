@@ -9,6 +9,7 @@
 struct GitHubRepository: Codable {
 
     var fullName: String
+    var language: String?
     var stargazersCount: Int
     var watchersCount: Int
     var forksCount: Int
