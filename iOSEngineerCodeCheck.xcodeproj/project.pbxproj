@@ -30,7 +30,7 @@
 		E250706B27246FB100013FF1 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E250706A27246FB100013FF1 /* AppError.swift */; };
 		E250706D2724712100013FF1 /* APITargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E250706C2724712100013FF1 /* APITargetType.swift */; };
 		E250706F2724715800013FF1 /* AppConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = E250706E2724715800013FF1 /* AppConstant.swift */; };
-		E25070722724727000013FF1 /* SearchTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25070712724727000013FF1 /* SearchTarget.swift */; };
+		E25070722724727000013FF1 /* SearchRepositoryRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25070712724727000013FF1 /* SearchRepositoryRequest.swift */; };
 		E2507075272473D200013FF1 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2507074272473D200013FF1 /* Repository.swift */; };
 		E25070772724775F00013FF1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25070762724775F00013FF1 /* User.swift */; };
 /* End PBXBuildFile section */
@@ -81,7 +81,7 @@
 		E250706A27246FB100013FF1 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		E250706C2724712100013FF1 /* APITargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITargetType.swift; sourceTree = "<group>"; };
 		E250706E2724715800013FF1 /* AppConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstant.swift; sourceTree = "<group>"; };
-		E25070712724727000013FF1 /* SearchTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTarget.swift; sourceTree = "<group>"; };
+		E25070712724727000013FF1 /* SearchRepositoryRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepositoryRequest.swift; sourceTree = "<group>"; };
 		E2507074272473D200013FF1 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		E25070762724775F00013FF1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -270,18 +270,18 @@
 			isa = PBXGroup;
 			children = (
 				E250706827246F0800013FF1 /* API.swift */,
-				E250706C2724712100013FF1 /* APITargetType.swift */,
-				E2507070272471FB00013FF1 /* Target */,
+				E2507070272471FB00013FF1 /* Request */,
 			);
 			path = Network;
 			sourceTree = "<group>";
 		};
-		E2507070272471FB00013FF1 /* Target */ = {
+		E2507070272471FB00013FF1 /* Request */ = {
 			isa = PBXGroup;
 			children = (
-				E25070712724727000013FF1 /* SearchTarget.swift */,
+				E250706C2724712100013FF1 /* APITargetType.swift */,
+				E25070712724727000013FF1 /* SearchRepositoryRequest.swift */,
 			);
-			path = Target;
+			path = Request;
 			sourceTree = "<group>";
 		};
 		E2507073272473C000013FF1 /* Model */ = {
@@ -442,7 +442,7 @@
 				E250705D27244BE000013FF1 /* SplashViewController.swift in Sources */,
 				E250706F2724715800013FF1 /* AppConstant.swift in Sources */,
 				E250706927246F0800013FF1 /* API.swift in Sources */,
-				E25070722724727000013FF1 /* SearchTarget.swift in Sources */,
+				E25070722724727000013FF1 /* SearchRepositoryRequest.swift in Sources */,
 				E25070562724490A00013FF1 /* RootViewController.swift in Sources */,
 				BFD945DF244DC5E80012785A /* AppDelegate.swift in Sources */,
 				E25070522724476C00013FF1 /* Storyboardable.swift in Sources */,

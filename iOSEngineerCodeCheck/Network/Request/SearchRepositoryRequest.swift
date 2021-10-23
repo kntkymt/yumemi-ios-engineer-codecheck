@@ -1,5 +1,5 @@
 //
-//  SearchTarget.swift
+//  SearchRepositoryRequest.swift
 //  iOSEngineerCodeCheck
 //
 //  Created by kntk on 2021/10/24.
