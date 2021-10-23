@@ -35,6 +35,9 @@
 		E25070772724775F00013FF1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25070762724775F00013FF1 /* User.swift */; };
 		E250707A27247A8A00013FF1 /* GitHubRepositoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E250707927247A8900013FF1 /* GitHubRepositoryRepository.swift */; };
 		E250707D27247BD200013FF1 /* SearchGitHubRepositoryUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E250707C27247BD200013FF1 /* SearchGitHubRepositoryUsecase.swift */; };
+		E250707F27247E1300013FF1 /* APIProviderFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E250707E27247E1300013FF1 /* APIProviderFactory.swift */; };
+		E250708227247E8800013FF1 /* LoggerPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = E250708127247E8800013FF1 /* LoggerPlugin.swift */; };
+		E250708627247EF500013FF1 /* URLRequest+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E250708527247EF500013FF1 /* URLRequest+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +91,9 @@
 		E25070762724775F00013FF1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E250707927247A8900013FF1 /* GitHubRepositoryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepositoryRepository.swift; sourceTree = "<group>"; };
 		E250707C27247BD200013FF1 /* SearchGitHubRepositoryUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchGitHubRepositoryUsecase.swift; sourceTree = "<group>"; };
+		E250707E27247E1300013FF1 /* APIProviderFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProviderFactory.swift; sourceTree = "<group>"; };
+		E250708127247E8800013FF1 /* LoggerPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerPlugin.swift; sourceTree = "<group>"; };
+		E250708527247EF500013FF1 /* URLRequest+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +148,7 @@
 				E250704F272446F300013FF1 /* Configuration */,
 				E250704E272446E600013FF1 /* Resource */,
 				E25070482724465B00013FF1 /* Application */,
+				E250708327247EC100013FF1 /* Common */,
 				E25070472724465300013FF1 /* Presentation */,
 				E250707B27247B6B00013FF1 /* Usecase */,
 				E2507078272479D000013FF1 /* Repository */,
@@ -276,6 +283,8 @@
 			isa = PBXGroup;
 			children = (
 				E250706827246F0800013FF1 /* API.swift */,
+				E250707E27247E1300013FF1 /* APIProviderFactory.swift */,
+				E250708027247E7100013FF1 /* Plugin */,
 				E2507070272471FB00013FF1 /* Request */,
 			);
 			path = Network;
@@ -313,6 +322,30 @@
 				E250707C27247BD200013FF1 /* SearchGitHubRepositoryUsecase.swift */,
 			);
 			path = Usecase;
+			sourceTree = "<group>";
+		};
+		E250708027247E7100013FF1 /* Plugin */ = {
+			isa = PBXGroup;
+			children = (
+				E250708127247E8800013FF1 /* LoggerPlugin.swift */,
+			);
+			path = Plugin;
+			sourceTree = "<group>";
+		};
+		E250708327247EC100013FF1 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				E250708427247ECF00013FF1 /* Extension */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		E250708427247ECF00013FF1 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				E250708527247EF500013FF1 /* URLRequest+.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -460,12 +493,15 @@
 				E25070542724487300013FF1 /* SceneRouter.swift in Sources */,
 				E2507075272473D200013FF1 /* GitHubRepository.swift in Sources */,
 				BF0A658D244F2A3B00280FA6 /* RepositoryDetailViewController.swift in Sources */,
+				E250708227247E8800013FF1 /* LoggerPlugin.swift in Sources */,
 				E25070772724775F00013FF1 /* User.swift in Sources */,
 				E250707A27247A8A00013FF1 /* GitHubRepositoryRepository.swift in Sources */,
 				E250705D27244BE000013FF1 /* SplashViewController.swift in Sources */,
 				E250706F2724715800013FF1 /* AppConstant.swift in Sources */,
+				E250707F27247E1300013FF1 /* APIProviderFactory.swift in Sources */,
 				E250706927246F0800013FF1 /* API.swift in Sources */,
 				E25070722724727000013FF1 /* SearchRepositoryRequest.swift in Sources */,
+				E250708627247EF500013FF1 /* URLRequest+.swift in Sources */,
 				E25070562724490A00013FF1 /* RootViewController.swift in Sources */,
 				BFD945DF244DC5E80012785A /* AppDelegate.swift in Sources */,
 				E250707D27247BD200013FF1 /* SearchGitHubRepositoryUsecase.swift in Sources */,
