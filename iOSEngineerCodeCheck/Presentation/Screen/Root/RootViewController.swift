@@ -20,12 +20,6 @@ final class RootViewController: UIViewController, Storyboardable {
         return initViewController()
     }
 
-    // MARK: - Lifecycle
-
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-
     // MARK: - Public
 
     func route(_ viewController: UIViewController, animated: Bool, completion: ((UIViewController) -> Void)? = nil) {
