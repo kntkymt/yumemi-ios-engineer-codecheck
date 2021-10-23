@@ -155,9 +155,9 @@
 				E25070482724465B00013FF1 /* Application */,
 				E250708327247EC100013FF1 /* Common */,
 				E25070472724465300013FF1 /* Presentation */,
+				E2507073272473C000013FF1 /* Model */,
 				E250707B27247B6B00013FF1 /* Usecase */,
 				E2507078272479D000013FF1 /* Repository */,
-				E2507073272473C000013FF1 /* Model */,
 				E250706427246DE100013FF1 /* Network */,
 			);
 			path = iOSEngineerCodeCheck;
