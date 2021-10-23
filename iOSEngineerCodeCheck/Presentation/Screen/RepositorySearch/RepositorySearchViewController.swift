@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class RepositorySearchViewController: UITableViewController {
+final class RepositorySearchViewController: UITableViewController, Storyboardable {
 
     // MARK: - Outlet
 
@@ -21,11 +21,24 @@ final class RepositorySearchViewController: UITableViewController {
 
     // MARK: - Property
     
-    private(set) var repositories: [[String: Any]] = []
-    private(set) var searchTargetIndex: Int?
+    private var repositories: [[String: Any]] = []
 
     private var searchWord: String = ""
     private var searchAPITask: URLSessionTask?
+
+    // MARK: - Build
+
+    static func build() -> Self {
+        return initViewController()
+    }
+
+    // MARK: - Lifecycle
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        title = "検索"
+    }
 
     // MARK: - Private
 
@@ -64,12 +77,6 @@ final class RepositorySearchViewController: UITableViewController {
 
     // MARK: - Action
 
-    @IBSegueAction func pushToDetailViewController(_ coder: NSCoder) -> RepositoryDetailViewController? {
-        guard let searchTargetIndex = searchTargetIndex else { return nil }
-
-        return RepositoryDetailViewController(coder: coder, repository: repositories[searchTargetIndex])
-    }
-
     // MARK: - UITableViewController
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -88,8 +95,9 @@ final class RepositorySearchViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        searchTargetIndex = indexPath.row
-        performSegue(withIdentifier: "Detail", sender: self)
+        let detailViewController = RepositoryDetailViewController.build(repository: repositories[indexPath.row])
+
+        navigationController?.pushViewController(detailViewController, animated: true)
     }
 }
 

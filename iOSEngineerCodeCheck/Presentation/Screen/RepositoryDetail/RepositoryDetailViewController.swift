@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class RepositoryDetailViewController: UIViewController {
+final class RepositoryDetailViewController: UIViewController, Storyboardable {
 
     // MARK: - Outlet
     
@@ -24,18 +24,15 @@ final class RepositoryDetailViewController: UIViewController {
 
     // MARK: - Property
     
-    let repository: [String: Any]
+    var repository: [String: Any]!
 
-    // MARK: - Initializer
+    // MARK: - Build
 
-    init?(coder: NSCoder, repository: [String: Any]) {
-        self.repository = repository
+    static func build(repository: [String: Any]) -> Self {
+        let viewController = initViewController()
+        viewController.repository = repository
 
-        super.init(coder: coder)
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        return viewController
     }
 
     // MARK: - Lifecycle
