@@ -10,14 +10,20 @@ import UIKit
 
 final class RepositorySearchViewController: UITableViewController, UISearchBarDelegate {
 
+    // MARK: - Outlet
+
     @IBOutlet private weak var searchBar: UISearchBar!
+
+    // MARK: - Property
     
     private(set) var repositories: [[String: Any]] = []
     private(set) var searchTargetIndex: Int!
-    
-    private var searchAPITask: URLSessionTask?
+
     private var searchWord: String!
+    private var searchAPITask: URLSessionTask?
     private var searchAPIURL: String!
+
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
