@@ -26,7 +26,7 @@ final class RepositoryDetailViewController: UIViewController, Storyboardable {
     
     var repository: [String: Any]!
 
-    // MARK: - Initializer
+    // MARK: - Build
 
     static func build(repository: [String: Any]) -> Self {
         let viewController = initViewController()

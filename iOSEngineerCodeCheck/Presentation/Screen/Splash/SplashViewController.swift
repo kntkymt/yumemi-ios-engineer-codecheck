@@ -17,6 +17,8 @@ final class SplashViewController: UIViewController, Storyboardable {
         return initViewController()
     }
 
+    // MARK: - Lifecycle
+
     // viewDidAppearでないと正常に動作しない
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
