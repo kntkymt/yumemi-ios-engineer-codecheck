@@ -21,7 +21,7 @@ final class RepositorySearchViewController: UITableViewController, Storyboardabl
 
     // MARK: - Property
     
-    private(set) var repositories: [[String: Any]] = []
+    private var repositories: [[String: Any]] = []
 
     private var searchWord: String = ""
     private var searchAPITask: URLSessionTask?
