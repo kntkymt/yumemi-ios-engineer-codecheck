@@ -41,9 +41,9 @@ final class RepositorySearchViewController: UITableViewController {
 
     private func searchRepositories() {
         searchAPIURL = "https://api.github.com/search/repositories?q=\(searchWord!)"
-        searchAPITask = URLSession.shared.dataTask(with: URL(string: searchAPIURL)!) { (data, res, err) in
-            if let obj = try! JSONSerialization.jsonObject(with: data!) as? [String: Any] {
-                if let items = obj["items"] as? [[String: Any]] {
+        searchAPITask = URLSession.shared.dataTask(with: URL(string: searchAPIURL)!) { (data, _, _) in
+            if let object = try! JSONSerialization.jsonObject(with: data!) as? [String: Any] {
+                if let items = object["items"] as? [[String: Any]] {
                     self.repositories = items
                     DispatchQueue.main.async {
                         self.tableView.reloadData()

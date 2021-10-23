@@ -47,11 +47,11 @@ final class RepositoryDetailViewController: UIViewController {
         issuesLabel.text = "\(repository["open_issues_count"] as? Int ?? 0) open issues"
 
         if let owner = repository["owner"] as? [String: Any] {
-            if let imgURL = owner["avatar_url"] as? String {
-                URLSession.shared.dataTask(with: URL(string: imgURL)!) { (data, res, err) in
-                    let img = UIImage(data: data!)!
+            if let imageURL = owner["avatar_url"] as? String {
+                URLSession.shared.dataTask(with: URL(string: imageURL)!) { (data, _, _) in
+                    let image = UIImage(data: data!)!
                     DispatchQueue.main.async {
-                        self.imageView.image = img
+                        self.imageView.image = image
                     }
                 }.resume()
             }
