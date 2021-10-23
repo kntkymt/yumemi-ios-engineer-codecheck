@@ -22,7 +22,7 @@ final class RepositorySearchViewController: UITableViewController {
     // MARK: - Property
     
     private(set) var repositories: [[String: Any]] = []
-    private(set) var searchTargetIndex: Int!
+    private(set) var searchTargetIndex: Int?
 
     private var searchWord: String = ""
     private var searchAPITask: URLSessionTask?

@@ -37,7 +37,8 @@ final class RepositoryDetailViewController: UIViewController {
     // MARK: - Private
 
     private func setupUI() {
-        let repository = repositorySearchViewController.repositories[repositorySearchViewController.searchTargetIndex]
+        guard let searchTargetIndex = repositorySearchViewController.searchTargetIndex else { return }
+        let repository = repositorySearchViewController.repositories[searchTargetIndex]
 
         titleLabel.text = repository["full_name"] as? String
         languageLabel.text = "Written in \(repository["language"] as? String ?? "")"
