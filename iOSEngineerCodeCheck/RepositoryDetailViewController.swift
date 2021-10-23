@@ -8,17 +8,17 @@
 
 import UIKit
 
-class RepositoryDetailViewController: UIViewController {
+final class RepositoryDetailViewController: UIViewController {
     
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet private weak var imageView: UIImageView!
     
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var languageLabel: UILabel!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var languageLabel: UILabel!
     
-    @IBOutlet weak var starLabel: UILabel!
-    @IBOutlet weak var watchersLabel: UILabel!
-    @IBOutlet weak var forksLabel: UILabel!
-    @IBOutlet weak var issuesLabel: UILabel!
+    @IBOutlet private weak var starLabel: UILabel!
+    @IBOutlet private weak var watchersLabel: UILabel!
+    @IBOutlet private weak var forksLabel: UILabel!
+    @IBOutlet private weak var issuesLabel: UILabel!
     
     var repositorySearchViewController: RepositorySearchViewController!
         
@@ -38,7 +38,7 @@ class RepositoryDetailViewController: UIViewController {
         
     }
     
-    func getImage(){
+    private func getImage(){
         let repository = repositorySearchViewController.repositories[repositorySearchViewController.searchTargetIndex]
         
         if let owner = repository["owner"] as? [String: Any] {
@@ -53,5 +53,4 @@ class RepositoryDetailViewController: UIViewController {
         }
         
     }
-    
 }
