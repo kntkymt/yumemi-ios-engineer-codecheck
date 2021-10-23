@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class RepositorySearchViewController: UITableViewController, UISearchBarDelegate {
+final class RepositorySearchViewController: UITableViewController {
 
     // MARK: - Outlet
 
@@ -32,42 +32,14 @@ final class RepositorySearchViewController: UITableViewController, UISearchBarDe
         searchBar.delegate = self
     }
     
-    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
-        // 入力を開始したら既存の検索語を削除する
-        searchBar.text = ""
-        return true
-    }
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        searchAPITask?.cancel()
-    }
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchWord = searchBar.text!
-        
-        if searchWord.count != 0 {
-            searchAPIURL = "https://api.github.com/search/repositories?q=\(searchWord!)"
-            searchAPITask = URLSession.shared.dataTask(with: URL(string: searchAPIURL)!) { (data, res, err) in
-                if let obj = try! JSONSerialization.jsonObject(with: data!) as? [String: Any] {
-                    if let items = obj["items"] as? [[String: Any]] {
-                        self.repositories = items
-                        DispatchQueue.main.async {
-                            self.tableView.reloadData()
-                        }
-                    }
-                }
-            }
-
-            searchAPITask?.resume()
-        }
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Detail"{
             let dtl = segue.destination as! RepositoryDetailViewController
             dtl.vc1 = self
         }
     }
+
+    // MARK: - UITableViewController
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return repositories.count
@@ -87,5 +59,40 @@ final class RepositorySearchViewController: UITableViewController, UISearchBarDe
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         searchTargetIndex = indexPath.row
         performSegue(withIdentifier: "Detail", sender: self)
+    }
+}
+
+// MARK: - UISearchBarDelegate
+
+extension RepositorySearchViewController: UISearchBarDelegate {
+
+    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+        // 入力を開始したら既存の検索語を削除する
+        searchBar.text = ""
+        return true
+    }
+
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchAPITask?.cancel()
+    }
+
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchWord = searchBar.text!
+
+        if searchWord.count != 0 {
+            searchAPIURL = "https://api.github.com/search/repositories?q=\(searchWord!)"
+            searchAPITask = URLSession.shared.dataTask(with: URL(string: searchAPIURL)!) { (data, res, err) in
+                if let obj = try! JSONSerialization.jsonObject(with: data!) as? [String: Any] {
+                    if let items = obj["items"] as? [[String: Any]] {
+                        self.repositories = items
+                        DispatchQueue.main.async {
+                            self.tableView.reloadData()
+                        }
+                    }
+                }
+            }
+
+            searchAPITask?.resume()
+        }
     }
 }
