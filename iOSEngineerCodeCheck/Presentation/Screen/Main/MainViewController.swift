@@ -21,7 +21,7 @@ final class MainViewController: UINavigationController, Storyboardable {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let viewController = RepositorySearchViewController.build()
+        let viewController = GitHubRepositorySearchViewController.build()
         setViewControllers([viewController], animated: false)
     }
 }

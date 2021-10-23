@@ -1,5 +1,5 @@
 //
-//  RepositorySearchViewController.swift
+//  GitHubRepositorySearchViewController.swift
 //  iOSEngineerCodeCheck
 //
 //  Created by 史 翔新 on 2020/04/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class RepositorySearchViewController: UITableViewController, Storyboardable {
+final class GitHubRepositorySearchViewController: UITableViewController, Storyboardable {
 
     // MARK: - Outlet
 
@@ -95,7 +95,7 @@ final class RepositorySearchViewController: UITableViewController, Storyboardabl
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let detailViewController = RepositoryDetailViewController.build(repository: repositories[indexPath.row])
+        let detailViewController = GitHubRepositoryDetailViewController.build(repository: repositories[indexPath.row])
 
         navigationController?.pushViewController(detailViewController, animated: true)
     }
@@ -103,7 +103,7 @@ final class RepositorySearchViewController: UITableViewController, Storyboardabl
 
 // MARK: - UISearchBarDelegate
 
-extension RepositorySearchViewController: UISearchBarDelegate {
+extension GitHubRepositorySearchViewController: UISearchBarDelegate {
 
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
         // 入力を開始したら既存の検索語を削除する

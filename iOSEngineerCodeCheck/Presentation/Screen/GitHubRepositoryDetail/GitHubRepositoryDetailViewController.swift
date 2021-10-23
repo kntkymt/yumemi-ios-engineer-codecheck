@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class RepositoryDetailViewController: UIViewController, Storyboardable {
+final class GitHubRepositoryDetailViewController: UIViewController, Storyboardable {
 
     // MARK: - Outlet
     
