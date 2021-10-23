@@ -17,6 +17,10 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     // MARK: - Lifecycle
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+
+        SceneRouter.shared.rootViewController = window?.rootViewController as? RootViewController
+        SceneRouter.shared.route(to: .splash, animated: true)
+        
         guard let _ = (scene as? UIWindowScene) else { return }
     }
 }

@@ -20,7 +20,7 @@ protocol Storyboardable {
 extension Storyboardable where Self: UIViewController {
 
     static var storyboardName: String {
-        return self.description()
+        return String(describing: self)
     }
 
     static var storyboard: UIStoryboard {
