@@ -25,6 +25,10 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // MARK: - Private
 
+    private func setupLogger() {
+        Logger.setup()
+    }
+
     private func setupAPI() {
         API.setup(provider: APIProviderFactory.createService())
     }

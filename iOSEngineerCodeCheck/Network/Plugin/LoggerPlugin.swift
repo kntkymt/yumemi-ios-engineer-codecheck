@@ -11,16 +11,16 @@ import Moya
 struct LoggerPlugin: PluginType {
 
     func willSend(_ request: RequestType, target: TargetType) {
-        request.request.map { print("Target: \(target)\n\($0.curlString)") }
+        request.request.map { Logger.debug("Target: \(target)\n\($0.curlString)") }
     }
 
     func didReceive(_ result: Result<Response, MoyaError>, target: TargetType) {
         switch result {
         case .success(let response):
-            print("Success\nTarget: \(target)\nResponse: \(response)")
+            Logger.debug("Success\nTarget: \(target)\nResponse: \(response)")
 
         case .failure(let error):
-            print("Failure\nTarget: \(target)\nError: \(error)")
+            Logger.debug("Failure\nTarget: \(target)\nError: \(error)")
         }
     }
 }
