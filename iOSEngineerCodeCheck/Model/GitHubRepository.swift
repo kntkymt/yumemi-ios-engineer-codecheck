@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Repository: Codable {
+struct GitHubRepository: Codable {
 
     var fullName: String
     var stargazersCount: Int

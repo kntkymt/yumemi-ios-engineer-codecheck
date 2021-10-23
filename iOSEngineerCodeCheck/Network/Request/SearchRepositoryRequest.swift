@@ -8,17 +8,17 @@
 
 import Moya
 
-struct SearchRepositoryResponse: Codable {
-    var items: [Repository]
+struct SearchGitHubRepositoryResponse: Codable {
+    var items: [GitHubRepository]
 }
 
-struct SearchRepositoryRequest {
+struct SearchGitHubRepositoryRequest {
     var query: String
 }
 
-extension SearchRepositoryRequest: APITargetType {
+extension SearchGitHubRepositoryRequest: APITargetType {
 
-    typealias Response = SearchRepositoryResponse
+    typealias Response = SearchGitHubRepositoryResponse
 
     var path: String {
         return "/search/repositories"
