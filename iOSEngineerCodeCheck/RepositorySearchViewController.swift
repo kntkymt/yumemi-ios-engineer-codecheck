@@ -12,7 +12,12 @@ final class RepositorySearchViewController: UITableViewController {
 
     // MARK: - Outlet
 
-    @IBOutlet private weak var searchBar: UISearchBar!
+    @IBOutlet private weak var searchBar: UISearchBar! {
+        didSet {
+            searchBar.placeholder = "GitHubのリポジトリを検索できるよー"
+            searchBar.delegate = self
+        }
+    }
 
     // MARK: - Property
     
@@ -24,13 +29,6 @@ final class RepositorySearchViewController: UITableViewController {
     private var searchAPIURL: String!
 
     // MARK: - Lifecycle
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        searchBar.text = "GitHubのリポジトリを検索できるよー"
-        searchBar.delegate = self
-    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Detail"{
