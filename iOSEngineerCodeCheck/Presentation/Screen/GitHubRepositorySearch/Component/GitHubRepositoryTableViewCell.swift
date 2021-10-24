@@ -24,6 +24,7 @@ final class GitHubRepositoryTableViewCell: UITableViewCell {
     @IBOutlet private weak var iconImageView: UIImageView! {
         didSet {
             iconImageView.layer.cornerRadius = 14
+            // 左上と右上の角のみ丸くする
             iconImageView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         }
     }
@@ -31,6 +32,11 @@ final class GitHubRepositoryTableViewCell: UITableViewCell {
     @IBOutlet private weak var repositoryNameLabel: UILabel!
     @IBOutlet private weak var repositoryDescriptionLabel: UILabel!
 
+    @IBOutlet private weak var starCountLabel: UILabel!
+
+
+    @IBOutlet private weak var languageIconImageView: UIImageView!
+    @IBOutlet private weak var languageLabel: UILabel!
 }
 
 // MARK: - NibInstantiatable
@@ -44,5 +50,13 @@ extension GitHubRepositoryTableViewCell: NibInstantiatable {
         ownerNameLabel.text = dependency.owner.login
         repositoryNameLabel.text = dependency.name
         repositoryDescriptionLabel.text = dependency.description
+        starCountLabel.text = String.localizedStringWithFormat("%d", dependency.stargazersCount)
+        if let language = dependency.language {
+            languageIconImageView.isHidden = false
+            languageLabel.text = language
+        } else {
+            languageIconImageView.isHidden = true
+            languageLabel.text = ""
+        }
     }
 }
