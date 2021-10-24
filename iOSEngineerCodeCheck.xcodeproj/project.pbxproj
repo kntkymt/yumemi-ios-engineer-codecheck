@@ -46,6 +46,7 @@
 		E250709627249C1500013FF1 /* GitHubRepositorySearchProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E250709527249C1500013FF1 /* GitHubRepositorySearchProtocol.swift */; };
 		E250709827249DE700013FF1 /* GitHubRepositorySearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E250709727249DE700013FF1 /* GitHubRepositorySearchPresenter.swift */; };
 		E250709A2724A8AC00013FF1 /* AppContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25070992724A8AC00013FF1 /* AppContainer.swift */; };
+		E286693D2724D7DF00833B6B /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = E286693C2724D7DF00833B6B /* Nuke */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E286693D2724D7DF00833B6B /* Nuke in Frameworks */,
 				E250706727246E9700013FF1 /* Moya in Frameworks */,
 				E250708E272488E000013FF1 /* SwiftyBeaver in Frameworks */,
 			);
@@ -398,6 +400,7 @@
 			packageProductDependencies = (
 				E250706627246E9700013FF1 /* Moya */,
 				E250708D272488E000013FF1 /* SwiftyBeaver */,
+				E286693C2724D7DF00833B6B /* Nuke */,
 			);
 			productName = iOSEngineerCodeCheck;
 			productReference = BFD945DB244DC5E80012785A /* iOSEngineerCodeCheck.app */;
@@ -898,6 +901,14 @@
 				minimumVersion = 1.9.5;
 			};
 		};
+		E286693B2724D7DF00833B6B /* XCRemoteSwiftPackageReference "Nuke" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kean/Nuke.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.5.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -910,6 +921,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E25070892724883200013FF1 /* XCRemoteSwiftPackageReference "SwiftyBeaver" */;
 			productName = SwiftyBeaver;
+		};
+		E286693C2724D7DF00833B6B /* Nuke */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E286693B2724D7DF00833B6B /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = Nuke;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
