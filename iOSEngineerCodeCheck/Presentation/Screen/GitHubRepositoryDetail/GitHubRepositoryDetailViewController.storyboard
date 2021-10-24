@@ -73,6 +73,8 @@
                                     </stackView>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="pfd-hh-L4e" firstAttribute="leading" secondItem="L11-xg-K9D" secondAttribute="leading" id="YfJ-5E-gCO"/>
+                                    <constraint firstAttribute="trailing" secondItem="pfd-hh-L4e" secondAttribute="trailing" id="YiV-Y0-s4l"/>
                                     <constraint firstItem="jFf-t6-k64" firstAttribute="width" secondItem="pfd-hh-L4e" secondAttribute="width" id="oLt-tc-ZHh"/>
                                 </constraints>
                             </stackView>
