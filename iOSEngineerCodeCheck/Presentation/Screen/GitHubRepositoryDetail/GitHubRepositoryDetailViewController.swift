@@ -23,47 +23,57 @@ final class GitHubRepositoryDetailViewController: UIViewController, Storyboardab
     @IBOutlet private weak var issuesLabel: UILabel!
 
     // MARK: - Property
-    
-    var gitHubRepository: GitHubRepository!
+
+    var presenter: GitHubRepositoryDetailPresenter!
 
     // MARK: - Build
 
-    static func build(gitHubRepository: GitHubRepository) -> Self {
-        let viewController = initViewController()
-        viewController.gitHubRepository = gitHubRepository
-
-        return viewController
+    static func build() -> Self {
+        return initViewController()
     }
 
     // MARK: - Lifecycle
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setupUI()
+
+        presenter.viewDidLoad()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        presenter.viewWillAppear()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        presenter.viewDidAppear()
+    }
+
+    deinit {
+        presenter.viewDidStop()
     }
 
     // MARK: - Private
 
-    private func setupUI() {
+    private func showDetail(gitHubRepository: GitHubRepository) {
         titleLabel.text = gitHubRepository.fullName
-        languageLabel.text = "Written in \(gitHubRepository.language)"
+        languageLabel.text = "Written in \(gitHubRepository.language ?? "")"
         starLabel.text = "\(gitHubRepository.stargazersCount) stars"
         watchersLabel.text = "\(gitHubRepository.watchersCount) watchers"
         forksLabel.text = "\(gitHubRepository.forksCount) forks"
         issuesLabel.text = "\(gitHubRepository.openIssuesCount) open issues"
+        imageView.load(gitHubRepository.owner.avatarUrl)
+    }
+}
 
-        URLSession.shared.dataTask(with: gitHubRepository.owner.avatarUrl) { [weak self] (data, _, error) in
-            guard let self = self else { return }
-            guard let data = data, let image = UIImage(data: data) else {
-                // TODO: エラーハンドリング
-                print(error)
-                return
-            }
+// MARK: - GitHubRepositoryDetailView
 
-            DispatchQueue.main.async {
-                self.imageView.image = image
-            }
-        }.resume()
+extension GitHubRepositoryDetailViewController: GitHubRepositoryDetailView {
+    
+    func showGitHubRepositoryDetail(gitHubRepository: GitHubRepository) {
+        showDetail(gitHubRepository: gitHubRepository)
     }
 }

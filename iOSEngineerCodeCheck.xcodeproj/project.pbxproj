@@ -46,7 +46,10 @@
 		E250709627249C1500013FF1 /* GitHubRepositorySearchProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E250709527249C1500013FF1 /* GitHubRepositorySearchProtocol.swift */; };
 		E250709827249DE700013FF1 /* GitHubRepositorySearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E250709727249DE700013FF1 /* GitHubRepositorySearchPresenter.swift */; };
 		E250709A2724A8AC00013FF1 /* AppContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25070992724A8AC00013FF1 /* AppContainer.swift */; };
+		E28669352724D52E00833B6B /* GitHubRepositoryDetailProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28669342724D52E00833B6B /* GitHubRepositoryDetailProtocol.swift */; };
+		E28669372724D5E700833B6B /* GitHubRepositoryDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28669362724D5E700833B6B /* GitHubRepositoryDetailPresenter.swift */; };
 		E286693D2724D7DF00833B6B /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = E286693C2724D7DF00833B6B /* Nuke */; };
+		E28669402724D80F00833B6B /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E286693F2724D80F00833B6B /* UIImageView+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +113,9 @@
 		E250709527249C1500013FF1 /* GitHubRepositorySearchProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepositorySearchProtocol.swift; sourceTree = "<group>"; };
 		E250709727249DE700013FF1 /* GitHubRepositorySearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepositorySearchPresenter.swift; sourceTree = "<group>"; };
 		E25070992724A8AC00013FF1 /* AppContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppContainer.swift; sourceTree = "<group>"; };
+		E28669342724D52E00833B6B /* GitHubRepositoryDetailProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepositoryDetailProtocol.swift; sourceTree = "<group>"; };
+		E28669362724D5E700833B6B /* GitHubRepositoryDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepositoryDetailPresenter.swift; sourceTree = "<group>"; };
+		E286693F2724D80F00833B6B /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -264,6 +270,8 @@
 			children = (
 				E250706227244FC000013FF1 /* GitHubRepositoryDetailViewController.storyboard */,
 				BF0A658C244F2A3B00280FA6 /* GitHubRepositoryDetailViewController.swift */,
+				E28669362724D5E700833B6B /* GitHubRepositoryDetailPresenter.swift */,
+				E28669342724D52E00833B6B /* GitHubRepositoryDetailProtocol.swift */,
 			);
 			path = GitHubRepositoryDetail;
 			sourceTree = "<group>";
@@ -370,6 +378,7 @@
 			isa = PBXGroup;
 			children = (
 				E250708527247EF500013FF1 /* URLRequest+.swift */,
+				E286693F2724D80F00833B6B /* UIImageView+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -477,6 +486,7 @@
 			packageReferences = (
 				E250706527246E9600013FF1 /* XCRemoteSwiftPackageReference "Moya" */,
 				E25070892724883200013FF1 /* XCRemoteSwiftPackageReference "SwiftyBeaver" */,
+				E286693B2724D7DF00833B6B /* XCRemoteSwiftPackageReference "Nuke" */,
 			);
 			productRefGroup = BFD945DC244DC5E80012785A /* Products */;
 			projectDirPath = "";
@@ -533,10 +543,12 @@
 				BF0A658D244F2A3B00280FA6 /* GitHubRepositoryDetailViewController.swift in Sources */,
 				E250708227247E8800013FF1 /* LoggerPlugin.swift in Sources */,
 				E25070772724775F00013FF1 /* User.swift in Sources */,
+				E28669402724D80F00833B6B /* UIImageView+.swift in Sources */,
 				E250707A27247A8A00013FF1 /* GitHubRepositoryRepository.swift in Sources */,
 				E250705D27244BE000013FF1 /* SplashViewController.swift in Sources */,
 				E250706F2724715800013FF1 /* AppConstant.swift in Sources */,
 				E250707F27247E1300013FF1 /* APIProviderFactory.swift in Sources */,
+				E28669372724D5E700833B6B /* GitHubRepositoryDetailPresenter.swift in Sources */,
 				E25070942724961100013FF1 /* SplashPresenter.swift in Sources */,
 				E250709A2724A8AC00013FF1 /* AppContainer.swift in Sources */,
 				E250706927246F0800013FF1 /* API.swift in Sources */,
@@ -550,6 +562,7 @@
 				E2507092272494BA00013FF1 /* SplashProtocol.swift in Sources */,
 				E250706B27246FB100013FF1 /* AppError.swift in Sources */,
 				E250706D2724712100013FF1 /* APITargetType.swift in Sources */,
+				E28669352724D52E00833B6B /* GitHubRepositoryDetailProtocol.swift in Sources */,
 				BFD945E1244DC5E80012785A /* SceneDelegate.swift in Sources */,
 				E250709627249C1500013FF1 /* GitHubRepositorySearchProtocol.swift in Sources */,
 				E250705A2724497E00013FF1 /* MainViewController.swift in Sources */,
