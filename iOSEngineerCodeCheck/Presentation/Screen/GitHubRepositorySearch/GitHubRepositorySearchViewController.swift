@@ -35,6 +35,23 @@ final class GitHubRepositorySearchViewController: UITableViewController, Storybo
         super.viewDidLoad()
 
         title = "検索"
+        presenter.viewDidLoad()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        presenter.viewWillAppear()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        presenter.viewDidAppear()
+    }
+
+    deinit {
+        presenter.viewDidStop()
     }
 
     // MARK: - UITableViewController
