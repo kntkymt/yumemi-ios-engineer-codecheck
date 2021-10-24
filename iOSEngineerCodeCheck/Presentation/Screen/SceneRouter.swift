@@ -16,7 +16,11 @@ final class SceneRouter {
 
         var viewController: UIViewController {
             switch self {
-            case .splash: return SplashViewController.build()
+            case .splash:
+                let viewController = SplashViewController.build()
+                viewController.presenter = SplashPresenter(view: viewController)
+                return viewController
+                
             case .main: return MainViewController.build()
             }
         }

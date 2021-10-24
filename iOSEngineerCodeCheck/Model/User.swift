@@ -10,5 +10,5 @@ import Foundation
 
 struct User: Codable {
 
-    var avaterUrl: URL
+    var avatarUrl: URL
 }

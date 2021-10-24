@@ -6,10 +6,13 @@
 //  Copyright © 2021 YUMEMI Inc. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 final class SplashViewController: UIViewController, Storyboardable {
+
+    // MARK: - Property
+
+    var presenter: SplashPresentation!
 
     // MARK: - Build
 
@@ -19,10 +22,34 @@ final class SplashViewController: UIViewController, Storyboardable {
 
     // MARK: - Lifecycle
 
-    // viewDidAppearでないと正常に動作しない
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        presenter.viewDidLoad()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        presenter.viewWillAppear()
+    }
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
+        presenter.viewDidAppear()
+    }
+
+    deinit {
+        presenter.viewDidStop()
+    }
+}
+
+// MARK: - SplashView
+
+extension SplashViewController: SplashView {
+
+    func routeToMain() {
         SceneRouter.shared.route(to: .main, animated: true)
     }
 }
