@@ -45,7 +45,7 @@ extension GitHubRepositoryTableViewCell: NibInstantiatable {
     typealias Dependency = GitHubRepository
 
     func inject(_ dependency: GitHubRepository) {
-        iconImageView.load(dependency.owner.avatarUrl, contentMode: .scaleToFill)
+        iconImageView.load(dependency.owner.avatarUrl, contentMode: .scaleAspectFill)
         ownerNameLabel.text = dependency.owner.login
         repositoryNameLabel.text = dependency.name
         repositoryDescriptionLabel.text = dependency.description
