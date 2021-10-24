@@ -34,7 +34,6 @@ final class GitHubRepositoryTableViewCell: UITableViewCell {
 
     @IBOutlet private weak var starCountLabel: UILabel!
 
-
     @IBOutlet private weak var languageIconImageView: UIImageView!
     @IBOutlet private weak var languageLabel: UILabel!
 }
