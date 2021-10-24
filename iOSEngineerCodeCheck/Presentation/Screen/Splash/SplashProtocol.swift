@@ -8,6 +8,7 @@
 
 
 protocol SplashView: AnyObject {
+    /// main画面に遷移する
     func routeToMain()
 }
 

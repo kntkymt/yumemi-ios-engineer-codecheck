@@ -39,7 +39,7 @@ protocol GitHubRepositorySearchPresentation: Presentation {
     /// 検索ボタンが押された
     ///
     /// - parameters:
-    ///     - word: 検索語
+    ///     - searchText: 検索語
     func searchBarSearchButtonDidTap(searchText: String)
 
     /// 検索文字が変更された
