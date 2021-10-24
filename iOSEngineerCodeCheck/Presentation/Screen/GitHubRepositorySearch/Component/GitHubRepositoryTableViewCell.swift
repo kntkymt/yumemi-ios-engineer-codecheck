@@ -15,10 +15,10 @@ final class GitHubRepositoryTableViewCell: UITableViewCell {
     @IBOutlet private weak var cardView: UIView! {
         didSet {
             cardView.layer.cornerRadius = 10
-            cardView.layer.shadowRadius = 16
+            cardView.layer.shadowRadius = 4
             cardView.layer.shadowOpacity = 1.0
-            cardView.layer.shadowOffset = CGSize(width: 0, height: 5)
-            cardView.layer.shadowColor = #colorLiteral(red: 0.8392156863, green: 0.8392156863, blue: 0.8392156863, alpha: 1)
+            cardView.layer.shadowOffset = CGSize(width: 2, height: 2)
+            cardView.layer.shadowColor = UIColor.systemGray3.cgColor
         }
     }
     @IBOutlet private weak var iconImageView: UIImageView! {
