@@ -16,9 +16,16 @@ final class GitHubRepositoryDetailViewController: VStackViewController, Storyboa
 
     // MARK: - Build
 
-    static func build(headingViewController: GitHubRepositoryDetailHeadingViewController!) -> Self {
+    static func build(
+        headingViewController: GitHubRepositoryDetailHeadingViewController,
+        countViewController: GitHubRepositoryDetailCountViewController
+    ) -> Self {
         let viewController = initViewController()
-        viewController.components = [headingViewController]
+
+        viewController.components = [
+            headingViewController,
+            countViewController
+        ]
 
         return viewController
     }

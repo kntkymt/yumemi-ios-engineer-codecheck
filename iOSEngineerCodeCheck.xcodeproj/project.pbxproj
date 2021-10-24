@@ -58,6 +58,10 @@
 		E286694E2725F68B00833B6B /* UIView+Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E286694D2725F68B00833B6B /* UIView+Constraint.swift */; };
 		E28669512725F84500833B6B /* GitHubRepositoryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28669502725F84500833B6B /* GitHubRepositoryDetailViewController.swift */; };
 		E28669532725F92E00833B6B /* GitHubRepositoryDetailHeadingViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E28669522725F92E00833B6B /* GitHubRepositoryDetailHeadingViewController.storyboard */; };
+		E28669562725FE6200833B6B /* GitHubRepositoryDetailCountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28669552725FE6200833B6B /* GitHubRepositoryDetailCountViewController.swift */; };
+		E28669582725FEE400833B6B /* GitHubRepositoryDetailCountViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E28669572725FEE400833B6B /* GitHubRepositoryDetailCountViewController.storyboard */; };
+		E286695A2726030100833B6B /* GitHubRepositoryDetailCountProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28669592726030100833B6B /* GitHubRepositoryDetailCountProtocol.swift */; };
+		E286695C2726036A00833B6B /* GitHubRepositoryDetailCountPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E286695B2726036A00833B6B /* GitHubRepositoryDetailCountPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -132,6 +136,10 @@
 		E286694D2725F68B00833B6B /* UIView+Constraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraint.swift"; sourceTree = "<group>"; };
 		E28669502725F84500833B6B /* GitHubRepositoryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepositoryDetailViewController.swift; sourceTree = "<group>"; };
 		E28669522725F92E00833B6B /* GitHubRepositoryDetailHeadingViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GitHubRepositoryDetailHeadingViewController.storyboard; sourceTree = "<group>"; };
+		E28669552725FE6200833B6B /* GitHubRepositoryDetailCountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepositoryDetailCountViewController.swift; sourceTree = "<group>"; };
+		E28669572725FEE400833B6B /* GitHubRepositoryDetailCountViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GitHubRepositoryDetailCountViewController.storyboard; sourceTree = "<group>"; };
+		E28669592726030100833B6B /* GitHubRepositoryDetailCountProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepositoryDetailCountProtocol.swift; sourceTree = "<group>"; };
+		E286695B2726036A00833B6B /* GitHubRepositoryDetailCountPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepositoryDetailCountPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -290,6 +298,7 @@
 				E250706227244FC000013FF1 /* GitHubRepositoryDetailViewController.storyboard */,
 				E28669502725F84500833B6B /* GitHubRepositoryDetailViewController.swift */,
 				E286694F2725F75A00833B6B /* GitHubRepositoryDetailHeading */,
+				E28669542725FDFE00833B6B /* GitHubRepositoryDetailCount */,
 			);
 			path = GitHubRepositoryDetail;
 			sourceTree = "<group>";
@@ -438,6 +447,17 @@
 			path = GitHubRepositoryDetailHeading;
 			sourceTree = "<group>";
 		};
+		E28669542725FDFE00833B6B /* GitHubRepositoryDetailCount */ = {
+			isa = PBXGroup;
+			children = (
+				E28669572725FEE400833B6B /* GitHubRepositoryDetailCountViewController.storyboard */,
+				E28669552725FE6200833B6B /* GitHubRepositoryDetailCountViewController.swift */,
+				E286695B2726036A00833B6B /* GitHubRepositoryDetailCountPresenter.swift */,
+				E28669592726030100833B6B /* GitHubRepositoryDetailCountProtocol.swift */,
+			);
+			path = GitHubRepositoryDetailCount;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -559,6 +579,7 @@
 				BFD945E6244DC5E80012785A /* MainViewController.storyboard in Resources */,
 				E25070582724491600013FF1 /* RootViewController.storyboard in Resources */,
 				E250705F27244BED00013FF1 /* SplashViewController.storyboard in Resources */,
+				E28669582725FEE400833B6B /* GitHubRepositoryDetailCountViewController.storyboard in Resources */,
 				E250706127244F3C00013FF1 /* GitHubRepositorySearchViewController.storyboard in Resources */,
 				E250706327244FC000013FF1 /* GitHubRepositoryDetailViewController.storyboard in Resources */,
 			);
@@ -597,6 +618,7 @@
 				E25070772724775F00013FF1 /* User.swift in Sources */,
 				E28669402724D80F00833B6B /* UIImageView+.swift in Sources */,
 				E250707A27247A8A00013FF1 /* GitHubRepositoryRepository.swift in Sources */,
+				E286695A2726030100833B6B /* GitHubRepositoryDetailCountProtocol.swift in Sources */,
 				E250705D27244BE000013FF1 /* SplashViewController.swift in Sources */,
 				E250706F2724715800013FF1 /* AppConstant.swift in Sources */,
 				E250707F27247E1300013FF1 /* APIProviderFactory.swift in Sources */,
@@ -611,6 +633,7 @@
 				E250708627247EF500013FF1 /* URLRequest+.swift in Sources */,
 				E25070562724490A00013FF1 /* RootViewController.swift in Sources */,
 				E2507090272492B200013FF1 /* Presentation.swift in Sources */,
+				E28669562725FE6200833B6B /* GitHubRepositoryDetailCountViewController.swift in Sources */,
 				BFD945DF244DC5E80012785A /* AppDelegate.swift in Sources */,
 				E28669512725F84500833B6B /* GitHubRepositoryDetailViewController.swift in Sources */,
 				E250707D27247BD200013FF1 /* GitHubRepositorySearchUsecase.swift in Sources */,
@@ -619,6 +642,7 @@
 				E250706B27246FB100013FF1 /* AppError.swift in Sources */,
 				E250706D2724712100013FF1 /* APITargetType.swift in Sources */,
 				E28669352724D52E00833B6B /* GitHubRepositoryDetailProtocol.swift in Sources */,
+				E286695C2726036A00833B6B /* GitHubRepositoryDetailCountPresenter.swift in Sources */,
 				BFD945E1244DC5E80012785A /* SceneDelegate.swift in Sources */,
 				E250709627249C1500013FF1 /* GitHubRepositorySearchProtocol.swift in Sources */,
 				E250705A2724497E00013FF1 /* MainViewController.swift in Sources */,
