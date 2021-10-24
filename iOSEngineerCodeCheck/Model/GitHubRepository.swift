@@ -9,11 +9,13 @@
 struct GitHubRepository: Codable {
 
     var fullName: String
+    var name: String
     var language: String?
+    var description: String?
+    var owner: User
     var stargazersCount: Int
     var watchersCount: Int
     var forksCount: Int
     var openIssuesCount: Int
 
-    var owner: User
 }
