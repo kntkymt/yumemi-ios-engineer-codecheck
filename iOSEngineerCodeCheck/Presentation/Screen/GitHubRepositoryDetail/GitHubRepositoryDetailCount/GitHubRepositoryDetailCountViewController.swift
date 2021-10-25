@@ -79,10 +79,10 @@ final class GitHubRepositoryDetailCountViewController: UITableViewController, St
     // MARK: - Private
 
     private func showDetail(gitHubRepository: GitHubRepository) {
-        starCountLabel.text = gitHubRepository.stargazersCount.description
-        watcherCountLabel.text = gitHubRepository.watchersCount.description
-        forkCountLabel.text = gitHubRepository.forksCount.description
-        issueCountLabel.text = gitHubRepository.openIssuesCount.description
+        starCountLabel.text = String.localizedStringWithFormat("%d", gitHubRepository.stargazersCount)
+        watcherCountLabel.text = String.localizedStringWithFormat("%d", gitHubRepository.watchersCount)
+        forkCountLabel.text = String.localizedStringWithFormat("%d", gitHubRepository.forksCount)
+        issueCountLabel.text = String.localizedStringWithFormat("%d", gitHubRepository.openIssuesCount)
     }
 }
 
