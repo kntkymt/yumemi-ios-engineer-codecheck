@@ -12,30 +12,30 @@ final class GitHubRepositoryDetailCountViewController: UITableViewController, St
 
     // MARK: - Outlet
 
-    @IBOutlet private weak var starIconImageView: UIImageView! {
+    @IBOutlet private weak var starIconImageBackgroundView: UIView! {
         didSet {
-            starIconImageView.layer.cornerRadius = 4.0
+            starIconImageBackgroundView.layer.cornerRadius = 4.0
         }
     }
     @IBOutlet private weak var starCountLabel: UILabel!
 
-    @IBOutlet private weak var watcherIconImageView: UIImageView! {
+    @IBOutlet private weak var watcherIconImageBackgroundView: UIView! {
         didSet {
-            watcherIconImageView.layer.cornerRadius = 4.0
+            watcherIconImageBackgroundView.layer.cornerRadius = 4.0
         }
     }
     @IBOutlet private weak var watcherCountLabel: UILabel!
 
-    @IBOutlet private weak var forkIconImageView: UIImageView! {
+    @IBOutlet private weak var forkIconImageBackgroundView: UIView! {
         didSet {
-            forkIconImageView.layer.cornerRadius = 4.0
+            forkIconImageBackgroundView.layer.cornerRadius = 4.0
         }
     }
     @IBOutlet private weak var forkCountLabel: UILabel!
 
-    @IBOutlet private weak var issueIconImageView: UIImageView! {
+    @IBOutlet private weak var issueIconImageBackgroundView: UIView! {
         didSet {
-            issueIconImageView.layer.cornerRadius = 4.0
+            issueIconImageBackgroundView.layer.cornerRadius = 4.0
         }
     }
     @IBOutlet private weak var issueCountLabel: UILabel!
@@ -56,7 +56,7 @@ final class GitHubRepositoryDetailCountViewController: UITableViewController, St
         super.viewDidLoad()
 
         view.heightAnchor.constraint(equalToConstant: 300).isActive = true
-        
+
         presenter.viewDidLoad()
     }
 
