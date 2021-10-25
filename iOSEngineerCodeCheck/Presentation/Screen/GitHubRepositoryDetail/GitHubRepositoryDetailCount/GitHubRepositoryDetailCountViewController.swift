@@ -55,7 +55,7 @@ final class GitHubRepositoryDetailCountViewController: UITableViewController, St
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.heightAnchor.constraint(equalToConstant: 312).isActive = true
+        view.heightAnchor.constraint(equalToConstant: 240).isActive = true
 
         presenter.viewDidLoad()
     }

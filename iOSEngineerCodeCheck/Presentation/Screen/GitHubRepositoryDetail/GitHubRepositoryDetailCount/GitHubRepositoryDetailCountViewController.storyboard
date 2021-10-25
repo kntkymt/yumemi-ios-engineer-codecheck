@@ -11,15 +11,15 @@
         <scene sceneID="Cvo-IU-Z9P">
             <objects>
                 <tableViewController id="sEQ-PD-AsO" customClass="GitHubRepositoryDetailCountViewController" customModule="iOSEngineerCodeCheck" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="UNa-28-tnc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="312"/>
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="20" estimatedSectionHeaderHeight="-1" sectionFooterHeight="20" estimatedSectionFooterHeight="-1" id="UNa-28-tnc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="262"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <sections>
                             <tableViewSection id="CmN-cE-J1z">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="50" id="NJg-P6-U4U">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="50"/>
+                                        <rect key="frame" x="0.0" y="20" width="414" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NJg-P6-U4U" id="p9p-AN-TOJ">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
@@ -75,7 +75,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="50" id="doG-np-4jz">
-                                        <rect key="frame" x="0.0" y="94.5" width="414" height="50"/>
+                                        <rect key="frame" x="0.0" y="70" width="414" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="doG-np-4jz" id="kFp-1v-xwl">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
@@ -131,7 +131,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="50" id="2zh-rh-NFC">
-                                        <rect key="frame" x="0.0" y="144.5" width="414" height="50"/>
+                                        <rect key="frame" x="0.0" y="120" width="414" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2zh-rh-NFC" id="W5N-1c-7ts">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
@@ -187,7 +187,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="50" id="lAo-9F-hVj">
-                                        <rect key="frame" x="0.0" y="194.5" width="414" height="50"/>
+                                        <rect key="frame" x="0.0" y="170" width="414" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lAo-9F-hVj" id="YMC-ur-6FR">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
@@ -250,7 +250,7 @@
                             <outlet property="delegate" destination="sEQ-PD-AsO" id="LqD-Bv-pD7"/>
                         </connections>
                     </tableView>
-                    <size key="freeformSize" width="414" height="312"/>
+                    <size key="freeformSize" width="414" height="262"/>
                     <connections>
                         <outlet property="forkCountLabel" destination="3aC-yn-dpO" id="i3u-i0-YTz"/>
                         <outlet property="forkIconImageBackgroundView" destination="SBn-Fj-Pl5" id="MxG-2N-PBk"/>
@@ -272,9 +272,6 @@
         <image name="exclamationmark.circle" catalog="system" width="128" height="121"/>
         <image name="eye" catalog="system" width="128" height="81"/>
         <image name="star" catalog="system" width="128" height="116"/>
-        <systemColor name="secondarySystemBackgroundColor">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
