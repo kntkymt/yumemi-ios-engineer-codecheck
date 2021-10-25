@@ -12,7 +12,7 @@
             <objects>
                 <tableViewController id="sEQ-PD-AsO" customClass="GitHubRepositoryDetailCountViewController" customModule="iOSEngineerCodeCheck" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="UNa-28-tnc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="350"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="285"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                         <sections>
@@ -250,7 +250,7 @@
                             <outlet property="delegate" destination="sEQ-PD-AsO" id="LqD-Bv-pD7"/>
                         </connections>
                     </tableView>
-                    <size key="freeformSize" width="414" height="350"/>
+                    <size key="freeformSize" width="414" height="285"/>
                     <connections>
                         <outlet property="forkCountLabel" destination="3aC-yn-dpO" id="i3u-i0-YTz"/>
                         <outlet property="forkIconImageBackgroundView" destination="SBn-Fj-Pl5" id="MxG-2N-PBk"/>
