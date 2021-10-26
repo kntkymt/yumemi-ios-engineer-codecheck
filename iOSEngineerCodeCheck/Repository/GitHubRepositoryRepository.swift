@@ -8,13 +8,13 @@
 
 protocol GitHubRepositoryRepository {
 
-    func searchGitHubRepositories(by word: String) async throws -> [GitHubRepository]
+    func searchGitHubRepositories(by word: String, sort: GitHubRepositorySortKind) async throws -> [GitHubRepository]
 }
 
 
 final class GitHubRepositoryRepositoryImpl: GitHubRepositoryRepository {
 
-    func searchGitHubRepositories(by word: String) async throws -> [GitHubRepository] {
-        return try await API.shared.call(SearchGitHubRepositoryRequest(query: word)).items
+    func searchGitHubRepositories(by word: String, sort: GitHubRepositorySortKind) async throws -> [GitHubRepository] {
+        return try await API.shared.call(SearchGitHubRepositoryRequest(query: word, sort: sort)).items
     }
 }

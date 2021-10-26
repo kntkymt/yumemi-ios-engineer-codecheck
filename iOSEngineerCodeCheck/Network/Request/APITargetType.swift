@@ -24,7 +24,7 @@ extension APITargetType {
     }
 
     var headers: [String: String]? {
-        return [:]
+        return ["Accept": "application/vnd.github.v3+json"]
     }
 
     func decode(from result: Moya.Response) throws -> Response {
