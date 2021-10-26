@@ -1,4 +1,7 @@
 @media (prefers-color-scheme: dark) {
+  body {
+    --color-canvas-default: #1C1C1E;
+  }
   .markdown-body {
     color-scheme: dark;
     --color-prettylights-syntax-comment: #8b949e;
@@ -34,7 +37,7 @@
     --color-fg-default: #c9d1d9;
     --color-fg-muted: #8b949e;
     --color-fg-subtle: #484f58;
-    --color-canvas-default: #0d1117;
+    --color-canvas-default: #1C1C1E;
     --color-canvas-subtle: #161b22;
     --color-border-default: #30363d;
     --color-border-muted: #21262d;
@@ -46,6 +49,9 @@
 }
 
 @media (prefers-color-scheme: light) {
+  body {
+    --color-canvas-default: #ffffff;
+  }
   .markdown-body {
     color-scheme: light;
     --color-prettylights-syntax-comment: #6e7781;
@@ -90,6 +96,10 @@
     --color-accent-emphasis: #0969da;
     --color-danger-fg: #cf222e;
   }
+}
+
+body {
+  background-color: var(--color-canvas-default);
 }
 
 .markdown-body {
