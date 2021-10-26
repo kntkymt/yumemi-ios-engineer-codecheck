@@ -17,6 +17,7 @@ final class RepositorySearchViewController: UITableViewController, Storyboardabl
     private lazy var searchController: UISearchController = {
         let searchController = UISearchController()
         searchController.searchBar.delegate = self
+        searchController.searchBar.placeholder = "GitHubのリポジトリを検索"
 
         return searchController
     }()
