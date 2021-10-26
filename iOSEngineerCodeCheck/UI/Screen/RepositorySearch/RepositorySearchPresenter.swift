@@ -60,12 +60,20 @@ final class RepositorySearchPresenter: RepositorySearchPresentation {
             do {
                 self.gitHubRepositories = try await gitHubRepositorySearchUsecase.searchGitHubRepositories(by: searchText)
 
-                DispatchQueue.main.async {
-                    self.view?.tableViewReloadData()
+                DispatchQueue.main.async { [weak self] in
+                    self?.view?.tableViewReloadData()
                 }
             } catch {
                 Logger.error(error)
             }
+        }
+    }
+
+    func searchBarCancelButtonDidTap() {
+        searchTask?.cancel()
+        gitHubRepositories = []
+        DispatchQueue.main.async { [weak self] in
+            self?.view?.tableViewReloadData()
         }
     }
 

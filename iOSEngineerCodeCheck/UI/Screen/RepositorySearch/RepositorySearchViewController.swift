@@ -36,13 +36,14 @@ final class RepositorySearchViewController: UITableViewController, Storyboardabl
         title = "検索"
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
-        navigationController?.navigationBar.prefersLargeTitles = true
         
         presenter.viewDidLoad()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+
+        navigationController?.navigationBar.prefersLargeTitles = true
 
         presenter.viewWillAppear()
     }
@@ -109,5 +110,9 @@ extension RepositorySearchViewController: UISearchBarDelegate {
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         presenter.searchBarSearchButtonDidTap(searchText: searchBar.text ?? "")
+    }
+
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        presenter.searchBarCancelButtonDidTap()
     }
 }

@@ -42,6 +42,9 @@ protocol RepositorySearchPresentation: Presentation {
     ///     - searchText: 検索語
     func searchBarSearchButtonDidTap(searchText: String)
 
+    /// キャンセルボタンが押された
+    func searchBarCancelButtonDidTap()
+
     /// 検索文字が変更された
     func searchBarSearchTextDidChange()
 }
