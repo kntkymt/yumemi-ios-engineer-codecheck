@@ -56,6 +56,7 @@
 		E27087D02727C9C500AE7223 /* GetGitHubRepositoryReadmeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27087CF2727C9C500AE7223 /* GetGitHubRepositoryReadmeRequest.swift */; };
 		E27087D22727CB0100AE7223 /* GitHubRepositoryReadmeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27087D12727CB0100AE7223 /* GitHubRepositoryReadmeRepository.swift */; };
 		E27087D42727CDEE00AE7223 /* GitHubRepositoryDetailUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27087D32727CDEE00AE7223 /* GitHubRepositoryDetailUsecase.swift */; };
+		E27087D62727E7E000AE7223 /* WebViewShowable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27087D52727E7E000AE7223 /* WebViewShowable.swift */; };
 		E28669352724D52E00833B6B /* GitHubRepositoryDetailProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28669342724D52E00833B6B /* GitHubRepositoryDetailProtocol.swift */; };
 		E28669372724D5E700833B6B /* GitHubRepositoryDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28669362724D5E700833B6B /* GitHubRepositoryDetailPresenter.swift */; };
 		E286693D2724D7DF00833B6B /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = E286693C2724D7DF00833B6B /* Nuke */; };
@@ -145,6 +146,7 @@
 		E27087CF2727C9C500AE7223 /* GetGitHubRepositoryReadmeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetGitHubRepositoryReadmeRequest.swift; sourceTree = "<group>"; };
 		E27087D12727CB0100AE7223 /* GitHubRepositoryReadmeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepositoryReadmeRepository.swift; sourceTree = "<group>"; };
 		E27087D32727CDEE00AE7223 /* GitHubRepositoryDetailUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepositoryDetailUsecase.swift; sourceTree = "<group>"; };
+		E27087D52727E7E000AE7223 /* WebViewShowable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewShowable.swift; sourceTree = "<group>"; };
 		E28669342724D52E00833B6B /* GitHubRepositoryDetailProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepositoryDetailProtocol.swift; sourceTree = "<group>"; };
 		E28669362724D5E700833B6B /* GitHubRepositoryDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepositoryDetailPresenter.swift; sourceTree = "<group>"; };
 		E286693F2724D80F00833B6B /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
@@ -250,6 +252,7 @@
 			children = (
 				E25070512724476C00013FF1 /* Storyboardable.swift */,
 				E28669462725AE3200833B6B /* NibInstantiatable.swift */,
+				E27087D52727E7E000AE7223 /* WebViewShowable.swift */,
 				E250708F272492B200013FF1 /* Presentation.swift */,
 				E286694A2725F62600833B6B /* Common */,
 				E25070492724467500013FF1 /* Screen */,
@@ -677,6 +680,7 @@
 				E286694E2725F68B00833B6B /* UIView+Constraint.swift in Sources */,
 				E28669372724D5E700833B6B /* GitHubRepositoryDetailPresenter.swift in Sources */,
 				E25070942724961100013FF1 /* SplashPresenter.swift in Sources */,
+				E27087D62727E7E000AE7223 /* WebViewShowable.swift in Sources */,
 				E250709A2724A8AC00013FF1 /* AppContainer.swift in Sources */,
 				E250706927246F0800013FF1 /* API.swift in Sources */,
 				E286694C2725F63E00833B6B /* VStackViewController.swift in Sources */,

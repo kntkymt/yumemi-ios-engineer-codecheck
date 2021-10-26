@@ -6,13 +6,20 @@
 //  Copyright © 2021 YUMEMI Inc. All rights reserved.
 //
 
-protocol GitHubRepositoryDetailReadMeView: AnyObject {
+import Foundation
 
-    /// readmeを表示する
+protocol GitHubRepositoryDetailReadMeView: AnyObject, WebViewShowable {
+
+    /// WebViewをセットアップする
+    /// - parameters:
+    ///     - url: 初期読み込みのurl
+    func setupWebView(url: URL)
+
+    /// webView.evaluateJavaScriptを実行する
     ///
     /// - parameters:
-    ///     - content: マークダウン形式のreadme
-    func showReadme(_ content: String)
+    ///     - javaScript: 実行対象JSの文字列
+    func evaluateJavaScriptToWebView(javaScript: String)
 
     /// readmeViewControllerを隠す
     func hideReadmeViewController()
@@ -22,5 +29,12 @@ protocol GitHubRepositoryDetailReadMePresentation: Presentation {
 
     /// WebViewのセットアップが終了した
     func webViewDidFinishSetup()
+
+    /// WebViewがURLの読み込みをして良いかどうか
+    ///
+    /// - parameters:
+    ///     - url: 読み込みURL
+    /// - returns: 読み込みをして良いかどうか
+    func webViewCanNavigate(to url: URL) -> Bool
 }
 

@@ -27,8 +27,6 @@ final class GitHubRepositoryDetailReadMeViewController: UIViewController, Storyb
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setupWebView()
-
         presenter.viewDidLoad()
     }
 
@@ -57,33 +55,13 @@ final class GitHubRepositoryDetailReadMeViewController: UIViewController, Storyb
     static func build() -> Self {
         return initViewController()
     }
-
-    // MARK: - Private
-
-    private func setupWebView() {
-        let url = Bundle.main.url(forResource: "mdbase", withExtension: "html")!
-        webView.load(URLRequest(url: url))
-    }
 }
 
 // MARK: - GitHubRepositoryDetailReadMeView
 
 extension GitHubRepositoryDetailReadMeViewController: GitHubRepositoryDetailReadMeView {
-
-    func hideReadmeViewController() {
-        view.isHidden = true
-    }
-
-    func showReadme(_ content: String) {
-        // MEMO: multiline stringであるバッククオートを使うと
-        // マークダウン内に含まれるバッククオート, JSの文字列展開である「${}」と競合するので
-        // マークダウン内のバッククオート, $をエスケープする
-        let escapedContent = content
-            .replacingOccurrences(of: "`", with: "\\`")
-            .replacingOccurrences(of: "$", with: "\\$")
-        let js = "insert(`\(escapedContent)`);"
-
-        webView.evaluateJavaScript(js) { [weak self] _, error in
+    func evaluateJavaScriptToWebView(javaScript: String) {
+        webView.evaluateJavaScript(javaScript) { [weak self] _, error in
             guard let self = self else { return }
 
             if let error = error {
@@ -97,11 +75,32 @@ extension GitHubRepositoryDetailReadMeViewController: GitHubRepositoryDetailRead
             }
         }
     }
+
+
+    func hideReadmeViewController() {
+        view.isHidden = true
+    }
+
+    func setupWebView(url: URL) {
+        webView.load(URLRequest(url: url))
+    }
 }
+
+// MARK: - WKNavigationDelegate
 
 extension GitHubRepositoryDetailReadMeViewController: WKNavigationDelegate {
 
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         presenter.webViewDidFinishSetup()
+    }
+
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+        guard let url = navigationAction.request.url else { return decisionHandler(.cancel) }
+
+        if presenter.webViewCanNavigate(to: url) {
+            decisionHandler(.allow)
+        } else {
+            decisionHandler(.cancel)
+        }
     }
 }

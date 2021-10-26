@@ -16,6 +16,7 @@ final  class GitHubRepositoryDetailReadMePresenter: GitHubRepositoryDetailReadMe
     private var gitHubRepositoryDetailUsecase: GitHubRepositoryDetailUsecase
     private var gitHubRepository: GitHubRepository
 
+    private let readmeBaseHtmlURL = Bundle.main.url(forResource: "mdbase", withExtension: "html")!
     private var readme: String?
     private var webViewSetuped = false
 
@@ -30,6 +31,11 @@ final  class GitHubRepositoryDetailReadMePresenter: GitHubRepositoryDetailReadMe
     // MARK: - Lifecycle
 
     func viewDidLoad() {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.view?.setupWebView(url: self.readmeBaseHtmlURL)
+        }
+
         getReadme()
     }
 
@@ -51,9 +57,34 @@ final  class GitHubRepositoryDetailReadMePresenter: GitHubRepositoryDetailReadMe
         if let readme = readme {
             DispatchQueue.main.async { [weak self] in
                 guard let self = self else { return }
-                self.view?.showReadme(readme)
+                // MEMO: multiline stringであるバッククオートを使うと
+                // マークダウン内に含まれるバッククオート, JSの文字列展開である「${}」と競合するので
+                // マークダウン内のバッククオート, $をエスケープする
+                let escapedContent = readme
+                    .replacingOccurrences(of: "`", with: "\\`")
+                    .replacingOccurrences(of: "$", with: "\\$")
+                let javaScript = "insert(`\(escapedContent)`);"
+
+                self.view?.evaluateJavaScriptToWebView(javaScript: javaScript)
             }
         }
+    }
+
+    func webViewCanNavigate(to url: URL) -> Bool {
+        // 初期読み込みは許可
+        if url == readmeBaseHtmlURL {
+            return true
+        }
+
+        if url.scheme == "http" || url.scheme == "https" {
+            // リンクは全てSafariVCで開く
+            DispatchQueue.main.async { [weak self] in
+                self?.view?.presentSafariViewController(url: url)
+            }
+        }
+
+        // 初期読み込み以外は拒否し、ReadmeのWebViewはページ移動しないようにする
+        return false
     }
 
     // MARK: - Private
@@ -67,7 +98,15 @@ final  class GitHubRepositoryDetailReadMePresenter: GitHubRepositoryDetailReadMe
                 // 先にWebViewのsetupが終わっていた場合
                 if webViewSetuped {
                     DispatchQueue.main.async { [weak self] in
-                        self?.view?.showReadme(readme)
+                        // MEMO: multiline stringであるバッククオートを使うと
+                        // マークダウン内に含まれるバッククオート, JSの文字列展開である「${}」と競合するので
+                        // マークダウン内のバッククオート, $をエスケープする
+                        let escapedContent = readme
+                            .replacingOccurrences(of: "`", with: "\\`")
+                            .replacingOccurrences(of: "$", with: "\\$")
+                        let javaScript = "insert(`\(escapedContent)`);"
+
+                        self?.view?.evaluateJavaScriptToWebView(javaScript: javaScript)
                     }
                 }
             } catch let apierror as APIError {
