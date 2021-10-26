@@ -19,7 +19,6 @@ final class GitHubRepositoryDetailHeadingViewController: UIViewController, Story
     @IBOutlet private weak var repositoryDescriptionLabel: UILabel!
     @IBOutlet private weak var languageLabel: UILabel!
 
-
     // MARK: - Property
 
     var presenter: GitHubRepositoryDetailHeadingPresenter!
@@ -61,7 +60,11 @@ final class GitHubRepositoryDetailHeadingViewController: UIViewController, Story
 
         ownerNameLabel.text = gitHubRepository.owner.login
         repositoryNameLabel.text = gitHubRepository.name
-        repositoryDescriptionLabel.text = gitHubRepository.description
+        if let description = gitHubRepository.description {
+            repositoryDescriptionLabel.text = description
+        } else {
+            repositoryDescriptionLabel.isHidden = true
+        }
 
         if let language = gitHubRepository.language {
             languageLabel.text = "Written in \(language)"
