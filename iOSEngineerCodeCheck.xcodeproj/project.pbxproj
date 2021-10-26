@@ -220,7 +220,7 @@
 				E250704E272446E600013FF1 /* Resource */,
 				E25070482724465B00013FF1 /* Application */,
 				E250708327247EC100013FF1 /* Common */,
-				E25070472724465300013FF1 /* Presentation */,
+				E25070472724465300013FF1 /* UI */,
 				E2507073272473C000013FF1 /* Model */,
 				E250707B27247B6B00013FF1 /* Usecase */,
 				E2507078272479D000013FF1 /* Repository */,
@@ -247,7 +247,7 @@
 			path = iOSEngineerCodeCheckUITests;
 			sourceTree = "<group>";
 		};
-		E25070472724465300013FF1 /* Presentation */ = {
+		E25070472724465300013FF1 /* UI */ = {
 			isa = PBXGroup;
 			children = (
 				E25070512724476C00013FF1 /* Storyboardable.swift */,
@@ -257,7 +257,7 @@
 				E286694A2725F62600833B6B /* Common */,
 				E25070492724467500013FF1 /* Screen */,
 			);
-			path = Presentation;
+			path = UI;
 			sourceTree = "<group>";
 		};
 		E25070482724465B00013FF1 /* Application */ = {
