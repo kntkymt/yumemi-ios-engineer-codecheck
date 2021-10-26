@@ -61,8 +61,8 @@
 		E28669372724D5E700833B6B /* GitHubRepositoryDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28669362724D5E700833B6B /* GitHubRepositoryDetailPresenter.swift */; };
 		E286693D2724D7DF00833B6B /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = E286693C2724D7DF00833B6B /* Nuke */; };
 		E28669402724D80F00833B6B /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E286693F2724D80F00833B6B /* UIImageView+.swift */; };
-		E28669442725A64900833B6B /* GitHubRepositoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28669422725A64900833B6B /* GitHubRepositoryTableViewCell.swift */; };
-		E28669452725A64900833B6B /* GitHubRepositoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E28669432725A64900833B6B /* GitHubRepositoryTableViewCell.xib */; };
+		E28669442725A64900833B6B /* RepositoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28669422725A64900833B6B /* RepositoryTableViewCell.swift */; };
+		E28669452725A64900833B6B /* RepositoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E28669432725A64900833B6B /* RepositoryTableViewCell.xib */; };
 		E28669472725AE3200833B6B /* NibInstantiatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28669462725AE3200833B6B /* NibInstantiatable.swift */; };
 		E28669492725AEF100833B6B /* UITableView+NibInstantiatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28669482725AEF100833B6B /* UITableView+NibInstantiatable.swift */; };
 		E286694C2725F63E00833B6B /* VStackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E286694B2725F63E00833B6B /* VStackViewController.swift */; };
@@ -150,8 +150,8 @@
 		E28669342724D52E00833B6B /* GitHubRepositoryDetailProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepositoryDetailProtocol.swift; sourceTree = "<group>"; };
 		E28669362724D5E700833B6B /* GitHubRepositoryDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepositoryDetailPresenter.swift; sourceTree = "<group>"; };
 		E286693F2724D80F00833B6B /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
-		E28669422725A64900833B6B /* GitHubRepositoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepositoryTableViewCell.swift; sourceTree = "<group>"; };
-		E28669432725A64900833B6B /* GitHubRepositoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GitHubRepositoryTableViewCell.xib; sourceTree = "<group>"; };
+		E28669422725A64900833B6B /* RepositoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryTableViewCell.swift; sourceTree = "<group>"; };
+		E28669432725A64900833B6B /* RepositoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoryTableViewCell.xib; sourceTree = "<group>"; };
 		E28669462725AE3200833B6B /* NibInstantiatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibInstantiatable.swift; sourceTree = "<group>"; };
 		E28669482725AEF100833B6B /* UITableView+NibInstantiatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+NibInstantiatable.swift"; sourceTree = "<group>"; };
 		E286694B2725F63E00833B6B /* VStackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VStackViewController.swift; sourceTree = "<group>"; };
@@ -471,8 +471,8 @@
 		E28669412725A5DC00833B6B /* Component */ = {
 			isa = PBXGroup;
 			children = (
-				E28669432725A64900833B6B /* GitHubRepositoryTableViewCell.xib */,
-				E28669422725A64900833B6B /* GitHubRepositoryTableViewCell.swift */,
+				E28669432725A64900833B6B /* RepositoryTableViewCell.xib */,
+				E28669422725A64900833B6B /* RepositoryTableViewCell.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -622,7 +622,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E27087C52727682C00AE7223 /* marked.js in Resources */,
-				E28669452725A64900833B6B /* GitHubRepositoryTableViewCell.xib in Resources */,
+				E28669452725A64900833B6B /* RepositoryTableViewCell.xib in Resources */,
 				BFD945EB244DC5EB0012785A /* LaunchScreen.storyboard in Resources */,
 				E28669532725F92E00833B6B /* GitHubRepositoryDetailHeadingViewController.storyboard in Resources */,
 				BFD945E8244DC5EB0012785A /* Assets.xcassets in Resources */,
@@ -664,7 +664,7 @@
 				E250708B272488C300013FF1 /* Logger.swift in Sources */,
 				E25070542724487300013FF1 /* SceneRouter.swift in Sources */,
 				E2507075272473D200013FF1 /* GitHubRepository.swift in Sources */,
-				E28669442725A64900833B6B /* GitHubRepositoryTableViewCell.swift in Sources */,
+				E28669442725A64900833B6B /* RepositoryTableViewCell.swift in Sources */,
 				E250709827249DE700013FF1 /* RepositorySearchPresenter.swift in Sources */,
 				E28669472725AE3200833B6B /* NibInstantiatable.swift in Sources */,
 				BF0A658D244F2A3B00280FA6 /* GitHubRepositoryDetailHeadingViewController.swift in Sources */,

@@ -34,7 +34,7 @@ final class RepositorySearchViewController: UITableViewController, Storyboardabl
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.register(GitHubRepositoryTableViewCell.self)
+        tableView.register(RepositoryTableViewCell.self)
         title = "検索"
         
         presenter.viewDidLoad()
@@ -65,7 +65,7 @@ final class RepositorySearchViewController: UITableViewController, Storyboardabl
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let gitHubRepository = presenter.gitHubRepository(at: indexPath.row)
 
-        return tableView.dequeue(GitHubRepositoryTableViewCell.self, for: indexPath, with: gitHubRepository)
+        return tableView.dequeue(RepositoryTableViewCell.self, for: indexPath, with: gitHubRepository)
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
