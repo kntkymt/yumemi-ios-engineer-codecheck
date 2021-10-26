@@ -20,6 +20,7 @@ final class GitHubRepositoryDetailReadMeViewController: UIViewController, Storyb
             webView.scrollView.isScrollEnabled = false
         }
     }
+    @IBOutlet private weak var webViewHeightConstraint: NSLayoutConstraint!
 
     // MARK: - Lifecycle
 
@@ -90,8 +91,9 @@ extension GitHubRepositoryDetailReadMeViewController: GitHubRepositoryDetailRead
                 return
             }
 
+            // js適応からscrollViewのcontentSizeが反映されるまで少し待つ
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                self.webView.heightAnchor.constraint(equalToConstant: self.webView.scrollView.contentSize.height).isActive = true
+                self.webViewHeightConstraint.constant = self.webView.scrollView.contentSize.height
             }
         }
     }

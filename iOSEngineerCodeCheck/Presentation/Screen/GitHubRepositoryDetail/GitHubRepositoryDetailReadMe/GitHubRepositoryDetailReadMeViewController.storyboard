@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="400"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="400" id="AHG-uU-f0d"/>
+                                    <constraint firstAttribute="height" constant="400" id="AHG-uU-f0d"/>
                                 </constraints>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
@@ -40,6 +40,7 @@
                     <size key="freeformSize" width="414" height="400"/>
                     <connections>
                         <outlet property="webView" destination="9Ps-Fr-Qfz" id="KRw-m9-nNF"/>
+                        <outlet property="webViewHeightConstraint" destination="AHG-uU-f0d" id="X6I-YC-wFT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
