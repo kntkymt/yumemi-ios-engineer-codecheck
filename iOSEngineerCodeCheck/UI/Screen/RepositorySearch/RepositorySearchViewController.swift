@@ -22,6 +22,8 @@ final class RepositorySearchViewController: UITableViewController, Storyboardabl
         return searchController
     }()
 
+    private lazy var emptyViewController = EmptyViewController.build(emptyTitle: "リポジトリがありません")
+
     // MARK: - Build
 
     static func build() -> Self {
@@ -70,9 +72,17 @@ final class RepositorySearchViewController: UITableViewController, Storyboardabl
 
         return tableView.dequeue(RepositoryTableViewCell.self, for: indexPath, with: gitHubRepository)
     }
+
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return presenter.showEmptyView ? emptyViewController.view : nil
+    }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         presenter.tableViewDidSelectRow(at: indexPath.row)
+    }
+
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return presenter.showEmptyView ? tableView.bounds.height : CGFloat.leastNormalMagnitude
     }
 }
 
