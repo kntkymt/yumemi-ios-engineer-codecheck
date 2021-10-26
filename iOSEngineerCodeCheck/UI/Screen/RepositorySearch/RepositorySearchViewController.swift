@@ -1,5 +1,5 @@
 //
-//  GitHubRepositorySearchViewController.swift
+//  RepositorySearchViewController.swift
 //  iOSEngineerCodeCheck
 //
 //  Created by 史 翔新 on 2020/04/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class GitHubRepositorySearchViewController: UITableViewController, Storyboardable {
+final class RepositorySearchViewController: UITableViewController, Storyboardable {
 
     // MARK: - Outlet
 
@@ -21,7 +21,7 @@ final class GitHubRepositorySearchViewController: UITableViewController, Storybo
 
     // MARK: - Property
 
-    var presenter: GitHubRepositorySearchPresentation!
+    var presenter: RepositorySearchPresentation!
 
     // MARK: - Build
 
@@ -34,7 +34,7 @@ final class GitHubRepositorySearchViewController: UITableViewController, Storybo
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.register(GitHubRepositoryTableViewCell.self)
+        tableView.register(RepositoryTableViewCell.self)
         title = "検索"
         
         presenter.viewDidLoad()
@@ -65,7 +65,7 @@ final class GitHubRepositorySearchViewController: UITableViewController, Storybo
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let gitHubRepository = presenter.gitHubRepository(at: indexPath.row)
 
-        return tableView.dequeue(GitHubRepositoryTableViewCell.self, for: indexPath, with: gitHubRepository)
+        return tableView.dequeue(RepositoryTableViewCell.self, for: indexPath, with: gitHubRepository)
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -73,25 +73,25 @@ final class GitHubRepositorySearchViewController: UITableViewController, Storybo
     }
 }
 
-// MARK: - GitHubRepositorySearchView
+// MARK: - RepositorySearchView
 
-extension GitHubRepositorySearchViewController: GitHubRepositorySearchView {
+extension RepositorySearchViewController: RepositorySearchView {
 
     func tableViewReloadData() {
         self.tableView.reloadData()
     }
     
     func pushToDetailView(gitHubRepository: GitHubRepository) {
-        let detailHeadingViewController = GitHubRepositoryDetailHeadingViewController.build()
+        let detailHeadingViewController = RepositoryDetailHeadingViewController.build()
         detailHeadingViewController.presenter = GitHubRepositoryDetailHeadingPresenter(view: detailHeadingViewController, gitHubRepository: gitHubRepository)
 
-        let detailCountViewController = GitHubRepositoryDetailCountViewController.build()
-        detailCountViewController.presenter = GitHubRepositoryDetailCountPresenter(view: detailCountViewController, gitHubRepository: gitHubRepository)
+        let detailCountViewController = RepositoryDetailCountViewController.build()
+        detailCountViewController.presenter = RepositoryDetailCountPresenter(view: detailCountViewController, gitHubRepository: gitHubRepository)
 
-        let detailReadMeViewController = GitHubRepositoryDetailReadMeViewController.build()
-        detailReadMeViewController.presenter = GitHubRepositoryDetailReadMePresenter(view: detailReadMeViewController, gitHubRepositoryDetailUsecase: AppContainer.shared.gitHubRepositoryDetailUsecase, gitHubRepository: gitHubRepository)
+        let detailReadMeViewController = RepositoryDetailReadmeViewController.build()
+        detailReadMeViewController.presenter = RepositoryDetailReadMePresenter(view: detailReadMeViewController, gitHubRepositoryDetailUsecase: AppContainer.shared.gitHubRepositoryDetailUsecase, gitHubRepository: gitHubRepository)
         
-        let detailViewController = GitHubRepositoryDetailViewController.build(headingViewController: detailHeadingViewController,
+        let detailViewController = RepositoryDetailViewController.build(headingViewController: detailHeadingViewController,
                                                                               countViewController: detailCountViewController,
                                                                               readMeViewController: detailReadMeViewController, gitHubRepository: gitHubRepository)
         navigationController?.pushViewController(detailViewController, animated: true)
@@ -100,7 +100,7 @@ extension GitHubRepositorySearchViewController: GitHubRepositorySearchView {
 
 // MARK: - UISearchBarDelegate
 
-extension GitHubRepositorySearchViewController: UISearchBarDelegate {
+extension RepositorySearchViewController: UISearchBarDelegate {
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         presenter.searchBarSearchTextDidChange()

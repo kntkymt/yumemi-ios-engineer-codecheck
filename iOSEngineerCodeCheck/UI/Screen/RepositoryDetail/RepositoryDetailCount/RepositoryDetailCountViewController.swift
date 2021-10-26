@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class GitHubRepositoryDetailCountViewController: UITableViewController, Storyboardable {
+final class RepositoryDetailCountViewController: UITableViewController, Storyboardable {
 
     // MARK: - Outlet
 
@@ -42,7 +42,7 @@ final class GitHubRepositoryDetailCountViewController: UITableViewController, St
 
     // MARK: - Property
 
-    var presenter: GitHubRepositoryDetailCountPresenter!
+    var presenter: RepositoryDetailCountPresenter!
 
     // MARK: - Build
 
@@ -88,7 +88,7 @@ final class GitHubRepositoryDetailCountViewController: UITableViewController, St
 
 // MARK: - GitHubRepositoryDetailCountView
 
-extension GitHubRepositoryDetailCountViewController: GitHubRepositoryDetailCountView {
+extension RepositoryDetailCountViewController: RepositoryDetailCountView {
 
     func showGitHubRepositoryDetailCount(gitHubRepository: GitHubRepository) {
         showDetail(gitHubRepository: gitHubRepository)

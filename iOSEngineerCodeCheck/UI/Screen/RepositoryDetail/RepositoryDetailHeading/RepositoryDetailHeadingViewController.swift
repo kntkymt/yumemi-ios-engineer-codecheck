@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class GitHubRepositoryDetailHeadingViewController: UIViewController, Storyboardable {
+final class RepositoryDetailHeadingViewController: UIViewController, Storyboardable {
 
     // MARK: - Outlet
     
@@ -21,7 +21,7 @@ final class GitHubRepositoryDetailHeadingViewController: UIViewController, Story
 
     // MARK: - Property
 
-    var presenter: GitHubRepositoryDetailHeadingPresenter!
+    var presenter: RepositoryDetailHeadingPresentation!
 
     // MARK: - Build
 
@@ -76,7 +76,7 @@ final class GitHubRepositoryDetailHeadingViewController: UIViewController, Story
 
 // MARK: - GitHubRepositoryDetailView
 
-extension GitHubRepositoryDetailHeadingViewController: GitHubRepositoryDetailHeadingView {
+extension RepositoryDetailHeadingViewController: RepositoryDetailHeadingView {
     
     func showGitHubRepositoryDetailHeading(gitHubRepository: GitHubRepository) {
         showDetail(gitHubRepository: gitHubRepository)

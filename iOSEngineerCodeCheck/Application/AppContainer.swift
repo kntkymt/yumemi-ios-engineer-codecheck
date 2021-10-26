@@ -20,7 +20,7 @@ final class AppContainer {
     // MARK: - Initializer
 
     private init() {
-        self.gitHubRepositorySearchUsecase = SearchGitHubRepositoryUsecaseImpl(gitHubRepositoryRepository: GitHubRepositoryRepositoryImpl())
+        self.gitHubRepositorySearchUsecase = GitHubRepositorySearchUsecaseImpl(gitHubRepositoryRepository: GitHubRepositoryRepositoryImpl())
 
         self.gitHubRepositoryDetailUsecase = GitHubRepositoryDetailUsecaseImpl(gitHubRepositoryReadmeRepository: GitHubRepositoryReadmeRepositoryImpl())
     }

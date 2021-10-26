@@ -8,11 +8,11 @@
 
 import Foundation
 
-final class GitHubRepositorySearchPresenter: GitHubRepositorySearchPresentation {
+final class RepositorySearchPresenter: RepositorySearchPresentation {
 
     // MARK: - Property
 
-    private weak var view: GitHubRepositorySearchView?
+    private weak var view: RepositorySearchView?
 
     var gitHubRepositoriesCount: Int {
         return gitHubRepositories.count
@@ -25,7 +25,7 @@ final class GitHubRepositorySearchPresenter: GitHubRepositorySearchPresentation 
 
     // MARK: - Initializer
 
-    init(view: GitHubRepositorySearchView, gitHubRepositorySearchUsecase: GitHubReposiotySearchUsecase) {
+    init(view: RepositorySearchView, gitHubRepositorySearchUsecase: GitHubReposiotySearchUsecase) {
         self.view = view
         self.gitHubRepositorySearchUsecase = gitHubRepositorySearchUsecase
     }

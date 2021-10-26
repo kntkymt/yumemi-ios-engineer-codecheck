@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class GitHubRepositoryTableViewCell: UITableViewCell {
+final class RepositoryTableViewCell: UITableViewCell {
 
     // MARK: - Outlet
 
@@ -40,7 +40,7 @@ final class GitHubRepositoryTableViewCell: UITableViewCell {
 
 // MARK: - NibInstantiatable
 
-extension GitHubRepositoryTableViewCell: NibInstantiatable {
+extension RepositoryTableViewCell: NibInstantiatable {
 
     typealias Dependency = GitHubRepository
 

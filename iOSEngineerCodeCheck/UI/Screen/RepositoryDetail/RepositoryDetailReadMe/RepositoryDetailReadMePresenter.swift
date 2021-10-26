@@ -1,5 +1,5 @@
 //
-//  GitHubRepositoryDetailReadMePresenter.swift
+//  RepositoryDetailReadMePresenter.swift
 //  iOSEngineerCodeCheck
 //
 //  Created by kntk on 2021/10/26.
@@ -8,11 +8,11 @@
 
 import Foundation
 
-final  class GitHubRepositoryDetailReadMePresenter: GitHubRepositoryDetailReadMePresentation {
+final  class RepositoryDetailReadMePresenter: RepositoryDetailReadmePresentation {
 
     // MARK: - Property
 
-    private weak var view: GitHubRepositoryDetailReadMeView?
+    private weak var view: RepositoryDetailReadmeView?
     private var gitHubRepositoryDetailUsecase: GitHubRepositoryDetailUsecase
     private var gitHubRepository: GitHubRepository
 
@@ -22,7 +22,7 @@ final  class GitHubRepositoryDetailReadMePresenter: GitHubRepositoryDetailReadMe
 
     // MARK: - Initializer
 
-    init(view: GitHubRepositoryDetailReadMeView, gitHubRepositoryDetailUsecase: GitHubRepositoryDetailUsecase, gitHubRepository: GitHubRepository) {
+    init(view: RepositoryDetailReadmeView, gitHubRepositoryDetailUsecase: GitHubRepositoryDetailUsecase, gitHubRepository: GitHubRepository) {
         self.view = view
         self.gitHubRepositoryDetailUsecase = gitHubRepositoryDetailUsecase
         self.gitHubRepository = gitHubRepository

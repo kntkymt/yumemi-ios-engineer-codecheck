@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Git Hub Repository Search View Controller-->
+        <!--Repository Search View Controller-->
         <scene sceneID="O8t-0O-KV1">
             <objects>
-                <tableViewController id="CTG-1b-a0r" customClass="GitHubRepositorySearchViewController" customModule="iOSEngineerCodeCheck" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="CTG-1b-a0r" customClass="RepositorySearchViewController" customModule="iOSEngineerCodeCheck" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="400" sectionHeaderHeight="28" sectionFooterHeight="28" id="QTM-13-WvD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

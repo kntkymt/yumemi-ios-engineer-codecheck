@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-final class GitHubRepositoryDetailViewController: VStackViewController, Storyboardable, WebViewShowable {
+final class RepositoryDetailViewController: VStackViewController, Storyboardable, WebViewShowable {
 
     // MARK: - Property
 
@@ -18,9 +18,9 @@ final class GitHubRepositoryDetailViewController: VStackViewController, Storyboa
     // MARK: - Build
 
     static func build(
-        headingViewController: GitHubRepositoryDetailHeadingViewController,
-        countViewController: GitHubRepositoryDetailCountViewController,
-        readMeViewController: GitHubRepositoryDetailReadMeViewController,
+        headingViewController: RepositoryDetailHeadingViewController,
+        countViewController: RepositoryDetailCountViewController,
+        readMeViewController: RepositoryDetailReadmeViewController,
         gitHubRepository: GitHubRepository
     ) -> Self {
         let viewController = initViewController()

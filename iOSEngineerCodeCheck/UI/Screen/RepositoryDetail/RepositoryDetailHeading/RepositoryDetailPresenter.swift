@@ -8,17 +8,17 @@
 
 import Foundation
 
-final class GitHubRepositoryDetailHeadingPresenter: GitHubRepositoryDetailHeadingPresentation {
+final class GitHubRepositoryDetailHeadingPresenter: RepositoryDetailHeadingPresentation {
 
     // MARK: - Property
 
-    private weak var view: GitHubRepositoryDetailHeadingView?
+    private weak var view: RepositoryDetailHeadingView?
 
     private let gitHubRepository: GitHubRepository
 
     // MARK: - Initializer
 
-    init(view: GitHubRepositoryDetailHeadingView, gitHubRepository: GitHubRepository) {
+    init(view: RepositoryDetailHeadingView, gitHubRepository: GitHubRepository) {
         self.view = view
         self.gitHubRepository = gitHubRepository
     }

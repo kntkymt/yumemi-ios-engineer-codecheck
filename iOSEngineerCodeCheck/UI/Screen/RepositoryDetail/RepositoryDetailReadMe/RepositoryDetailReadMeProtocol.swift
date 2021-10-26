@@ -1,5 +1,5 @@
 //
-//  GitHubRepositoryDetailReadMeProtocol.swift
+//  RepositoryDetailReadMeProtocol.swift
 //  iOSEngineerCodeCheck
 //
 //  Created by kntk on 2021/10/26.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol GitHubRepositoryDetailReadMeView: AnyObject, WebViewShowable {
+protocol RepositoryDetailReadmeView: AnyObject, WebViewShowable {
 
     /// WebViewをセットアップする
     /// - parameters:
@@ -25,7 +25,7 @@ protocol GitHubRepositoryDetailReadMeView: AnyObject, WebViewShowable {
     func hideReadmeViewController()
 }
 
-protocol GitHubRepositoryDetailReadMePresentation: Presentation {
+protocol RepositoryDetailReadmePresentation: Presentation {
 
     /// WebViewのセットアップが終了した
     func webViewDidFinishSetup()
