@@ -10,18 +10,16 @@ import UIKit
 
 final class RepositorySearchViewController: UITableViewController, Storyboardable {
 
-    // MARK: - Outlet
-
-    @IBOutlet private weak var searchBar: UISearchBar! {
-        didSet {
-            searchBar.placeholder = "GitHubのリポジトリを検索できるよー"
-            searchBar.delegate = self
-        }
-    }
-
     // MARK: - Property
 
     var presenter: RepositorySearchPresentation!
+
+    private lazy var searchController: UISearchController = {
+        let searchController = UISearchController()
+        searchController.searchBar.delegate = self
+
+        return searchController
+    }()
 
     // MARK: - Build
 
@@ -36,6 +34,9 @@ final class RepositorySearchViewController: UITableViewController, Storyboardabl
 
         tableView.register(RepositoryTableViewCell.self)
         title = "検索"
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
+        navigationController?.navigationBar.prefersLargeTitles = true
         
         presenter.viewDidLoad()
     }

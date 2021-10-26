@@ -41,6 +41,7 @@ final class RepositoryDetailViewController: VStackViewController, Storyboardable
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        navigationController?.navigationBar.prefersLargeTitles = false
         title = gitHubRepository.name
     }
 
