@@ -90,6 +90,14 @@ final class RepositorySearchViewController: UITableViewController, Storyboardabl
 
 extension RepositorySearchViewController: RepositorySearchView {
 
+    func startTableViewLoading() {
+        tableView.startLoading()
+    }
+
+    func stopTableViewLoading() {
+        tableView.stopLoading()
+    }
+
     func tableViewScrollToTop(animated: Bool) {
         if tableView.numberOfRows(inSection: 0) != 0 {
             tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: animated)
