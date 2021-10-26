@@ -70,12 +70,22 @@ final class GitHubRepositoryDetailReadMeViewController: UIViewController, Storyb
 extension GitHubRepositoryDetailReadMeViewController: GitHubRepositoryDetailReadMeView {
 
     func showReadme(_ content: String) {
-        // MEMO: multiline stringであるバッククオートを使うとマークダウン内に含まれるバッククオートと競合するので
-        // マークダウン内のバッククオートをエスケープする
-        let js = "insert(`\(content.replacingOccurrences(of: "`", with: "\\`"))`);"
+        // MEMO: multiline stringであるバッククオートを使うと
+        // マークダウン内に含まれるバッククオート, JSの文字列展開である「${}」と競合するので
+        // マークダウン内のバッククオート, $をエスケープする
+        let escapedContent = content
+            .replacingOccurrences(of: "`", with: "\\`")
+            .replacingOccurrences(of: "$", with: "\\$")
+        let js = "insert(`\(escapedContent)`);"
 
         webView.evaluateJavaScript(js) { [weak self] _, error in
             guard let self = self else { return }
+
+            if let error = error {
+                Logger.error(error)
+                return
+            }
+
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                 self.webView.heightAnchor.constraint(equalToConstant: self.webView.scrollView.contentSize.height).isActive = true
             }
