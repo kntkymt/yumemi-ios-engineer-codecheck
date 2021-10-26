@@ -11,7 +11,7 @@ protocol GitHubReposiotySearchUsecase {
     func searchGitHubRepositories(by word: String) async throws -> [GitHubRepository]
 }
 
-final class SearchGitHubRepositoryUsecaseImpl: GitHubReposiotySearchUsecase {
+final class GitHubRepositorySearchUsecaseImpl: GitHubReposiotySearchUsecase {
 
     // MARK: - Property
 
