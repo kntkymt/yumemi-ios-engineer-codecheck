@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-final class GitHubRepositoryDetailViewController: VStackViewController, Storyboardable, WebViewShowable {
+final class RepositoryDetailViewController: VStackViewController, Storyboardable, WebViewShowable {
 
     // MARK: - Property
 
