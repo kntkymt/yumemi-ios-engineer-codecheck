@@ -51,9 +51,11 @@ extension RepositoryTableViewCell: NibInstantiatable {
         starCountLabel.text = String.localizedStringWithFormat("%d", dependency.stargazersCount)
 
         if let description = dependency.description {
+            repositoryDescriptionLabel.isHidden = false
             repositoryDescriptionLabel.text = description
         } else {
             repositoryDescriptionLabel.isHidden = true
+            repositoryDescriptionLabel.text = ""
         }
 
         if let language = dependency.language {

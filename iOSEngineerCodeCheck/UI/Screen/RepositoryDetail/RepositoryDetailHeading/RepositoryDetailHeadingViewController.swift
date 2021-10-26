@@ -61,15 +61,19 @@ final class RepositoryDetailHeadingViewController: UIViewController, Storyboarda
         ownerNameLabel.text = gitHubRepository.owner.login
         repositoryNameLabel.text = gitHubRepository.name
         if let description = gitHubRepository.description {
+            repositoryDescriptionLabel.isHidden = false
             repositoryDescriptionLabel.text = description
         } else {
             repositoryDescriptionLabel.isHidden = true
+            repositoryDescriptionLabel.text = ""
         }
 
         if let language = gitHubRepository.language {
+            languageLabel.isHidden = false
             languageLabel.text = "Written in \(language)"
         } else {
             languageLabel.isHidden = true
+            languageLabel.text = ""
         }
     }
 }

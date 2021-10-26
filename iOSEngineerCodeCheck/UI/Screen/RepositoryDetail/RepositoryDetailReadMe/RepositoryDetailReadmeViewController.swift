@@ -22,10 +22,18 @@ final class RepositoryDetailReadmeViewController: UIViewController, Storyboardab
     }
     @IBOutlet private weak var webViewHeightConstraint: NSLayoutConstraint!
 
+    // MARK: - Property
+
+    private var webViewContntObservation: NSKeyValueObservation?
+
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        webViewContntObservation = webView.scrollView.observe(\.contentSize) { [weak self] scrollView, _ in
+            self?.webViewHeightConstraint.constant = scrollView.contentSize.height
+        }
 
         presenter.viewDidLoad()
     }
@@ -61,17 +69,10 @@ final class RepositoryDetailReadmeViewController: UIViewController, Storyboardab
 
 extension RepositoryDetailReadmeViewController: RepositoryDetailReadmeView {
     func evaluateJavaScriptToWebView(javaScript: String) {
-        webView.evaluateJavaScript(javaScript) { [weak self] _, error in
-            guard let self = self else { return }
-
+        webView.evaluateJavaScript(javaScript) { _, error in
             if let error = error {
                 Logger.error(error)
                 return
-            }
-
-            // js適応からscrollViewのcontentSizeが反映されるまで少し待つ
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                self.webViewHeightConstraint.constant = self.webView.scrollView.contentSize.height
             }
         }
     }
