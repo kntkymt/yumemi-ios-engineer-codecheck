@@ -82,7 +82,7 @@ extension RepositorySearchViewController: RepositorySearchView {
     }
     
     func pushToDetailView(gitHubRepository: GitHubRepository) {
-        let detailHeadingViewController = GitHubRepositoryDetailHeadingViewController.build()
+        let detailHeadingViewController = RepositoryDetailHeadingViewController.build()
         detailHeadingViewController.presenter = GitHubRepositoryDetailHeadingPresenter(view: detailHeadingViewController, gitHubRepository: gitHubRepository)
 
         let detailCountViewController = GitHubRepositoryDetailCountViewController.build()

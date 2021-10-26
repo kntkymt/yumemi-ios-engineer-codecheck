@@ -18,7 +18,7 @@ final class GitHubRepositoryDetailViewController: VStackViewController, Storyboa
     // MARK: - Build
 
     static func build(
-        headingViewController: GitHubRepositoryDetailHeadingViewController,
+        headingViewController: RepositoryDetailHeadingViewController,
         countViewController: GitHubRepositoryDetailCountViewController,
         readMeViewController: GitHubRepositoryDetailReadMeViewController,
         gitHubRepository: GitHubRepository

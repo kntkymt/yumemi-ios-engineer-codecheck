@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol GitHubRepositoryDetailHeadingView: AnyObject {
+protocol RepositoryDetailHeadingView: AnyObject {
 
     /// GitHubのリポジトリ詳細を表示する
     ///
@@ -17,5 +17,5 @@ protocol GitHubRepositoryDetailHeadingView: AnyObject {
     func showGitHubRepositoryDetailHeading(gitHubRepository: GitHubRepository)
 }
 
-protocol GitHubRepositoryDetailHeadingPresentation: Presentation {
+protocol RepositoryDetailHeadingPresentation: Presentation {
 }
