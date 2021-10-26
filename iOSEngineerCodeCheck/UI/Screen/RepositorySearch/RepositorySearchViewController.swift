@@ -90,12 +90,12 @@ final class RepositorySearchViewController: UITableViewController, Storyboardabl
 
 extension RepositorySearchViewController: RepositorySearchView {
 
-    func startTableViewLoading() {
-        tableView.startLoading()
+    func showTableViewLoading() {
+        tableView.showLoading()
     }
 
-    func stopTableViewLoading() {
-        tableView.stopLoading()
+    func hideTableViewLoading() {
+        tableView.hideLoading()
     }
 
     func tableViewScrollToTop(animated: Bool) {

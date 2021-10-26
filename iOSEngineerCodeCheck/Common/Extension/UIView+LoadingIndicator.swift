@@ -27,7 +27,7 @@ extension UIView {
         }
     }
 
-    func startLoading() {
+    func showLoading() {
         if let addedIndicatorView = getAddedIndicatorView() {
             addedIndicatorView.isHidden = false
             isUserInteractionEnabled = false
@@ -44,7 +44,7 @@ extension UIView {
         }
     }
 
-    func stopLoading() {
+    func hideLoading() {
         if let addedIndicatorView = getAddedIndicatorView() {
             isUserInteractionEnabled = true
             addedIndicatorView.stopAnimating()
