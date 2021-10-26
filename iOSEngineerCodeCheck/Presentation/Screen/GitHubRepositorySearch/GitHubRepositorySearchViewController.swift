@@ -93,7 +93,7 @@ extension GitHubRepositorySearchViewController: GitHubRepositorySearchView {
         
         let detailViewController = GitHubRepositoryDetailViewController.build(headingViewController: detailHeadingViewController,
                                                                               countViewController: detailCountViewController,
-                                                                              readMeViewController: detailReadMeViewController)
+                                                                              readMeViewController: detailReadMeViewController, gitHubRepository: gitHubRepository)
         navigationController?.pushViewController(detailViewController, animated: true)
     }
 }

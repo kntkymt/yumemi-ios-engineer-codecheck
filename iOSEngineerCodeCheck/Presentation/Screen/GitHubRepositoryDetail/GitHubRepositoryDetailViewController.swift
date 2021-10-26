@@ -12,14 +12,15 @@ final class GitHubRepositoryDetailViewController: VStackViewController, Storyboa
 
     // MARK: - Property
 
-    private var headingViewController: GitHubRepositoryDetailHeadingViewController!
+    private var gitHubRepository: GitHubRepository!
 
     // MARK: - Build
 
     static func build(
         headingViewController: GitHubRepositoryDetailHeadingViewController,
         countViewController: GitHubRepositoryDetailCountViewController,
-        readMeViewController: GitHubRepositoryDetailReadMeViewController
+        readMeViewController: GitHubRepositoryDetailReadMeViewController,
+        gitHubRepository: GitHubRepository
     ) -> Self {
         let viewController = initViewController()
 
@@ -29,7 +30,17 @@ final class GitHubRepositoryDetailViewController: VStackViewController, Storyboa
             readMeViewController
         ]
 
+        viewController.gitHubRepository = gitHubRepository
+
         return viewController
+    }
+
+    // MARK: - Lifecycle
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        title = gitHubRepository.name
     }
 
 }
