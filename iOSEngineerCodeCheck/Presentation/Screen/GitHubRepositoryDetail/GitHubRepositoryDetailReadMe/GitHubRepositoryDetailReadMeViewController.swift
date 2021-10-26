@@ -14,7 +14,7 @@ final class GitHubRepositoryDetailReadMeViewController: UIViewController, Storyb
 
     // MARK: - Outlet
 
-    @IBOutlet weak var webView: WKWebView! {
+    @IBOutlet private weak var webView: WKWebView! {
         didSet {
             webView.navigationDelegate = self
             webView.scrollView.isScrollEnabled = false
