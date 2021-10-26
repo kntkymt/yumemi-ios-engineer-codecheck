@@ -21,6 +21,9 @@ final class RepositorySearchPresenter: RepositorySearchPresentation {
     private let gitHubRepositorySearchUsecase: GitHubReposiotySearchUsecase
     private var gitHubRepositories: [GitHubRepository] = []
 
+    // 非検索状態で表示される「おすすめ」的な立ち位置のリポジトリ一覧
+    private var initialGitHubRepositories: [GitHubRepository]?
+
     private var searchTask: Task<Void, Error>?
 
     // MARK: - Initializer
@@ -33,6 +36,7 @@ final class RepositorySearchPresenter: RepositorySearchPresentation {
     // MARK: - Lifecycle
 
     func viewDidLoad() {
+        setInitialGitHubRepositories()
     }
 
     func viewWillAppear() {
@@ -72,13 +76,38 @@ final class RepositorySearchPresenter: RepositorySearchPresentation {
 
     func searchBarCancelButtonDidTap() {
         searchTask?.cancel()
-        gitHubRepositories = []
-        DispatchQueue.main.async { [weak self] in
-            self?.view?.tableViewReloadData()
-        }
+        setInitialGitHubRepositories()
     }
 
     func searchBarSearchTextDidChange() {
         searchTask?.cancel()
+    }
+
+    // MARK: - Private
+
+    private func setInitialGitHubRepositories() {
+        // 既に取得してある場合は使い回す
+        if let initialGitHubRepositories = initialGitHubRepositories {
+            gitHubRepositories = initialGitHubRepositories
+            DispatchQueue.main.async { [weak self] in
+                self?.view?.tableViewReloadData()
+                self?.view?.tableViewScrollToTop(animated: false)
+            }
+        } else {
+            searchTask = Task {
+                do {
+                    let initialGitHubRepositories = try await gitHubRepositorySearchUsecase.getTrendingGitHubRepositories()
+                    self.initialGitHubRepositories = initialGitHubRepositories
+                    gitHubRepositories = initialGitHubRepositories
+
+                    DispatchQueue.main.async { [weak self] in
+                        self?.view?.tableViewReloadData()
+                        self?.view?.tableViewScrollToTop(animated: false)
+                    }
+                } catch {
+                    Logger.error(error)
+                }
+            }
+        }
     }
 }
