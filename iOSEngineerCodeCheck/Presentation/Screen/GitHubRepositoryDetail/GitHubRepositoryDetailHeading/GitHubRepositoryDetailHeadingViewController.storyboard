@@ -51,7 +51,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="pcS-Il-98d"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="N9f-tl-VDT" firstAttribute="leading" secondItem="vOY-lU-3M0" secondAttribute="leading" constant="20" id="2bx-cH-uWT"/>
                             <constraint firstItem="rJ2-mL-mTI" firstAttribute="top" secondItem="vOY-lU-3M0" secondAttribute="top" id="5fF-dP-Egk"/>
@@ -79,7 +79,7 @@
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
-        <systemColor name="systemBackgroundColor">
+        <systemColor name="secondarySystemGroupedBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
