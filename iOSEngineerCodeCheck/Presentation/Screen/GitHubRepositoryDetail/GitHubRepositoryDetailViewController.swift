@@ -18,13 +18,15 @@ final class GitHubRepositoryDetailViewController: VStackViewController, Storyboa
 
     static func build(
         headingViewController: GitHubRepositoryDetailHeadingViewController,
-        countViewController: GitHubRepositoryDetailCountViewController
+        countViewController: GitHubRepositoryDetailCountViewController,
+        readMeViewController: GitHubRepositoryDetailReadMeViewController
     ) -> Self {
         let viewController = initViewController()
 
         viewController.components = [
             headingViewController,
-            countViewController
+            countViewController,
+            readMeViewController
         ]
 
         return viewController
