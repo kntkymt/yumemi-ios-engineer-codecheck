@@ -18,7 +18,14 @@
                         <viewLayoutGuide key="safeArea" id="bP0-jS-f2J"/>
                         <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="rkc-v5-NPQ"/>
+                    <navigationItem key="navigationItem" id="rkc-v5-NPQ">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="square.and.arrow.up" catalog="system" id="LJf-zn-VgV">
+                            <connections>
+                                <action selector="shareButtonDidTap:" destination="gXW-1n-3Xg" id="qXj-P1-mwk"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ksf-Jz-nna" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -26,6 +33,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <systemColor name="systemGroupedBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

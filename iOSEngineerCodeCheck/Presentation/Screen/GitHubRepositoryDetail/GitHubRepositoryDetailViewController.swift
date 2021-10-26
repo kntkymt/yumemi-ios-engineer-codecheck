@@ -7,8 +7,9 @@
 //
 
 import Foundation
+import UIKit
 
-final class GitHubRepositoryDetailViewController: VStackViewController, Storyboardable {
+final class GitHubRepositoryDetailViewController: VStackViewController, Storyboardable, WebViewShowable {
 
     // MARK: - Property
 
@@ -43,4 +44,10 @@ final class GitHubRepositoryDetailViewController: VStackViewController, Storyboa
         title = gitHubRepository.name
     }
 
+    // MARK: - Action
+
+    @IBAction private func shareButtonDidTap(_ sender: Any) {
+        let activityViewController = UIActivityViewController(activityItems: [gitHubRepository.htmlUrl], applicationActivities: [])
+        present(activityViewController, animated: true)
+    }
 }
