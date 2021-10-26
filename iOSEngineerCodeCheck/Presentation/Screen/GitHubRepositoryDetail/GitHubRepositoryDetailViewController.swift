@@ -19,7 +19,7 @@ final class GitHubRepositoryDetailViewController: VStackViewController, Storyboa
 
     static func build(
         headingViewController: RepositoryDetailHeadingViewController,
-        countViewController: GitHubRepositoryDetailCountViewController,
+        countViewController: RepositoryDetailCountViewController,
         readMeViewController: GitHubRepositoryDetailReadMeViewController,
         gitHubRepository: GitHubRepository
     ) -> Self {

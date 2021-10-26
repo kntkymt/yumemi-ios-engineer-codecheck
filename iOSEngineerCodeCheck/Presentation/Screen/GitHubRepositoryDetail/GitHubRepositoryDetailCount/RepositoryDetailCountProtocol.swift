@@ -6,7 +6,7 @@
 //  Copyright © 2021 YUMEMI Inc. All rights reserved.
 //
 
-protocol GitHubRepositoryDetailCountView: AnyObject {
+protocol RepositoryDetailCountView: AnyObject {
 
     /// GitHubのリポジトリ詳細を表示する
     ///
@@ -15,5 +15,5 @@ protocol GitHubRepositoryDetailCountView: AnyObject {
     func showGitHubRepositoryDetailCount(gitHubRepository: GitHubRepository)
 }
 
-protocol GitHubRepositoryDetailCountPresentation: Presentation {
+protocol RepositoryDetailCountPresentation: Presentation {
 }

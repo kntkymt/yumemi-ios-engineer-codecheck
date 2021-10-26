@@ -8,17 +8,17 @@
 
 import Foundation
 
-final class GitHubRepositoryDetailCountPresenter: GitHubRepositoryDetailCountPresentation {
+final class RepositoryDetailCountPresenter: RepositoryDetailCountPresentation {
 
     // MARK: - Property
 
-    private weak var view: GitHubRepositoryDetailCountView?
+    private weak var view: RepositoryDetailCountView?
 
     private var gitHubRepository: GitHubRepository
 
     // MARK: - Initializer
 
-    init(view: GitHubRepositoryDetailCountView, gitHubRepository: GitHubRepository) {
+    init(view: RepositoryDetailCountView, gitHubRepository: GitHubRepository) {
         self.view = view
         self.gitHubRepository = gitHubRepository
     }

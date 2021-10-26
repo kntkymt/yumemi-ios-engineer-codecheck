@@ -69,10 +69,10 @@
 		E286694E2725F68B00833B6B /* UIView+Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E286694D2725F68B00833B6B /* UIView+Constraint.swift */; };
 		E28669512725F84500833B6B /* GitHubRepositoryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28669502725F84500833B6B /* GitHubRepositoryDetailViewController.swift */; };
 		E28669532725F92E00833B6B /* RepositoryDetailHeadingViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E28669522725F92E00833B6B /* RepositoryDetailHeadingViewController.storyboard */; };
-		E28669562725FE6200833B6B /* GitHubRepositoryDetailCountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28669552725FE6200833B6B /* GitHubRepositoryDetailCountViewController.swift */; };
-		E28669582725FEE400833B6B /* GitHubRepositoryDetailCountViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E28669572725FEE400833B6B /* GitHubRepositoryDetailCountViewController.storyboard */; };
-		E286695A2726030100833B6B /* GitHubRepositoryDetailCountProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28669592726030100833B6B /* GitHubRepositoryDetailCountProtocol.swift */; };
-		E286695C2726036A00833B6B /* GitHubRepositoryDetailCountPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E286695B2726036A00833B6B /* GitHubRepositoryDetailCountPresenter.swift */; };
+		E28669562725FE6200833B6B /* RepositoryDetailCountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28669552725FE6200833B6B /* RepositoryDetailCountViewController.swift */; };
+		E28669582725FEE400833B6B /* RepositoryDetailCountViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E28669572725FEE400833B6B /* RepositoryDetailCountViewController.storyboard */; };
+		E286695A2726030100833B6B /* RepositoryDetailCountProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28669592726030100833B6B /* RepositoryDetailCountProtocol.swift */; };
+		E286695C2726036A00833B6B /* RepositoryDetailCountPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E286695B2726036A00833B6B /* RepositoryDetailCountPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -158,10 +158,10 @@
 		E286694D2725F68B00833B6B /* UIView+Constraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraint.swift"; sourceTree = "<group>"; };
 		E28669502725F84500833B6B /* GitHubRepositoryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepositoryDetailViewController.swift; sourceTree = "<group>"; };
 		E28669522725F92E00833B6B /* RepositoryDetailHeadingViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RepositoryDetailHeadingViewController.storyboard; sourceTree = "<group>"; };
-		E28669552725FE6200833B6B /* GitHubRepositoryDetailCountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepositoryDetailCountViewController.swift; sourceTree = "<group>"; };
-		E28669572725FEE400833B6B /* GitHubRepositoryDetailCountViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GitHubRepositoryDetailCountViewController.storyboard; sourceTree = "<group>"; };
-		E28669592726030100833B6B /* GitHubRepositoryDetailCountProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepositoryDetailCountProtocol.swift; sourceTree = "<group>"; };
-		E286695B2726036A00833B6B /* GitHubRepositoryDetailCountPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepositoryDetailCountPresenter.swift; sourceTree = "<group>"; };
+		E28669552725FE6200833B6B /* RepositoryDetailCountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailCountViewController.swift; sourceTree = "<group>"; };
+		E28669572725FEE400833B6B /* RepositoryDetailCountViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RepositoryDetailCountViewController.storyboard; sourceTree = "<group>"; };
+		E28669592726030100833B6B /* RepositoryDetailCountProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailCountProtocol.swift; sourceTree = "<group>"; };
+		E286695B2726036A00833B6B /* RepositoryDetailCountPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailCountPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -499,10 +499,10 @@
 		E28669542725FDFE00833B6B /* GitHubRepositoryDetailCount */ = {
 			isa = PBXGroup;
 			children = (
-				E28669572725FEE400833B6B /* GitHubRepositoryDetailCountViewController.storyboard */,
-				E28669552725FE6200833B6B /* GitHubRepositoryDetailCountViewController.swift */,
-				E286695B2726036A00833B6B /* GitHubRepositoryDetailCountPresenter.swift */,
-				E28669592726030100833B6B /* GitHubRepositoryDetailCountProtocol.swift */,
+				E28669572725FEE400833B6B /* RepositoryDetailCountViewController.storyboard */,
+				E28669552725FE6200833B6B /* RepositoryDetailCountViewController.swift */,
+				E286695B2726036A00833B6B /* RepositoryDetailCountPresenter.swift */,
+				E28669592726030100833B6B /* RepositoryDetailCountProtocol.swift */,
 			);
 			path = GitHubRepositoryDetailCount;
 			sourceTree = "<group>";
@@ -629,7 +629,7 @@
 				BFD945E6244DC5E80012785A /* MainViewController.storyboard in Resources */,
 				E25070582724491600013FF1 /* RootViewController.storyboard in Resources */,
 				E250705F27244BED00013FF1 /* SplashViewController.storyboard in Resources */,
-				E28669582725FEE400833B6B /* GitHubRepositoryDetailCountViewController.storyboard in Resources */,
+				E28669582725FEE400833B6B /* RepositoryDetailCountViewController.storyboard in Resources */,
 				E27087BD2726894E00AE7223 /* GitHubRepositoryDetailReadMeViewController.storyboard in Resources */,
 				E27087CA27276B4600AE7223 /* mdbase.html in Resources */,
 				E27087C72727683100AE7223 /* github-markdown.css in Resources */,
@@ -673,7 +673,7 @@
 				E28669402724D80F00833B6B /* UIImageView+.swift in Sources */,
 				E27087CC2727893C00AE7223 /* GitHubRepositoryDetailReadMeProtocol.swift in Sources */,
 				E250707A27247A8A00013FF1 /* GitHubRepositoryRepository.swift in Sources */,
-				E286695A2726030100833B6B /* GitHubRepositoryDetailCountProtocol.swift in Sources */,
+				E286695A2726030100833B6B /* RepositoryDetailCountProtocol.swift in Sources */,
 				E250705D27244BE000013FF1 /* SplashViewController.swift in Sources */,
 				E250706F2724715800013FF1 /* AppConstant.swift in Sources */,
 				E250707F27247E1300013FF1 /* APIProviderFactory.swift in Sources */,
@@ -690,7 +690,7 @@
 				E250708627247EF500013FF1 /* URLRequest+.swift in Sources */,
 				E25070562724490A00013FF1 /* RootViewController.swift in Sources */,
 				E2507090272492B200013FF1 /* Presentation.swift in Sources */,
-				E28669562725FE6200833B6B /* GitHubRepositoryDetailCountViewController.swift in Sources */,
+				E28669562725FE6200833B6B /* RepositoryDetailCountViewController.swift in Sources */,
 				BFD945DF244DC5E80012785A /* AppDelegate.swift in Sources */,
 				E28669512725F84500833B6B /* GitHubRepositoryDetailViewController.swift in Sources */,
 				E27087D02727C9C500AE7223 /* GetGitHubRepositoryReadmeRequest.swift in Sources */,
@@ -701,7 +701,7 @@
 				E250706B27246FB100013FF1 /* AppError.swift in Sources */,
 				E250706D2724712100013FF1 /* APITargetType.swift in Sources */,
 				E28669352724D52E00833B6B /* RepositoryDetailProtocol.swift in Sources */,
-				E286695C2726036A00833B6B /* GitHubRepositoryDetailCountPresenter.swift in Sources */,
+				E286695C2726036A00833B6B /* RepositoryDetailCountPresenter.swift in Sources */,
 				E27087BB272688D500AE7223 /* GitHubRepositoryDetailReadMeViewController.swift in Sources */,
 				BFD945E1244DC5E80012785A /* SceneDelegate.swift in Sources */,
 				E250709627249C1500013FF1 /* RepositorySearchProtocol.swift in Sources */,

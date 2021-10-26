@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Git Hub Repository Detail Count View Controller-->
+        <!--Repository Detail Count View Controller-->
         <scene sceneID="Cvo-IU-Z9P">
             <objects>
-                <tableViewController id="sEQ-PD-AsO" customClass="GitHubRepositoryDetailCountViewController" customModule="iOSEngineerCodeCheck" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="sEQ-PD-AsO" customClass="RepositoryDetailCountViewController" customModule="iOSEngineerCodeCheck" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="20" estimatedSectionHeaderHeight="-1" sectionFooterHeight="20" estimatedSectionFooterHeight="-1" id="UNa-28-tnc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="262"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
