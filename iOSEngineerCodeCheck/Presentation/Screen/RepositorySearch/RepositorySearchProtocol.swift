@@ -1,12 +1,12 @@
 //
-//  GitHubRepositorySearchProtocol.swift
+//  RepositorySearchProtocol.swift
 //  iOSEngineerCodeCheck
 //
 //  Created by kntk on 2021/10/24.
 //  Copyright © 2021 YUMEMI Inc. All rights reserved.
 //
 
-protocol GitHubRepositorySearchView: AnyObject {
+protocol RepositorySearchView: AnyObject {
 
     /// TableViewをリロードする
     func tableViewReloadData()
@@ -18,7 +18,7 @@ protocol GitHubRepositorySearchView: AnyObject {
     func pushToDetailView(gitHubRepository: GitHubRepository)
 }
 
-protocol GitHubRepositorySearchPresentation: Presentation {
+protocol RepositorySearchPresentation: Presentation {
 
     /// GitHubのリポジトリの数
     var gitHubRepositoriesCount: Int { get }

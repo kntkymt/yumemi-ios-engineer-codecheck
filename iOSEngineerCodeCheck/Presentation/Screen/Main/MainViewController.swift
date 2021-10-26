@@ -21,8 +21,8 @@ final class MainViewController: UINavigationController, Storyboardable {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let viewController = GitHubRepositorySearchViewController.build()
-        viewController.presenter = GitHubRepositorySearchPresenter(view: viewController, gitHubRepositorySearchUsecase: AppContainer.shared.gitHubRepositorySearchUsecase)
+        let viewController = RepositorySearchViewController.build()
+        viewController.presenter = RepositorySearchPresenter(view: viewController, gitHubRepositorySearchUsecase: AppContainer.shared.gitHubRepositorySearchUsecase)
         setViewControllers([viewController], animated: false)
     }
 }

@@ -1,5 +1,5 @@
 //
-//  GitHubRepositorySearchViewController.swift
+//  RepositorySearchViewController.swift
 //  iOSEngineerCodeCheck
 //
 //  Created by 史 翔新 on 2020/04/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class GitHubRepositorySearchViewController: UITableViewController, Storyboardable {
+final class RepositorySearchViewController: UITableViewController, Storyboardable {
 
     // MARK: - Outlet
 
@@ -21,7 +21,7 @@ final class GitHubRepositorySearchViewController: UITableViewController, Storybo
 
     // MARK: - Property
 
-    var presenter: GitHubRepositorySearchPresentation!
+    var presenter: RepositorySearchPresentation!
 
     // MARK: - Build
 
@@ -73,9 +73,9 @@ final class GitHubRepositorySearchViewController: UITableViewController, Storybo
     }
 }
 
-// MARK: - GitHubRepositorySearchView
+// MARK: - RepositorySearchView
 
-extension GitHubRepositorySearchViewController: GitHubRepositorySearchView {
+extension RepositorySearchViewController: RepositorySearchView {
 
     func tableViewReloadData() {
         self.tableView.reloadData()
@@ -100,7 +100,7 @@ extension GitHubRepositorySearchViewController: GitHubRepositorySearchView {
 
 // MARK: - UISearchBarDelegate
 
-extension GitHubRepositorySearchViewController: UISearchBarDelegate {
+extension RepositorySearchViewController: UISearchBarDelegate {
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         presenter.searchBarSearchTextDidChange()
