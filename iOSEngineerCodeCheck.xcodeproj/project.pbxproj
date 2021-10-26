@@ -281,7 +281,7 @@
 				E250705B27244BA200013FF1 /* Splash */,
 				E25070502724471600013FF1 /* Main */,
 				E250704C272446B100013FF1 /* RepositorySearch */,
-				E250704D272446C300013FF1 /* GitHubRepositoryDetail */,
+				E250704D272446C300013FF1 /* RepositoryDetail */,
 			);
 			path = Screen;
 			sourceTree = "<group>";
@@ -315,16 +315,16 @@
 			path = RepositorySearch;
 			sourceTree = "<group>";
 		};
-		E250704D272446C300013FF1 /* GitHubRepositoryDetail */ = {
+		E250704D272446C300013FF1 /* RepositoryDetail */ = {
 			isa = PBXGroup;
 			children = (
 				E250706227244FC000013FF1 /* GitHubRepositoryDetailViewController.storyboard */,
 				E28669502725F84500833B6B /* GitHubRepositoryDetailViewController.swift */,
-				E286694F2725F75A00833B6B /* GitHubRepositoryDetailHeading */,
-				E28669542725FDFE00833B6B /* GitHubRepositoryDetailCount */,
-				E27087B92726887C00AE7223 /* GitHubRepositoryDetailReadMe */,
+				E286694F2725F75A00833B6B /* RepositoryDetailHeading */,
+				E28669542725FDFE00833B6B /* RepositoryDetailCount */,
+				E27087B92726887C00AE7223 /* RepositoryDetailReadMe */,
 			);
-			path = GitHubRepositoryDetail;
+			path = RepositoryDetail;
 			sourceTree = "<group>";
 		};
 		E250704E272446E600013FF1 /* Resource */ = {
@@ -447,7 +447,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		E27087B92726887C00AE7223 /* GitHubRepositoryDetailReadMe */ = {
+		E27087B92726887C00AE7223 /* RepositoryDetailReadMe */ = {
 			isa = PBXGroup;
 			children = (
 				E27087BC2726894E00AE7223 /* RepositoryDetailReadmeViewController.storyboard */,
@@ -455,7 +455,7 @@
 				E27087CD2727A09100AE7223 /* RepositoryDetailReadMePresenter.swift */,
 				E27087CB2727893C00AE7223 /* RepositoryDetailReadMeProtocol.swift */,
 			);
-			path = GitHubRepositoryDetailReadMe;
+			path = RepositoryDetailReadMe;
 			sourceTree = "<group>";
 		};
 		E27087C82727686300AE7223 /* Markdown */ = {
@@ -485,7 +485,7 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
-		E286694F2725F75A00833B6B /* GitHubRepositoryDetailHeading */ = {
+		E286694F2725F75A00833B6B /* RepositoryDetailHeading */ = {
 			isa = PBXGroup;
 			children = (
 				E28669522725F92E00833B6B /* RepositoryDetailHeadingViewController.storyboard */,
@@ -493,10 +493,10 @@
 				E28669362724D5E700833B6B /* RepositoryDetailPresenter.swift */,
 				E28669342724D52E00833B6B /* RepositoryDetailProtocol.swift */,
 			);
-			path = GitHubRepositoryDetailHeading;
+			path = RepositoryDetailHeading;
 			sourceTree = "<group>";
 		};
-		E28669542725FDFE00833B6B /* GitHubRepositoryDetailCount */ = {
+		E28669542725FDFE00833B6B /* RepositoryDetailCount */ = {
 			isa = PBXGroup;
 			children = (
 				E28669572725FEE400833B6B /* RepositoryDetailCountViewController.storyboard */,
@@ -504,7 +504,7 @@
 				E286695B2726036A00833B6B /* RepositoryDetailCountPresenter.swift */,
 				E28669592726030100833B6B /* RepositoryDetailCountProtocol.swift */,
 			);
-			path = GitHubRepositoryDetailCount;
+			path = RepositoryDetailCount;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
