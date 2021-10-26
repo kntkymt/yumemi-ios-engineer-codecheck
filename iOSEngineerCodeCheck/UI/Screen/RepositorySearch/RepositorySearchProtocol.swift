@@ -8,6 +8,9 @@
 
 protocol RepositorySearchView: AnyObject {
 
+    /// TableViewを最上部までスクロールする
+    func tableViewScrollToTop(animated: Bool)
+
     /// TableViewをリロードする
     func tableViewReloadData()
 
@@ -41,6 +44,9 @@ protocol RepositorySearchPresentation: Presentation {
     /// - parameters:
     ///     - searchText: 検索語
     func searchBarSearchButtonDidTap(searchText: String)
+
+    /// キャンセルボタンが押された
+    func searchBarCancelButtonDidTap()
 
     /// 検索文字が変更された
     func searchBarSearchTextDidChange()

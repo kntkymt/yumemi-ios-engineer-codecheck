@@ -10,18 +10,17 @@ import UIKit
 
 final class RepositorySearchViewController: UITableViewController, Storyboardable {
 
-    // MARK: - Outlet
-
-    @IBOutlet private weak var searchBar: UISearchBar! {
-        didSet {
-            searchBar.placeholder = "GitHubのリポジトリを検索できるよー"
-            searchBar.delegate = self
-        }
-    }
-
     // MARK: - Property
 
     var presenter: RepositorySearchPresentation!
+
+    private lazy var searchController: UISearchController = {
+        let searchController = UISearchController()
+        searchController.searchBar.delegate = self
+        searchController.searchBar.placeholder = "GitHubのリポジトリを検索"
+
+        return searchController
+    }()
 
     // MARK: - Build
 
@@ -36,12 +35,16 @@ final class RepositorySearchViewController: UITableViewController, Storyboardabl
 
         tableView.register(RepositoryTableViewCell.self)
         title = "検索"
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
         
         presenter.viewDidLoad()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+
+        navigationController?.navigationBar.prefersLargeTitles = true
 
         presenter.viewWillAppear()
     }
@@ -77,6 +80,12 @@ final class RepositorySearchViewController: UITableViewController, Storyboardabl
 
 extension RepositorySearchViewController: RepositorySearchView {
 
+    func tableViewScrollToTop(animated: Bool) {
+        if tableView.numberOfRows(inSection: 0) != 0 {
+            tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: animated)
+        }
+    }
+
     func tableViewReloadData() {
         self.tableView.reloadData()
     }
@@ -108,5 +117,9 @@ extension RepositorySearchViewController: UISearchBarDelegate {
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         presenter.searchBarSearchButtonDidTap(searchText: searchBar.text ?? "")
+    }
+
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        presenter.searchBarCancelButtonDidTap()
     }
 }
