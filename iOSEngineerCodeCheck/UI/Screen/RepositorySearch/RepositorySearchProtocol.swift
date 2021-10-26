@@ -8,6 +8,9 @@
 
 protocol RepositorySearchView: AnyObject {
 
+    /// TableViewを最上部までスクロールする
+    func tableViewScrollToTop(animated: Bool)
+
     /// TableViewをリロードする
     func tableViewReloadData()
 

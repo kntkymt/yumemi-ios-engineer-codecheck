@@ -62,6 +62,7 @@ final class RepositorySearchPresenter: RepositorySearchPresentation {
 
                 DispatchQueue.main.async { [weak self] in
                     self?.view?.tableViewReloadData()
+                    self?.view?.tableViewScrollToTop(animated: false)
                 }
             } catch {
                 Logger.error(error)
