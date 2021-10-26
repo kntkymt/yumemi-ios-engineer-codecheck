@@ -15,10 +15,13 @@ final class AppContainer {
     // MARK: - Property
 
     let gitHubRepositorySearchUsecase: GitHubReposiotySearchUsecase
+    let gitHubRepositoryDetailUsecase: GitHubRepositoryDetailUsecase
 
     // MARK: - Initializer
 
     private init() {
         self.gitHubRepositorySearchUsecase = SearchGitHubRepositoryUsecaseImpl(gitHubRepositoryRepository: GitHubRepositoryRepositoryImpl())
+
+        self.gitHubRepositoryDetailUsecase = GitHubRepositoryDetailUsecaseImpl(gitHubRepositoryReadmeRepository: GitHubRepositoryReadmeRepositoryImpl())
     }
 }
