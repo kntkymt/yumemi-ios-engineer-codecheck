@@ -10,14 +10,14 @@ import Foundation
 
 protocol GitHubRepositoryReadmeRepository {
 
-    func getGitHubRepositoryReadme(at repositoryName: String, in owner: String) async throws -> String
+    func getGitHubRepositoryReadme(repository: String, owner: String) async throws -> String
 }
 
 
 final class GitHubRepositoryReadmeRepositoryImpl: GitHubRepositoryReadmeRepository {
 
-    func getGitHubRepositoryReadme(at repositoryName: String, in owner: String) async throws -> String {
-        let base64Content = try await API.shared.call(GetGitHubRepositoryReadmeRequest(owner: owner, repository: repositoryName)).content
+    func getGitHubRepositoryReadme(repository: String, owner: String) async throws -> String {
+        let base64Content = try await API.shared.call(GetGitHubRepositoryReadmeRequest(owner: owner, repository: repository)).content
 
         guard let data = Data(base64Encoded: base64Content, options: .ignoreUnknownCharacters), let decodedContent = String(data: data, encoding: .utf8) else {
             throw APIError.base64Decode

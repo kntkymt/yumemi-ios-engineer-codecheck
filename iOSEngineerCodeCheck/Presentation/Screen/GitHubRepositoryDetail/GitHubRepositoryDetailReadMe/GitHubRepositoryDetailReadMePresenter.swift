@@ -92,7 +92,7 @@ final  class GitHubRepositoryDetailReadMePresenter: GitHubRepositoryDetailReadMe
     private func getReadme() {
         Task {
             do {
-                let readme = try await gitHubRepositoryDetailUsecase.getGitHubRepositoryReadme(at: gitHubRepository.name, in: gitHubRepository.owner.login)
+                let readme = try await gitHubRepositoryDetailUsecase.getGitHubRepositoryReadme(repository: gitHubRepository.name, owner: gitHubRepository.owner.login)
                 self.readme = readme
 
                 // 先にWebViewのsetupが終わっていた場合

@@ -9,7 +9,7 @@
 
 protocol GitHubRepositoryDetailUsecase {
 
-    func getGitHubRepositoryReadme(at repositoryName: String, in owner: String) async throws -> String
+    func getGitHubRepositoryReadme(repository: String, owner: String) async throws -> String
 }
 
 final class GitHubRepositoryDetailUsecaseImpl: GitHubRepositoryDetailUsecase {
@@ -26,7 +26,7 @@ final class GitHubRepositoryDetailUsecaseImpl: GitHubRepositoryDetailUsecase {
 
     // MARK: - Internal
 
-    func getGitHubRepositoryReadme(at repositoryName: String, in owner: String) async throws -> String {
-        return try await gitHubRepositoryReadmeRepository.getGitHubRepositoryReadme(at: repositoryName, in: owner)
+    func getGitHubRepositoryReadme(repository: String, owner: String) async throws -> String {
+        return try await gitHubRepositoryReadmeRepository.getGitHubRepositoryReadme(repository: repository, owner: owner)
     }
 }
