@@ -14,6 +14,8 @@ final class RepositorySearchPresenter: RepositorySearchPresentation {
 
     private weak var view: RepositorySearchView?
 
+    var showEmptyView = false
+
     var gitHubRepositoriesCount: Int {
         return gitHubRepositories.count
     }
@@ -63,6 +65,7 @@ final class RepositorySearchPresenter: RepositorySearchPresentation {
         searchTask = Task {
             do {
                 self.gitHubRepositories = try await gitHubRepositorySearchUsecase.searchGitHubRepositories(by: searchText)
+                showEmptyView = self.gitHubRepositories.isEmpty
 
                 DispatchQueue.main.async { [weak self] in
                     self?.view?.tableViewReloadData()
@@ -89,6 +92,7 @@ final class RepositorySearchPresenter: RepositorySearchPresentation {
         // 既に取得してある場合は使い回す
         if let initialGitHubRepositories = initialGitHubRepositories {
             gitHubRepositories = initialGitHubRepositories
+            showEmptyView = gitHubRepositories.isEmpty
             DispatchQueue.main.async { [weak self] in
                 self?.view?.tableViewReloadData()
                 self?.view?.tableViewScrollToTop(animated: false)
@@ -99,6 +103,7 @@ final class RepositorySearchPresenter: RepositorySearchPresentation {
                     let initialGitHubRepositories = try await gitHubRepositorySearchUsecase.getTrendingGitHubRepositories()
                     self.initialGitHubRepositories = initialGitHubRepositories
                     gitHubRepositories = initialGitHubRepositories
+                    showEmptyView = gitHubRepositories.isEmpty
 
                     DispatchQueue.main.async { [weak self] in
                         self?.view?.tableViewReloadData()

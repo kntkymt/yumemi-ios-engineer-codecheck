@@ -23,6 +23,9 @@ protocol RepositorySearchView: AnyObject {
 
 protocol RepositorySearchPresentation: Presentation {
 
+    /// EmptyViewを表示するかどうか
+    var showEmptyView: Bool { get }
+
     /// GitHubのリポジトリの数
     var gitHubRepositoriesCount: Int { get }
 

@@ -57,6 +57,8 @@
 		E27087D22727CB0100AE7223 /* GitHubRepositoryReadmeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27087D12727CB0100AE7223 /* GitHubRepositoryReadmeRepository.swift */; };
 		E27087D42727CDEE00AE7223 /* GitHubRepositoryDetailUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27087D32727CDEE00AE7223 /* GitHubRepositoryDetailUsecase.swift */; };
 		E27087D62727E7E000AE7223 /* WebViewShowable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27087D52727E7E000AE7223 /* WebViewShowable.swift */; };
+		E27087DA272847DD00AE7223 /* EmptyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27087D9272847DD00AE7223 /* EmptyViewController.swift */; };
+		E27087DD2728483600AE7223 /* EmptyViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E27087DC2728483600AE7223 /* EmptyViewController.storyboard */; };
 		E28669352724D52E00833B6B /* RepositoryDetailProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28669342724D52E00833B6B /* RepositoryDetailProtocol.swift */; };
 		E28669372724D5E700833B6B /* RepositoryDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28669362724D5E700833B6B /* RepositoryDetailPresenter.swift */; };
 		E286693D2724D7DF00833B6B /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = E286693C2724D7DF00833B6B /* Nuke */; };
@@ -147,6 +149,8 @@
 		E27087D12727CB0100AE7223 /* GitHubRepositoryReadmeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepositoryReadmeRepository.swift; sourceTree = "<group>"; };
 		E27087D32727CDEE00AE7223 /* GitHubRepositoryDetailUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepositoryDetailUsecase.swift; sourceTree = "<group>"; };
 		E27087D52727E7E000AE7223 /* WebViewShowable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewShowable.swift; sourceTree = "<group>"; };
+		E27087D9272847DD00AE7223 /* EmptyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyViewController.swift; sourceTree = "<group>"; };
+		E27087DC2728483600AE7223 /* EmptyViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EmptyViewController.storyboard; sourceTree = "<group>"; };
 		E28669342724D52E00833B6B /* RepositoryDetailProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailProtocol.swift; sourceTree = "<group>"; };
 		E28669362724D5E700833B6B /* RepositoryDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailPresenter.swift; sourceTree = "<group>"; };
 		E286693F2724D80F00833B6B /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
@@ -468,6 +472,15 @@
 			path = Markdown;
 			sourceTree = "<group>";
 		};
+		E27087DB2728482100AE7223 /* Empty */ = {
+			isa = PBXGroup;
+			children = (
+				E27087DC2728483600AE7223 /* EmptyViewController.storyboard */,
+				E27087D9272847DD00AE7223 /* EmptyViewController.swift */,
+			);
+			path = Empty;
+			sourceTree = "<group>";
+		};
 		E28669412725A5DC00833B6B /* Component */ = {
 			isa = PBXGroup;
 			children = (
@@ -480,6 +493,7 @@
 		E286694A2725F62600833B6B /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				E27087DB2728482100AE7223 /* Empty */,
 				E286694B2725F63E00833B6B /* VStackViewController.swift */,
 			);
 			path = Common;
@@ -633,6 +647,7 @@
 				E27087BD2726894E00AE7223 /* RepositoryDetailReadmeViewController.storyboard in Resources */,
 				E27087CA27276B4600AE7223 /* mdbase.html in Resources */,
 				E27087C72727683100AE7223 /* github-markdown.css in Resources */,
+				E27087DD2728483600AE7223 /* EmptyViewController.storyboard in Resources */,
 				E250706127244F3C00013FF1 /* RepositorySearchViewController.storyboard in Resources */,
 				E250706327244FC000013FF1 /* RepositoryDetailViewController.storyboard in Resources */,
 			);
@@ -677,6 +692,7 @@
 				E250705D27244BE000013FF1 /* SplashViewController.swift in Sources */,
 				E250706F2724715800013FF1 /* AppConstant.swift in Sources */,
 				E250707F27247E1300013FF1 /* APIProviderFactory.swift in Sources */,
+				E27087DA272847DD00AE7223 /* EmptyViewController.swift in Sources */,
 				E286694E2725F68B00833B6B /* UIView+Constraint.swift in Sources */,
 				E28669372724D5E700833B6B /* RepositoryDetailPresenter.swift in Sources */,
 				E25070942724961100013FF1 /* SplashPresenter.swift in Sources */,
