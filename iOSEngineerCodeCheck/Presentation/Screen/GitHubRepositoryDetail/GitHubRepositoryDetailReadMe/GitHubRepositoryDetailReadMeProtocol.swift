@@ -13,6 +13,9 @@ protocol GitHubRepositoryDetailReadMeView: AnyObject {
     /// - parameters:
     ///     - content: マークダウン形式のreadme
     func showReadme(_ content: String)
+
+    /// readmeViewControllerを隠す
+    func hideReadmeViewController()
 }
 
 protocol GitHubRepositoryDetailReadMePresentation: Presentation {

@@ -69,6 +69,10 @@ final class GitHubRepositoryDetailReadMeViewController: UIViewController, Storyb
 
 extension GitHubRepositoryDetailReadMeViewController: GitHubRepositoryDetailReadMeView {
 
+    func hideReadmeViewController() {
+        view.isHidden = true
+    }
+
     func showReadme(_ content: String) {
         // MEMO: multiline stringであるバッククオートを使うと
         // マークダウン内に含まれるバッククオート, JSの文字列展開である「${}」と競合するので

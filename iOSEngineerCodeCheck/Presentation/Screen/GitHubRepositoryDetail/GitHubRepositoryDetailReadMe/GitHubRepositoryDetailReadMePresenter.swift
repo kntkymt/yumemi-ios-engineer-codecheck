@@ -70,6 +70,15 @@ final  class GitHubRepositoryDetailReadMePresenter: GitHubRepositoryDetailReadMe
                         self?.view?.showReadme(readme)
                     }
                 }
+            } catch let apierror as APIError {
+                // 404の場合はReadmeが存在しないのでViewController自体を隠す
+                if case .statusCode(let statusError) = apierror, case .notfound = statusError {
+                    DispatchQueue.main.async { [weak self] in
+                        self?.view?.hideReadmeViewController()
+                    }
+                } else {
+                    Logger.error(apierror)
+                }
             } catch {
                 Logger.error(error)
             }
