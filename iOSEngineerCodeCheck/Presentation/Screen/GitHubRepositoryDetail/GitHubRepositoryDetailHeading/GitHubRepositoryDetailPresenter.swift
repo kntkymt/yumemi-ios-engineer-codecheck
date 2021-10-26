@@ -8,17 +8,17 @@
 
 import Foundation
 
-final class GitHubRepositoryDetailPresenter: GitHubRepositoryDetailPresentation {
+final class GitHubRepositoryDetailHeadingPresenter: GitHubRepositoryDetailHeadingPresentation {
 
     // MARK: - Property
 
-    private weak var view: GitHubRepositoryDetailView?
+    private weak var view: GitHubRepositoryDetailHeadingView?
 
     private let gitHubRepository: GitHubRepository
 
     // MARK: - Initializer
 
-    init(view: GitHubRepositoryDetailView, gitHubRepository: GitHubRepository) {
+    init(view: GitHubRepositoryDetailHeadingView, gitHubRepository: GitHubRepository) {
         self.view = view
         self.gitHubRepository = gitHubRepository
     }
@@ -28,7 +28,7 @@ final class GitHubRepositoryDetailPresenter: GitHubRepositoryDetailPresentation 
     func viewDidLoad() {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
-            self.view?.showGitHubRepositoryDetail(gitHubRepository: self.gitHubRepository)
+            self.view?.showGitHubRepositoryDetailHeading(gitHubRepository: self.gitHubRepository)
         }
     }
 

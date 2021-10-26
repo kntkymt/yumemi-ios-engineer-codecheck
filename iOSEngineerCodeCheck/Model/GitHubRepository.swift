@@ -6,10 +6,13 @@
 //  Copyright © 2021 YUMEMI Inc. All rights reserved.
 //
 
+import Foundation
+
 struct GitHubRepository: Codable {
 
     var fullName: String
     var name: String
+    var htmlUrl: URL
     var language: String?
     var description: String?
     var owner: User

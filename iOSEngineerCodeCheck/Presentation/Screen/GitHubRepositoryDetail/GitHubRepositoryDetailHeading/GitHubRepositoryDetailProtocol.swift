@@ -8,14 +8,14 @@
 
 import Foundation
 
-protocol GitHubRepositoryDetailView: AnyObject {
+protocol GitHubRepositoryDetailHeadingView: AnyObject {
 
     /// GitHubのリポジトリ詳細を表示する
     ///
     /// - parameters:
     ///     - gitHubRepository: GitHubのリポジトリ
-    func showGitHubRepositoryDetail(gitHubRepository: GitHubRepository)
+    func showGitHubRepositoryDetailHeading(gitHubRepository: GitHubRepository)
 }
 
-protocol GitHubRepositoryDetailPresentation: Presentation {
+protocol GitHubRepositoryDetailHeadingPresentation: Presentation {
 }

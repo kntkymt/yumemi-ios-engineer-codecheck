@@ -48,8 +48,14 @@ extension GitHubRepositoryTableViewCell: NibInstantiatable {
         iconImageView.load(dependency.owner.avatarUrl, contentMode: .scaleAspectFill)
         ownerNameLabel.text = dependency.owner.login
         repositoryNameLabel.text = dependency.name
-        repositoryDescriptionLabel.text = dependency.description
         starCountLabel.text = String.localizedStringWithFormat("%d", dependency.stargazersCount)
+
+        if let description = dependency.description {
+            repositoryDescriptionLabel.text = description
+        } else {
+            repositoryDescriptionLabel.isHidden = true
+        }
+
         if let language = dependency.language {
             languageIconImageView.isHidden = false
             languageLabel.text = language

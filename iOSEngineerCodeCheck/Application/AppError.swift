@@ -91,6 +91,9 @@ enum APIError: Error {
     /// レスポンスのパースに失敗した
     case decode(Error)
 
+    /// base64デコードに失敗した
+    case base64Decode
+
     var causeError: Error? {
         switch self {
         case .statusCode(let statusCodeError):
@@ -98,6 +101,9 @@ enum APIError: Error {
 
         case .decode(let error):
             return error
+
+        case .base64Decode:
+            return nil
 
         case .response(let error):
             return error

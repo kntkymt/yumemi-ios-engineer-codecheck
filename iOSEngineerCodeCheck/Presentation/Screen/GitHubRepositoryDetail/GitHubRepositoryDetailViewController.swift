@@ -1,79 +1,53 @@
 //
-//  RepositoryDetailViewController.swift
+//  GitHubRepositoryDetailViewController.swift
 //  iOSEngineerCodeCheck
 //
-//  Created by 史 翔新 on 2020/04/21.
-//  Copyright © 2020 YUMEMI Inc. All rights reserved.
+//  Created by kntk on 2021/10/25.
+//  Copyright © 2021 YUMEMI Inc. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
-final class GitHubRepositoryDetailViewController: UIViewController, Storyboardable {
-
-    // MARK: - Outlet
-    
-    @IBOutlet private weak var imageView: UIImageView!
-    
-    @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet private weak var languageLabel: UILabel!
-    
-    @IBOutlet private weak var starLabel: UILabel!
-    @IBOutlet private weak var watchersLabel: UILabel!
-    @IBOutlet private weak var forksLabel: UILabel!
-    @IBOutlet private weak var issuesLabel: UILabel!
+final class GitHubRepositoryDetailViewController: VStackViewController, Storyboardable, WebViewShowable {
 
     // MARK: - Property
 
-    var presenter: GitHubRepositoryDetailPresenter!
+    private var gitHubRepository: GitHubRepository!
 
     // MARK: - Build
 
-    static func build() -> Self {
-        return initViewController()
+    static func build(
+        headingViewController: GitHubRepositoryDetailHeadingViewController,
+        countViewController: GitHubRepositoryDetailCountViewController,
+        readMeViewController: GitHubRepositoryDetailReadMeViewController,
+        gitHubRepository: GitHubRepository
+    ) -> Self {
+        let viewController = initViewController()
+
+        viewController.components = [
+            headingViewController,
+            countViewController,
+            readMeViewController
+        ]
+
+        viewController.gitHubRepository = gitHubRepository
+
+        return viewController
     }
 
     // MARK: - Lifecycle
-        
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        presenter.viewDidLoad()
+        title = gitHubRepository.name
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    // MARK: - Action
 
-        presenter.viewWillAppear()
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-
-        presenter.viewDidAppear()
-    }
-
-    deinit {
-        presenter.viewDidStop()
-    }
-
-    // MARK: - Private
-
-    private func showDetail(gitHubRepository: GitHubRepository) {
-        titleLabel.text = gitHubRepository.fullName
-        languageLabel.text = "Written in \(gitHubRepository.language ?? "")"
-        starLabel.text = "\(gitHubRepository.stargazersCount) stars"
-        watchersLabel.text = "\(gitHubRepository.watchersCount) watchers"
-        forksLabel.text = "\(gitHubRepository.forksCount) forks"
-        issuesLabel.text = "\(gitHubRepository.openIssuesCount) open issues"
-        imageView.load(gitHubRepository.owner.avatarUrl)
-    }
-}
-
-// MARK: - GitHubRepositoryDetailView
-
-extension GitHubRepositoryDetailViewController: GitHubRepositoryDetailView {
-    
-    func showGitHubRepositoryDetail(gitHubRepository: GitHubRepository) {
-        showDetail(gitHubRepository: gitHubRepository)
+    @IBAction private func shareButtonDidTap(_ sender: Any) {
+        let activityViewController = UIActivityViewController(activityItems: [gitHubRepository.htmlUrl], applicationActivities: [])
+        present(activityViewController, animated: true)
     }
 }
