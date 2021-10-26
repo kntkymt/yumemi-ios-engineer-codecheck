@@ -1,5 +1,5 @@
 //
-//  GitHubRepositoryDetailReadMeViewController.swift
+//  RepositoryDetailReadmeViewController.swift
 //  iOSEngineerCodeCheck
 //
 //  Created by kntk on 2021/10/25.
@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import WebKit
 
-final class GitHubRepositoryDetailReadMeViewController: UIViewController, Storyboardable {
+final class RepositoryDetailReadmeViewController: UIViewController, Storyboardable {
 
     // MARK: - Outlet
 
@@ -48,7 +48,7 @@ final class GitHubRepositoryDetailReadMeViewController: UIViewController, Storyb
 
     // MARK: - Property
 
-    var presenter: GitHubRepositoryDetailReadMePresentation!
+    var presenter: RepositoryDetailReadmePresentation!
 
     // MARK: - Build
 
@@ -57,9 +57,9 @@ final class GitHubRepositoryDetailReadMeViewController: UIViewController, Storyb
     }
 }
 
-// MARK: - GitHubRepositoryDetailReadMeView
+// MARK: - GitHubRepositoryDetailReadmeView
 
-extension GitHubRepositoryDetailReadMeViewController: GitHubRepositoryDetailReadMeView {
+extension RepositoryDetailReadmeViewController: RepositoryDetailReadmeView {
     func evaluateJavaScriptToWebView(javaScript: String) {
         webView.evaluateJavaScript(javaScript) { [weak self] _, error in
             guard let self = self else { return }
@@ -88,7 +88,7 @@ extension GitHubRepositoryDetailReadMeViewController: GitHubRepositoryDetailRead
 
 // MARK: - WKNavigationDelegate
 
-extension GitHubRepositoryDetailReadMeViewController: WKNavigationDelegate {
+extension RepositoryDetailReadmeViewController: WKNavigationDelegate {
 
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         presenter.webViewDidFinishSetup()

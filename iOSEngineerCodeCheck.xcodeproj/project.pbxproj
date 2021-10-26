@@ -46,13 +46,13 @@
 		E250709627249C1500013FF1 /* RepositorySearchProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E250709527249C1500013FF1 /* RepositorySearchProtocol.swift */; };
 		E250709827249DE700013FF1 /* RepositorySearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E250709727249DE700013FF1 /* RepositorySearchPresenter.swift */; };
 		E250709A2724A8AC00013FF1 /* AppContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25070992724A8AC00013FF1 /* AppContainer.swift */; };
-		E27087BB272688D500AE7223 /* GitHubRepositoryDetailReadMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27087BA272688D500AE7223 /* GitHubRepositoryDetailReadMeViewController.swift */; };
-		E27087BD2726894E00AE7223 /* GitHubRepositoryDetailReadMeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E27087BC2726894E00AE7223 /* GitHubRepositoryDetailReadMeViewController.storyboard */; };
+		E27087BB272688D500AE7223 /* RepositoryDetailReadmeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27087BA272688D500AE7223 /* RepositoryDetailReadmeViewController.swift */; };
+		E27087BD2726894E00AE7223 /* RepositoryDetailReadmeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E27087BC2726894E00AE7223 /* RepositoryDetailReadmeViewController.storyboard */; };
 		E27087C52727682C00AE7223 /* marked.js in Resources */ = {isa = PBXBuildFile; fileRef = E27087C42727682C00AE7223 /* marked.js */; };
 		E27087C72727683100AE7223 /* github-markdown.css in Resources */ = {isa = PBXBuildFile; fileRef = E27087C62727683100AE7223 /* github-markdown.css */; };
 		E27087CA27276B4600AE7223 /* mdbase.html in Resources */ = {isa = PBXBuildFile; fileRef = E27087C92727697B00AE7223 /* mdbase.html */; };
-		E27087CC2727893C00AE7223 /* GitHubRepositoryDetailReadMeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27087CB2727893C00AE7223 /* GitHubRepositoryDetailReadMeProtocol.swift */; };
-		E27087CE2727A09100AE7223 /* GitHubRepositoryDetailReadMePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27087CD2727A09100AE7223 /* GitHubRepositoryDetailReadMePresenter.swift */; };
+		E27087CC2727893C00AE7223 /* RepositoryDetailReadMeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27087CB2727893C00AE7223 /* RepositoryDetailReadMeProtocol.swift */; };
+		E27087CE2727A09100AE7223 /* RepositoryDetailReadMePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27087CD2727A09100AE7223 /* RepositoryDetailReadMePresenter.swift */; };
 		E27087D02727C9C500AE7223 /* GetGitHubRepositoryReadmeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27087CF2727C9C500AE7223 /* GetGitHubRepositoryReadmeRequest.swift */; };
 		E27087D22727CB0100AE7223 /* GitHubRepositoryReadmeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27087D12727CB0100AE7223 /* GitHubRepositoryReadmeRepository.swift */; };
 		E27087D42727CDEE00AE7223 /* GitHubRepositoryDetailUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27087D32727CDEE00AE7223 /* GitHubRepositoryDetailUsecase.swift */; };
@@ -136,13 +136,13 @@
 		E250709527249C1500013FF1 /* RepositorySearchProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositorySearchProtocol.swift; sourceTree = "<group>"; };
 		E250709727249DE700013FF1 /* RepositorySearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositorySearchPresenter.swift; sourceTree = "<group>"; };
 		E25070992724A8AC00013FF1 /* AppContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppContainer.swift; sourceTree = "<group>"; };
-		E27087BA272688D500AE7223 /* GitHubRepositoryDetailReadMeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepositoryDetailReadMeViewController.swift; sourceTree = "<group>"; };
-		E27087BC2726894E00AE7223 /* GitHubRepositoryDetailReadMeViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GitHubRepositoryDetailReadMeViewController.storyboard; sourceTree = "<group>"; };
+		E27087BA272688D500AE7223 /* RepositoryDetailReadmeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailReadmeViewController.swift; sourceTree = "<group>"; };
+		E27087BC2726894E00AE7223 /* RepositoryDetailReadmeViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RepositoryDetailReadmeViewController.storyboard; sourceTree = "<group>"; };
 		E27087C42727682C00AE7223 /* marked.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = marked.js; sourceTree = "<group>"; };
 		E27087C62727683100AE7223 /* github-markdown.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = "github-markdown.css"; sourceTree = "<group>"; };
 		E27087C92727697B00AE7223 /* mdbase.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = mdbase.html; sourceTree = "<group>"; };
-		E27087CB2727893C00AE7223 /* GitHubRepositoryDetailReadMeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepositoryDetailReadMeProtocol.swift; sourceTree = "<group>"; };
-		E27087CD2727A09100AE7223 /* GitHubRepositoryDetailReadMePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepositoryDetailReadMePresenter.swift; sourceTree = "<group>"; };
+		E27087CB2727893C00AE7223 /* RepositoryDetailReadMeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailReadMeProtocol.swift; sourceTree = "<group>"; };
+		E27087CD2727A09100AE7223 /* RepositoryDetailReadMePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailReadMePresenter.swift; sourceTree = "<group>"; };
 		E27087CF2727C9C500AE7223 /* GetGitHubRepositoryReadmeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetGitHubRepositoryReadmeRequest.swift; sourceTree = "<group>"; };
 		E27087D12727CB0100AE7223 /* GitHubRepositoryReadmeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepositoryReadmeRepository.swift; sourceTree = "<group>"; };
 		E27087D32727CDEE00AE7223 /* GitHubRepositoryDetailUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepositoryDetailUsecase.swift; sourceTree = "<group>"; };
@@ -450,10 +450,10 @@
 		E27087B92726887C00AE7223 /* GitHubRepositoryDetailReadMe */ = {
 			isa = PBXGroup;
 			children = (
-				E27087BC2726894E00AE7223 /* GitHubRepositoryDetailReadMeViewController.storyboard */,
-				E27087BA272688D500AE7223 /* GitHubRepositoryDetailReadMeViewController.swift */,
-				E27087CD2727A09100AE7223 /* GitHubRepositoryDetailReadMePresenter.swift */,
-				E27087CB2727893C00AE7223 /* GitHubRepositoryDetailReadMeProtocol.swift */,
+				E27087BC2726894E00AE7223 /* RepositoryDetailReadmeViewController.storyboard */,
+				E27087BA272688D500AE7223 /* RepositoryDetailReadmeViewController.swift */,
+				E27087CD2727A09100AE7223 /* RepositoryDetailReadMePresenter.swift */,
+				E27087CB2727893C00AE7223 /* RepositoryDetailReadMeProtocol.swift */,
 			);
 			path = GitHubRepositoryDetailReadMe;
 			sourceTree = "<group>";
@@ -630,7 +630,7 @@
 				E25070582724491600013FF1 /* RootViewController.storyboard in Resources */,
 				E250705F27244BED00013FF1 /* SplashViewController.storyboard in Resources */,
 				E28669582725FEE400833B6B /* RepositoryDetailCountViewController.storyboard in Resources */,
-				E27087BD2726894E00AE7223 /* GitHubRepositoryDetailReadMeViewController.storyboard in Resources */,
+				E27087BD2726894E00AE7223 /* RepositoryDetailReadmeViewController.storyboard in Resources */,
 				E27087CA27276B4600AE7223 /* mdbase.html in Resources */,
 				E27087C72727683100AE7223 /* github-markdown.css in Resources */,
 				E250706127244F3C00013FF1 /* RepositorySearchViewController.storyboard in Resources */,
@@ -671,7 +671,7 @@
 				E250708227247E8800013FF1 /* LoggerPlugin.swift in Sources */,
 				E25070772724775F00013FF1 /* User.swift in Sources */,
 				E28669402724D80F00833B6B /* UIImageView+.swift in Sources */,
-				E27087CC2727893C00AE7223 /* GitHubRepositoryDetailReadMeProtocol.swift in Sources */,
+				E27087CC2727893C00AE7223 /* RepositoryDetailReadMeProtocol.swift in Sources */,
 				E250707A27247A8A00013FF1 /* GitHubRepositoryRepository.swift in Sources */,
 				E286695A2726030100833B6B /* RepositoryDetailCountProtocol.swift in Sources */,
 				E250705D27244BE000013FF1 /* SplashViewController.swift in Sources */,
@@ -694,7 +694,7 @@
 				BFD945DF244DC5E80012785A /* AppDelegate.swift in Sources */,
 				E28669512725F84500833B6B /* GitHubRepositoryDetailViewController.swift in Sources */,
 				E27087D02727C9C500AE7223 /* GetGitHubRepositoryReadmeRequest.swift in Sources */,
-				E27087CE2727A09100AE7223 /* GitHubRepositoryDetailReadMePresenter.swift in Sources */,
+				E27087CE2727A09100AE7223 /* RepositoryDetailReadMePresenter.swift in Sources */,
 				E250707D27247BD200013FF1 /* GitHubRepositorySearchUsecase.swift in Sources */,
 				E25070522724476C00013FF1 /* Storyboardable.swift in Sources */,
 				E2507092272494BA00013FF1 /* SplashProtocol.swift in Sources */,
@@ -702,7 +702,7 @@
 				E250706D2724712100013FF1 /* APITargetType.swift in Sources */,
 				E28669352724D52E00833B6B /* RepositoryDetailProtocol.swift in Sources */,
 				E286695C2726036A00833B6B /* RepositoryDetailCountPresenter.swift in Sources */,
-				E27087BB272688D500AE7223 /* GitHubRepositoryDetailReadMeViewController.swift in Sources */,
+				E27087BB272688D500AE7223 /* RepositoryDetailReadmeViewController.swift in Sources */,
 				BFD945E1244DC5E80012785A /* SceneDelegate.swift in Sources */,
 				E250709627249C1500013FF1 /* RepositorySearchProtocol.swift in Sources */,
 				E250705A2724497E00013FF1 /* MainViewController.swift in Sources */,

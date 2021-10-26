@@ -88,8 +88,8 @@ extension RepositorySearchViewController: RepositorySearchView {
         let detailCountViewController = RepositoryDetailCountViewController.build()
         detailCountViewController.presenter = RepositoryDetailCountPresenter(view: detailCountViewController, gitHubRepository: gitHubRepository)
 
-        let detailReadMeViewController = GitHubRepositoryDetailReadMeViewController.build()
-        detailReadMeViewController.presenter = GitHubRepositoryDetailReadMePresenter(view: detailReadMeViewController, gitHubRepositoryDetailUsecase: AppContainer.shared.gitHubRepositoryDetailUsecase, gitHubRepository: gitHubRepository)
+        let detailReadMeViewController = RepositoryDetailReadmeViewController.build()
+        detailReadMeViewController.presenter = RepositoryDetailReadMePresenter(view: detailReadMeViewController, gitHubRepositoryDetailUsecase: AppContainer.shared.gitHubRepositoryDetailUsecase, gitHubRepository: gitHubRepository)
         
         let detailViewController = GitHubRepositoryDetailViewController.build(headingViewController: detailHeadingViewController,
                                                                               countViewController: detailCountViewController,
