@@ -54,23 +54,15 @@ final  class RepositoryDetailReadMePresenter: RepositoryDetailReadmePresentation
         webViewSetuped = true
 
         // 先にreadmeを取得できていた場合
-        if let readme = readme {
-            DispatchQueue.main.async { [weak self] in
-                guard let self = self else { return }
-                // MEMO: multiline stringであるバッククオートを使うと
-                // マークダウン内に含まれるバッククオート, JSの文字列展開である「${}」と競合するので
-                // マークダウン内のバッククオート, $をエスケープする
-                let escapedContent = readme
-                    .replacingOccurrences(of: "`", with: "\\`")
-                    .replacingOccurrences(of: "$", with: "\\$")
-                let javaScript = "insert(`\(escapedContent)`);"
-
-                self.view?.evaluateJavaScriptToWebView(javaScript: javaScript)
-            }
+        if readme != nil {
+            evaluateJavaScriptToWebView()
         }
     }
 
     func webViewDidFailEvaluateJavaScript(with error: Error) {
+        DispatchQueue.main.async { [weak self] in
+            self?.view?.showErrorView()
+        }
         Logger.error(error)
         handle(error)
     }
@@ -92,6 +84,14 @@ final  class RepositoryDetailReadMePresenter: RepositoryDetailReadmePresentation
         return false
     }
 
+    func errorViewRefreshButtonDidTap() {
+        if readme == nil {
+            getReadme()
+        } else {
+            evaluateJavaScriptToWebView()
+        }
+    }
+
     // MARK: - Private
 
     private func getReadme() {
@@ -102,17 +102,7 @@ final  class RepositoryDetailReadMePresenter: RepositoryDetailReadmePresentation
 
                 // 先にWebViewのsetupが終わっていた場合
                 if webViewSetuped {
-                    DispatchQueue.main.async { [weak self] in
-                        // MEMO: multiline stringであるバッククオートを使うと
-                        // マークダウン内に含まれるバッククオート, JSの文字列展開である「${}」と競合するので
-                        // マークダウン内のバッククオート, $をエスケープする
-                        let escapedContent = readme
-                            .replacingOccurrences(of: "`", with: "\\`")
-                            .replacingOccurrences(of: "$", with: "\\$")
-                        let javaScript = "insert(`\(escapedContent)`);"
-
-                        self?.view?.evaluateJavaScriptToWebView(javaScript: javaScript)
-                    }
+                    evaluateJavaScriptToWebView()
                 }
             } catch let apierror as APIError {
                 // 404の場合はReadmeが存在しないのでViewController自体を隠す
@@ -121,13 +111,37 @@ final  class RepositoryDetailReadMePresenter: RepositoryDetailReadmePresentation
                         self?.view?.hideReadmeViewController()
                     }
                 } else {
+                    DispatchQueue.main.async { [weak self] in
+                        self?.view?.showErrorView()
+                    }
                     Logger.error(apierror)
                     handle(apierror)
                 }
             } catch {
+                DispatchQueue.main.async { [weak self] in
+                    self?.view?.showErrorView()
+                }
                 Logger.error(error)
                 handle(error)
             }
+        }
+    }
+
+    private func evaluateJavaScriptToWebView() {
+        guard let readme = readme else { return }
+
+        DispatchQueue.main.async { [weak self] in
+            self?.view?.hideErrorView()
+
+            // MEMO: multiline stringであるバッククオートを使うと
+            // マークダウン内に含まれるバッククオート, JSの文字列展開である「${}」と競合するので
+            // マークダウン内のバッククオート, $をエスケープする
+            let escapedContent = readme
+                .replacingOccurrences(of: "`", with: "\\`")
+                .replacingOccurrences(of: "$", with: "\\$")
+            let javaScript = "insert(`\(escapedContent)`);"
+
+            self?.view?.evaluateJavaScriptToWebView(javaScript: javaScript)
         }
     }
 

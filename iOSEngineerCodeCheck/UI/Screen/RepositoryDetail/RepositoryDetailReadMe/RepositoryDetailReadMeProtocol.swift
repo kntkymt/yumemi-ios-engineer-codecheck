@@ -23,6 +23,12 @@ protocol RepositoryDetailReadmeView: AnyObject, WebViewShowable, BannerShowable 
 
     /// readmeViewControllerを隠す
     func hideReadmeViewController()
+
+    /// ErrorViewを表示する
+    func showErrorView()
+
+    /// ErrorViewを非表示にする
+    func hideErrorView()
 }
 
 protocol RepositoryDetailReadmePresentation: Presentation {
@@ -39,5 +45,8 @@ protocol RepositoryDetailReadmePresentation: Presentation {
     ///     - url: 読み込みURL
     /// - returns: 読み込みをして良いかどうか
     func webViewCanNavigate(to url: URL) -> Bool
+
+    /// ErroViewのリフレッシュボタンが押された
+    func errorViewRefreshButtonDidTap()
 }
 
