@@ -52,12 +52,15 @@ protocol RepositorySearchPresentation: Presentation {
     ///
     /// - parameters:
     ///     - searchText: 検索語
-    func searchBarSearchButtonDidTap(searchText: String)
+    func searchBarSearchButtonDidTap()
 
     /// キャンセルボタンが押された
     func searchBarCancelButtonDidTap()
 
     /// 検索文字が変更された
-    func searchBarSearchTextDidChange()
+    func searchBarSearchTextDidChange(searchText: String)
+
+    /// ErroViewのリフレッシュボタンが押された
+    func errorViewRefreshButtonDidTap()
 }
 

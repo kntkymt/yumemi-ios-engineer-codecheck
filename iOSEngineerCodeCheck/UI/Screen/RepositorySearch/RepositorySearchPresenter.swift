@@ -26,6 +26,8 @@ final class RepositorySearchPresenter: RepositorySearchPresentation {
     // 非検索状態で表示される「おすすめ」的な立ち位置のリポジトリ一覧
     private var initialGitHubRepositories: [GitHubRepository]?
 
+    private var searchText = ""
+
     private var searchTask: Task<Void, Error>?
 
     // MARK: - Initializer
@@ -61,7 +63,7 @@ final class RepositorySearchPresenter: RepositorySearchPresentation {
         }
     }
 
-    func searchBarSearchButtonDidTap(searchText: String) {
+    func searchBarSearchButtonDidTap() {
         DispatchQueue.main.async { [weak self] in
             self?.view?.showTableViewLoading()
         }
@@ -92,7 +94,8 @@ final class RepositorySearchPresenter: RepositorySearchPresentation {
         setInitialGitHubRepositories()
     }
 
-    func searchBarSearchTextDidChange() {
+    func searchBarSearchTextDidChange(searchText: String) {
+        self.searchText = searchText
         searchTask?.cancel()
         DispatchQueue.main.async { [weak self] in
             self?.view?.hideTableViewLoading()

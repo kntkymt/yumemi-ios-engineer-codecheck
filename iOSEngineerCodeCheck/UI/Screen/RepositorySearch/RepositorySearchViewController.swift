@@ -130,11 +130,11 @@ extension RepositorySearchViewController: RepositorySearchView {
 extension RepositorySearchViewController: UISearchBarDelegate {
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        presenter.searchBarSearchTextDidChange()
+        presenter.searchBarSearchTextDidChange(searchText: searchText)
     }
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        presenter.searchBarSearchButtonDidTap(searchText: searchBar.text ?? "")
+        presenter.searchBarSearchButtonDidTap()
     }
 
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
