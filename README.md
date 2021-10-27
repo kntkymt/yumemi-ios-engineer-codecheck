@@ -14,8 +14,8 @@
 - iPhoneのみ, 画面回転非対応
 
 | 検索ホーム | 検索 | 詳細1 | 詳細2 |
-| ------ | ------ | ------ | -----
-| ![](./README_images/Home.png) | ![](./README_images/Search.png)  | ![](./README_images/Detail.png) |![](./README_images/Detail_Readme.png)  |
+| ------ | ------ | ------ | ------ |
+| ![](README_Images/Home.png) | ![](README_Images/Search.png)  | ![](README_Images/Detail.png) |![](README_Images/Detail_Readme.png)  |
 
 ### 検索ホーム
 - アプリを開いた直後の画面
@@ -44,7 +44,7 @@
 
 |  |  | |
 | ------ | ------ | ------- |
-| ![](./README_images/DarkMode.png) | ![](./README_images/Loading.png) | ![](./README_images/Error.png) |
+| ![](README_Images/DarkMode.png) | ![](README_Images/Loading.png) | ![](README_Images/Error.png) |
 
 ## セットアップ方法
 
@@ -60,7 +60,7 @@
     - `View`, `Presenter`の両方ともprocotolを介して抽象に依存する
 - レイアウトは主に`StoryBoard`を利用, 1`StoryBoard`-1`ViewController`方式を採用
     - segueの遷移よりコードでの遷移の方がハンドリングしやすいと考えたため
-    - 1つの`StotryBoard`で複数画面を管理するのは複数ブランチでの同時作業をしたい場合に非効率
+    - 1つの`StotryBoard`で複数画面を管理するのは複数ブランチでの同時作業をしたい場合に非効率だと考えたため
 - [MicroViewController](https://fortee.jp/iosdc-japan-2018/proposal/ef7c210d-d4dc-4a91-9601-e9d1edba441a)を利用して詳細画面等の機能が多い画面でもViewControllerを細かく分割して記述
 - Data, Model層は`Clean-Architecture`を考え方を採用
     - `Repository`: データの関連ごとにまとめて`Data`層からデータを取得・処理する
@@ -68,13 +68,16 @@
 
 細かいクラスの設計については以下のPRの説明欄をご覧ください。
 
-#4 #5 #6
+- [アーキテクチャを適用/プロジェクト構成・Presentation層修正](https://github.com/kntkymt/yumemi-ios-engineer-codecheck/pull/4)
+- [アーキテクチャを適用/APIの処理をするDomain・Data層を作成する](https://github.com/kntkymt/yumemi-ios-engineer-codecheck/pull/5)
+- [アーキテクチャを適用/Presentation層をMVPにする](https://github.com/kntkymt/yumemi-ios-engineer-codecheck/pull/6)
 
 ### テスト
 
 以下のPRの説明欄をご覧ください。
 
-#18 #17
+- [テストを追加/API・Repository・Usecaseの単体テスト,結合テスト](https://github.com/kntkymt/yumemi-ios-engineer-codecheck/pull/17)
+- [テストを追加/UIテストを追加する](https://github.com/kntkymt/yumemi-ios-engineer-codecheck/pull/18)
 
 ## 課題について
 
