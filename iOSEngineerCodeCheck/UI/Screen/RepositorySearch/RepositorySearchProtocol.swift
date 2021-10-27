@@ -6,7 +6,7 @@
 //  Copyright © 2021 YUMEMI Inc. All rights reserved.
 //
 
-protocol RepositorySearchView: AnyObject {
+protocol RepositorySearchView: AnyObject, BannerShowable {
 
     /// TablewViewのロード表示をする
     func showTableViewLoading()
