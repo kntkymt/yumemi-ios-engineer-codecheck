@@ -7,6 +7,7 @@
 //
 
 import Moya
+import Foundation
 
 enum GitHubRepositorySortKind {
     case stars
@@ -44,7 +45,7 @@ extension SearchGitHubRepositoryRequest: APITargetType {
         return "/search/repositories"
     }
 
-    var method: Method {
+    var method: Moya.Method {
         return .get
     }
 
@@ -58,5 +59,10 @@ extension SearchGitHubRepositoryRequest: APITargetType {
         }
 
         return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
+    }
+
+    var sampleData: Data {
+        let path = Bundle.main.path(forResource: "SearchGitHubRepositoryRequestStub", ofType: "json")!
+        return FileHandle(forReadingAtPath: path)!.readDataToEndOfFile()
     }
 }
