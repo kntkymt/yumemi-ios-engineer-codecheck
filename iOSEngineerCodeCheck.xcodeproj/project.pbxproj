@@ -62,6 +62,8 @@
 		E271715E2728C05D00E3C1ED /* UIView+LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E271715D2728C05D00E3C1ED /* UIView+LoadingIndicator.swift */; };
 		E27171602728E93600E3C1ED /* ispinner.css in Resources */ = {isa = PBXBuildFile; fileRef = E271715F2728E93600E3C1ED /* ispinner.css */; };
 		E27171632728F7E800E3C1ED /* SwiftEntryKit in Frameworks */ = {isa = PBXBuildFile; productRef = E27171622728F7E800E3C1ED /* SwiftEntryKit */; };
+		E27171652728F84000E3C1ED /* MessageBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27171642728F84000E3C1ED /* MessageBanner.swift */; };
+		E27171672728F8B600E3C1ED /* BannerShowable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27171662728F8B600E3C1ED /* BannerShowable.swift */; };
 		E28669352724D52E00833B6B /* RepositoryDetailProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28669342724D52E00833B6B /* RepositoryDetailProtocol.swift */; };
 		E28669372724D5E700833B6B /* RepositoryDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28669362724D5E700833B6B /* RepositoryDetailPresenter.swift */; };
 		E286693D2724D7DF00833B6B /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = E286693C2724D7DF00833B6B /* Nuke */; };
@@ -156,6 +158,8 @@
 		E27087DC2728483600AE7223 /* EmptyViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EmptyViewController.storyboard; sourceTree = "<group>"; };
 		E271715D2728C05D00E3C1ED /* UIView+LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+LoadingIndicator.swift"; sourceTree = "<group>"; };
 		E271715F2728E93600E3C1ED /* ispinner.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = ispinner.css; sourceTree = "<group>"; };
+		E27171642728F84000E3C1ED /* MessageBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageBanner.swift; sourceTree = "<group>"; };
+		E27171662728F8B600E3C1ED /* BannerShowable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerShowable.swift; sourceTree = "<group>"; };
 		E28669342724D52E00833B6B /* RepositoryDetailProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailProtocol.swift; sourceTree = "<group>"; };
 		E28669362724D5E700833B6B /* RepositoryDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailPresenter.swift; sourceTree = "<group>"; };
 		E286693F2724D80F00833B6B /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
@@ -263,6 +267,7 @@
 				E25070512724476C00013FF1 /* Storyboardable.swift */,
 				E28669462725AE3200833B6B /* NibInstantiatable.swift */,
 				E27087D52727E7E000AE7223 /* WebViewShowable.swift */,
+				E27171662728F8B600E3C1ED /* BannerShowable.swift */,
 				E250708F272492B200013FF1 /* Presentation.swift */,
 				E286694A2725F62600833B6B /* Common */,
 				E25070492724467500013FF1 /* Screen */,
@@ -503,6 +508,7 @@
 			children = (
 				E27087DB2728482100AE7223 /* Empty */,
 				E286694B2725F63E00833B6B /* VStackViewController.swift */,
+				E27171642728F84000E3C1ED /* MessageBanner.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -693,6 +699,7 @@
 				E28669442725A64900833B6B /* RepositoryTableViewCell.swift in Sources */,
 				E250709827249DE700013FF1 /* RepositorySearchPresenter.swift in Sources */,
 				E28669472725AE3200833B6B /* NibInstantiatable.swift in Sources */,
+				E27171672728F8B600E3C1ED /* BannerShowable.swift in Sources */,
 				BF0A658D244F2A3B00280FA6 /* RepositoryDetailHeadingViewController.swift in Sources */,
 				E250708227247E8800013FF1 /* LoggerPlugin.swift in Sources */,
 				E25070772724775F00013FF1 /* User.swift in Sources */,
@@ -734,6 +741,7 @@
 				BFD945E1244DC5E80012785A /* SceneDelegate.swift in Sources */,
 				E250709627249C1500013FF1 /* RepositorySearchProtocol.swift in Sources */,
 				E250705A2724497E00013FF1 /* MainViewController.swift in Sources */,
+				E27171652728F84000E3C1ED /* MessageBanner.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
