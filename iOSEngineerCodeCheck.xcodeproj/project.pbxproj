@@ -60,6 +60,7 @@
 		E27087DA272847DD00AE7223 /* EmptyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27087D9272847DD00AE7223 /* EmptyViewController.swift */; };
 		E27087DD2728483600AE7223 /* EmptyViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E27087DC2728483600AE7223 /* EmptyViewController.storyboard */; };
 		E271715E2728C05D00E3C1ED /* UIView+LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E271715D2728C05D00E3C1ED /* UIView+LoadingIndicator.swift */; };
+		E27171602728E93600E3C1ED /* ispinner.css in Resources */ = {isa = PBXBuildFile; fileRef = E271715F2728E93600E3C1ED /* ispinner.css */; };
 		E28669352724D52E00833B6B /* RepositoryDetailProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28669342724D52E00833B6B /* RepositoryDetailProtocol.swift */; };
 		E28669372724D5E700833B6B /* RepositoryDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28669362724D5E700833B6B /* RepositoryDetailPresenter.swift */; };
 		E286693D2724D7DF00833B6B /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = E286693C2724D7DF00833B6B /* Nuke */; };
@@ -153,6 +154,7 @@
 		E27087D9272847DD00AE7223 /* EmptyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyViewController.swift; sourceTree = "<group>"; };
 		E27087DC2728483600AE7223 /* EmptyViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EmptyViewController.storyboard; sourceTree = "<group>"; };
 		E271715D2728C05D00E3C1ED /* UIView+LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+LoadingIndicator.swift"; sourceTree = "<group>"; };
+		E271715F2728E93600E3C1ED /* ispinner.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = ispinner.css; sourceTree = "<group>"; };
 		E28669342724D52E00833B6B /* RepositoryDetailProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailProtocol.swift; sourceTree = "<group>"; };
 		E28669362724D5E700833B6B /* RepositoryDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailPresenter.swift; sourceTree = "<group>"; };
 		E286693F2724D80F00833B6B /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
@@ -469,6 +471,7 @@
 			isa = PBXGroup;
 			children = (
 				E27087C42727682C00AE7223 /* marked.js */,
+				E271715F2728E93600E3C1ED /* ispinner.css */,
 				E27087C62727683100AE7223 /* github-markdown.css */,
 				E27087C92727697B00AE7223 /* mdbase.html */,
 			);
@@ -649,6 +652,7 @@
 				E28669582725FEE400833B6B /* RepositoryDetailCountViewController.storyboard in Resources */,
 				E27087BD2726894E00AE7223 /* RepositoryDetailReadmeViewController.storyboard in Resources */,
 				E27087CA27276B4600AE7223 /* mdbase.html in Resources */,
+				E27171602728E93600E3C1ED /* ispinner.css in Resources */,
 				E27087C72727683100AE7223 /* github-markdown.css in Resources */,
 				E27087DD2728483600AE7223 /* EmptyViewController.storyboard in Resources */,
 				E250706127244F3C00013FF1 /* RepositorySearchViewController.storyboard in Resources */,

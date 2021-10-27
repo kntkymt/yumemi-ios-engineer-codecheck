@@ -73,19 +73,10 @@ final class RepositoryDetailReadmeViewController: UIViewController, Storyboardab
 
 extension RepositoryDetailReadmeViewController: RepositoryDetailReadmeView {
 
-    func showWebViewLoading() {
-        webView.showLoading(disableUserIteraction: false)
-    }
-
-    func hideWebViewLoading() {
-        webView.hideLoading()
-    }
-
     func evaluateJavaScriptToWebView(javaScript: String) {
         webView.evaluateJavaScript(javaScript) { [weak self] _, error in
             if let error = error {
                 Logger.error(error)
-                self?.presenter.webViewDidFailEvaluateJavaScript(with: error)
                 return
             }
         }
