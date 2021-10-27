@@ -175,8 +175,13 @@ final class RepositorySearchPresenter: RepositorySearchPresentation {
         if let apiErorr = error as? APIError {
             switch apiErorr {
             case .statusCode(let statusCodeError):
-                title = "システムエラー"
-                message = "再度お試しください。\n\(statusCodeError._domain), \(statusCodeError._code)"
+                if case .validationFailed = statusCodeError {
+                    title = "バリデーションエラー"
+                    message = "入力に利用できない文字が含まれています。\n入力を変更して再度お試しください。\n\(statusCodeError._domain), \(statusCodeError._code)"
+                } else {
+                    title = "システムエラー"
+                    message = "再度お試しください。\n\(statusCodeError._domain), \(statusCodeError._code)"
+                }
 
             case .response(let error):
                 title = "ネットワークエラー"
