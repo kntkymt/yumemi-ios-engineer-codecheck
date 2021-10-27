@@ -38,7 +38,12 @@ final class SearchGitHubRepositoriesUITests: XCTestCase {
         let searchField = app.searchFields.firstMatch
         searchField.tap()
         searchField.typeText("Alamofire")
-        app.buttons["search"].tap()
+
+        if app.buttons["search"].exists {
+            app.buttons["search"].tap()
+        } else if app.buttons["検索"].exists {
+            app.buttons["検索"].tap()
+        }
 
         // 検索ボタンを押した直後は初回表示のセルが残っているので少し待つ
         _ = app.waitForExistence(timeout: 2)
@@ -57,7 +62,12 @@ final class SearchGitHubRepositoriesUITests: XCTestCase {
         let searchField = app.searchFields.firstMatch
         searchField.tap()
         searchField.typeText("あeueｗぃえ")
-        app.buttons["search"].tap()
+
+        if app.buttons["search"].exists {
+            app.buttons["search"].tap()
+        } else if app.buttons["検索"].exists {
+            app.buttons["検索"].tap()
+        }
 
         // 検索ボタンを押した直後は初回表示のセルが残っているので少し待つ
         _ = app.waitForExistence(timeout: 2)
@@ -75,7 +85,12 @@ final class SearchGitHubRepositoriesUITests: XCTestCase {
         let searchField = app.searchFields.firstMatch
         searchField.tap()
         searchField.typeText("    ")
-        app.buttons["search"].tap()
+
+        if app.buttons["search"].exists {
+            app.buttons["search"].tap()
+        } else if app.buttons["検索"].exists {
+            app.buttons["検索"].tap()
+        }
 
         // 検索ボタンを押した直後は初回表示のセルが残っているので少し待つ
         _ = app.waitForExistence(timeout: 2)
