@@ -108,6 +108,7 @@ final class RepositorySearchPresenter: RepositorySearchPresentation {
                     self?.view?.tableViewScrollToTop(animated: false)
                 }
             } catch {
+                self.gitHubRepositories = []
                 showErrorView = true
 
                 DispatchQueue.main.async { [weak self] in
