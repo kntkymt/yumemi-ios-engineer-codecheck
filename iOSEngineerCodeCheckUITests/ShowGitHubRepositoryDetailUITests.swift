@@ -29,23 +29,22 @@ final class ShowGitHubRepositoryDetailUITests: XCTestCase {
 
     // MARK: - Test
 
+    // 一覧から詳細に遷移し、Readmeが表示されるかのテスト
     func testShowGitHubRepositoryDetail() {
         // 初期表示リポジトリが10秒以内に表示される
         XCTContext.runActivity(named: "show initial items in 10 seconds") { _ in
-            let initialItemCell = app.tables.element(boundBy: 0).children(matching: .cell).element(boundBy: 0)
-
-            let exists = NSPredicate(format: "exists == true")
-            expectation(for: exists, evaluatedWith: initialItemCell, handler: nil)
-            waitForExpectations(timeout: 10, handler: nil)
+            let initialItemCell = app.tables.firstMatch.children(matching: .cell).firstMatch.waitForExistence(timeout: 10)
+            XCTAssertTrue(initialItemCell)
         }
 
         // 詳細へ正常へ遷移できる
         XCTContext.runActivity(named: "push to Detail View") { _ in
-            let initialItemCell = app.tables.element(boundBy: 0).children(matching: .cell).element(boundBy: 0)
-            initialItemCell.tap()
+            app.tables.firstMatch.children(matching: .cell).firstMatch.tap()
+
+            let imageView = app.images.firstMatch.waitForExistence(timeout: 5)
 
             // ImageViewが存在することを確認
-            XCTAssert(app.images.element(boundBy: 0).exists)
+            XCTAssertTrue(imageView)
         }
 
         // Readmeが10秒以内に表示される
@@ -54,7 +53,7 @@ final class ShowGitHubRepositoryDetailUITests: XCTestCase {
             // 一番下までスクロール
             app.swipeUp(velocity: 1000)
 
-            let webView = app.webViews.element(boundBy: 0)
+            let webView = app.webViews.firstMatch
             // リンク, 画像, 文字等々何らかがWebView内に表示できていることを確認する
             let link = webView.links.firstMatch
             let image = webView.images.firstMatch
