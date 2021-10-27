@@ -13,14 +13,14 @@
             <objects>
                 <viewController id="Y6W-OH-hqX" customClass="RepositoryDetailReadmeViewController" customModule="iOSEngineerCodeCheck" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="444"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="144"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Ps-Fr-Qfz">
-                                <rect key="frame" x="0.0" y="44" width="414" height="400"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="100"/>
                                 <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="400" id="AHG-uU-f0d"/>
+                                    <constraint firstAttribute="height" constant="100" id="AHG-uU-f0d"/>
                                 </constraints>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
@@ -48,7 +48,7 @@
                             <constraint firstItem="9Ps-Fr-Qfz" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="vgy-L6-Vlw"/>
                         </constraints>
                     </view>
-                    <size key="freeformSize" width="414" height="444"/>
+                    <size key="freeformSize" width="414" height="144"/>
                     <connections>
                         <outlet property="webView" destination="9Ps-Fr-Qfz" id="KRw-m9-nNF"/>
                         <outlet property="webViewHeightConstraint" destination="AHG-uU-f0d" id="X6I-YC-wFT"/>

@@ -31,8 +31,12 @@ final class RepositoryDetailReadmeViewController: UIViewController, Storyboardab
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // ScrollViewのcontentの高さをobserveし、WebViewの高さとcontentの高さを常に一致させる
         webViewContntObservation = webView.scrollView.observe(\.contentSize) { [weak self] scrollView, _ in
-            self?.webViewHeightConstraint.constant = scrollView.contentSize.height
+            guard let self = self else { return }
+            if self.webViewHeightConstraint.constant != scrollView.contentSize.height {
+                self.webViewHeightConstraint.constant = scrollView.contentSize.height
+            }
         }
 
         presenter.viewDidLoad()
@@ -68,6 +72,7 @@ final class RepositoryDetailReadmeViewController: UIViewController, Storyboardab
 // MARK: - GitHubRepositoryDetailReadmeView
 
 extension RepositoryDetailReadmeViewController: RepositoryDetailReadmeView {
+
     func evaluateJavaScriptToWebView(javaScript: String) {
         webView.evaluateJavaScript(javaScript) { _, error in
             if let error = error {

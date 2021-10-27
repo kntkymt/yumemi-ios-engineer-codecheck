@@ -62,16 +62,24 @@ final class RepositorySearchPresenter: RepositorySearchPresentation {
     }
 
     func searchBarSearchButtonDidTap(searchText: String) {
+        DispatchQueue.main.async { [weak self] in
+            self?.view?.showTableViewLoading()
+        }
+
         searchTask = Task {
             do {
                 self.gitHubRepositories = try await gitHubRepositorySearchUsecase.searchGitHubRepositories(by: searchText)
                 showEmptyView = self.gitHubRepositories.isEmpty
 
                 DispatchQueue.main.async { [weak self] in
+                    self?.view?.hideTableViewLoading()
                     self?.view?.tableViewReloadData()
                     self?.view?.tableViewScrollToTop(animated: false)
                 }
             } catch {
+                DispatchQueue.main.async { [weak self] in
+                    self?.view?.hideTableViewLoading()
+                }
                 Logger.error(error)
             }
         }
@@ -84,6 +92,9 @@ final class RepositorySearchPresenter: RepositorySearchPresentation {
 
     func searchBarSearchTextDidChange() {
         searchTask?.cancel()
+        DispatchQueue.main.async { [weak self] in
+            self?.view?.hideTableViewLoading()
+        }
     }
 
     // MARK: - Private
@@ -98,6 +109,10 @@ final class RepositorySearchPresenter: RepositorySearchPresentation {
                 self?.view?.tableViewScrollToTop(animated: false)
             }
         } else {
+            DispatchQueue.main.async { [weak self] in
+                self?.view?.showTableViewLoading()
+            }
+
             searchTask = Task {
                 do {
                     let initialGitHubRepositories = try await gitHubRepositorySearchUsecase.getTrendingGitHubRepositories()
@@ -106,10 +121,14 @@ final class RepositorySearchPresenter: RepositorySearchPresentation {
                     showEmptyView = gitHubRepositories.isEmpty
 
                     DispatchQueue.main.async { [weak self] in
+                        self?.view?.hideTableViewLoading()
                         self?.view?.tableViewReloadData()
                         self?.view?.tableViewScrollToTop(animated: false)
                     }
                 } catch {
+                    DispatchQueue.main.async { [weak self] in
+                        self?.view?.hideTableViewLoading()
+                    }
                     Logger.error(error)
                 }
             }

@@ -8,6 +8,12 @@
 
 protocol RepositorySearchView: AnyObject {
 
+    /// TablewViewのロード表示をする
+    func showTableViewLoading()
+
+    /// TableViewのロード表示を隠す
+    func hideTableViewLoading()
+
     /// TableViewを最上部までスクロールする
     func tableViewScrollToTop(animated: Bool)
 
