@@ -65,6 +65,33 @@ final class RepositorySearchPresenter: RepositorySearchPresentation {
     }
 
     func searchBarSearchButtonDidTap() {
+        searchGitHubRepositories()
+    }
+
+    func searchBarCancelButtonDidTap() {
+        searchTask?.cancel()
+        setInitialGitHubRepositories()
+    }
+
+    func searchBarSearchTextDidChange(searchText: String) {
+        self.searchText = searchText
+        searchTask?.cancel()
+        DispatchQueue.main.async { [weak self] in
+            self?.view?.hideTableViewLoading()
+        }
+    }
+
+    func errorViewRefreshButtonDidTap() {
+        if initialGitHubRepositories == nil {
+            setInitialGitHubRepositories()
+        } else {
+            searchGitHubRepositories()
+        }
+    }
+
+    // MARK: - Private
+
+    private func searchGitHubRepositories() {
         DispatchQueue.main.async { [weak self] in
             self?.view?.showTableViewLoading()
         }
@@ -93,29 +120,6 @@ final class RepositorySearchPresenter: RepositorySearchPresentation {
             }
         }
     }
-
-    func searchBarCancelButtonDidTap() {
-        searchTask?.cancel()
-        setInitialGitHubRepositories()
-    }
-
-    func searchBarSearchTextDidChange(searchText: String) {
-        self.searchText = searchText
-        searchTask?.cancel()
-        DispatchQueue.main.async { [weak self] in
-            self?.view?.hideTableViewLoading()
-        }
-    }
-
-    func errorViewRefreshButtonDidTap() {
-        if initialGitHubRepositories == nil {
-            setInitialGitHubRepositories()
-        } else {
-            searchBarSearchButtonDidTap()
-        }
-    }
-
-    // MARK: - Private
 
     private func setInitialGitHubRepositories() {
         // 既に取得してある場合は使い回す
