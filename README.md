@@ -2,40 +2,70 @@
 
 ## 概要
 
-本プロジェクトは株式会社ゆめみ（以下弊社）が、弊社に iOS エンジニアを希望する方に出す課題のベースプロジェクトです。本課題が与えられた方は、下記の概要を詳しく読んだ上で課題を取り組んでください。
+株式会社ゆめみ インターン iOS提出課題
 
-## アプリ仕様
+課題リポジトリ: https://github.com/yumemi-inc/ios-engineer-codecheck
 
-本アプリは GitHub のリポジトリーを検索するアプリです。
+## アプリ仕様・動作・説明
 
-![動作イメージ](README_Images/app.gif)
+本アプリはGitHubのリポジトリを検索するアプリです。
 
-### 環境
+- iOS15以上
+- iPhoneのみ, 画面回転非対応
 
-- IDE：基本最新の安定版（本概要更新時点では Xcode 13.0）
-- Swift：基本最新の安定版（本概要更新時点では Swift 5.5）
-- 開発ターゲット：基本最新の安定版（本概要更新時点では iOS 15.0）
-- サードパーティーライブラリーの利用：オープンソースのものに限り制限しない
+| 検索ホーム | 検索 | 詳細1 | 詳細2 |
+| ------ | ------ | ------ | -----
+| ![](./README_images/Home.png) | ![](./README_images/Search.png)  | ![](./README_images/Detail.png) |![](./README_images/Detail_Readme.png)  |
 
-### 動作
+### 検索ホーム
+- アプリを開いた直後の画面
+- 各セルには`所有者のアイコン`, `所有者名`, `リポジトリ名`, `説明`, `スター数`, `言語`を表示
+- App StoreアプリのToday画面やGitHubアプリを参考にレイアウトを作成
+- ナビゲーションの検索バーに文字を入れ検索することで検索結果を表示
+- セルをタップすることで詳細画面に遷移
 
-1. 何かしらのキーワードを入力
-2. GitHub API（`search/repositories`）でリポジトリーを検索し、結果一覧を概要（リポジトリ名）で表示
-3. 特定の結果を選択したら、該当リポジトリの詳細（リポジトリ名、オーナーアイコン、プロジェクト言語、Star 数、Watcher 数、Fork 数、Issue 数）を表示
+### 検索
+- 検索結果を表示
+- セルをタップすることでリポジトリ詳細画面に遷移
 
-## 課題取り組み方法
+### 詳細
+- 見出し, カウント, Readmeの3部分によって構成
+- 見出し: `所有者のアイコン`, `所有者名`, `リポジトリ名`, `説明`, `言語`を表示
+- カウント: `スター数`, `Watchers数`, `Fork数`, `Issue数`を表示
+- Readme: リポジトリの`Readme.md`を表示
+    - 現状、画像埋め込みや相対パスによるリンク参照は押しても何も起きません(実装が難しかったため)
+    - URLによる画像埋め込み・絶対パスによるリンク参照・外部リンクは動作します
+- 全体的にGitHubアプリのリポジトリ詳細画面を参考にレイアウトを作成
 
-Issues を確認した上、本プロジェクトを [**Duplicate** してください](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/duplicating-a-repository)（Fork しないようにしてください。必要ならプライベートリポジトリーにしても大丈夫です）。今後のコミットは全てご自身のリポジトリーで行ってください。
+## その他
+- 全画面ダークモードに対応
+- 検索画面と詳細画面Readmeがロード中は`UIActivityIndicator`でロード中表示
+- エラーが発生した場合はバナーでメッセージを表示
 
-コードチェックの課題 Issue は全て [`課題`](https://github.com/yumemi/ios-engineer-codecheck/milestone/1) Milestone がついており、難易度に応じて Label が [`初級`](https://github.com/yumemi/ios-engineer-codecheck/issues?q=is%3Aopen+is%3Aissue+label%3A初級+milestone%3A課題)、[`中級`](https://github.com/yumemi/ios-engineer-codecheck/issues?q=is%3Aopen+is%3Aissue+label%3A中級+milestone%3A課題+) と [`ボーナス`](https://github.com/yumemi/ios-engineer-codecheck/issues?q=is%3Aopen+is%3Aissue+label%3Aボーナス+milestone%3A課題+) に分けられています。課題の必須／選択は下記の表とします：
+|  |  | |
+| ------ | ------ | ------- |
+|  |  | |
 
-|   | 初級 | 中級 | ボーナス
-|--:|:--:|:--:|:--:|
-| 新卒／未経験者 | 必須 | 選択 | 選択 |
-| 中途／経験者 | 必須 | 必須 | 選択 |
+## セットアップ方法
 
-課題が完成したら、リポジトリーのアドレスを教えてください。
+特になし。
 
-## 参考記事
+ライブラリは全て`Swift Package Manager`を用いて導入しているため、`.xcodeproj`を開くと自動でダウンロードされます。
 
-提出された課題の評価ポイントに関しては、[こちらの記事](https://qiita.com/lovee/items/d76c68341ec3e7beb611)に詳しく書かれてありますので、ぜひご覧ください。
+## 設計思想・アーキテクチャ
+
+
+細かい設計については `アーキテクチャ`のラベルがついたPRの説明欄をご覧ください。
+
+## 課題について
+
+- 各PRに関係する課題をラベルとしてつけてあります。課題部分の変更を確認したい場合は以下を参考にPRをご覧ください。
+
+| 課題名 | 対応するラベル |
+| ------ | ------ |
+| [ソースコードの可読性の向上](https://github.com/yumemi-inc/ios-engineer-codecheck/issues/2) | ソースコードの可読性の向上 |
+| [ソースコードの安全性の向上](https://github.com/yumemi-inc/ios-engineer-codecheck/issues/3) | ソースコードの安全性の向上 |
+| [バグを修正](https://github.com/yumemi-inc/ios-engineer-codecheck/issues/4) | バグを修正 |
+| [FatVCの回避](https://github.com/yumemi-inc/ios-engineer-codecheck/issues/5), [アーキテクチャを適用](https://github.com/yumemi-inc/ios-engineer-codecheck/issues/7), [プログラム構造をリファクタリング](https://github.com/yumemi-inc/ios-engineer-codecheck/issues/6) | アーキテクチャ |
+| [テストを追加](https://github.com/yumemi-inc/ios-engineer-codecheck/issues/10) | テスト |
+| [UIをブラッシュアップ](https://github.com/yumemi-inc/ios-engineer-codecheck/issues/8), [新機能を追加](https://github.com/yumemi-inc/ios-engineer-codecheck/issues/9) | UIUX新機能  |
