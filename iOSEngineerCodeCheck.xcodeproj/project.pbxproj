@@ -61,6 +61,7 @@
 		E27087DD2728483600AE7223 /* EmptyViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E27087DC2728483600AE7223 /* EmptyViewController.storyboard */; };
 		E271715E2728C05D00E3C1ED /* UIView+LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E271715D2728C05D00E3C1ED /* UIView+LoadingIndicator.swift */; };
 		E27171602728E93600E3C1ED /* ispinner.css in Resources */ = {isa = PBXBuildFile; fileRef = E271715F2728E93600E3C1ED /* ispinner.css */; };
+		E27171632728F7E800E3C1ED /* SwiftEntryKit in Frameworks */ = {isa = PBXBuildFile; productRef = E27171622728F7E800E3C1ED /* SwiftEntryKit */; };
 		E28669352724D52E00833B6B /* RepositoryDetailProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28669342724D52E00833B6B /* RepositoryDetailProtocol.swift */; };
 		E28669372724D5E700833B6B /* RepositoryDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28669362724D5E700833B6B /* RepositoryDetailPresenter.swift */; };
 		E286693D2724D7DF00833B6B /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = E286693C2724D7DF00833B6B /* Nuke */; };
@@ -177,6 +178,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E27171632728F7E800E3C1ED /* SwiftEntryKit in Frameworks */,
 				E286693D2724D7DF00833B6B /* Nuke in Frameworks */,
 				E250706727246E9700013FF1 /* Moya in Frameworks */,
 				E250708E272488E000013FF1 /* SwiftyBeaver in Frameworks */,
@@ -547,6 +549,7 @@
 				E250706627246E9700013FF1 /* Moya */,
 				E250708D272488E000013FF1 /* SwiftyBeaver */,
 				E286693C2724D7DF00833B6B /* Nuke */,
+				E27171622728F7E800E3C1ED /* SwiftEntryKit */,
 			);
 			productName = iOSEngineerCodeCheck;
 			productReference = BFD945DB244DC5E80012785A /* iOSEngineerCodeCheck.app */;
@@ -624,6 +627,7 @@
 				E250706527246E9600013FF1 /* XCRemoteSwiftPackageReference "Moya" */,
 				E25070892724883200013FF1 /* XCRemoteSwiftPackageReference "SwiftyBeaver" */,
 				E286693B2724D7DF00833B6B /* XCRemoteSwiftPackageReference "Nuke" */,
+				E27171612728F7E800E3C1ED /* XCRemoteSwiftPackageReference "SwiftEntryKit" */,
 			);
 			productRefGroup = BFD945DC244DC5E80012785A /* Products */;
 			projectDirPath = "";
@@ -1078,6 +1082,14 @@
 				minimumVersion = 1.9.5;
 			};
 		};
+		E27171612728F7E800E3C1ED /* XCRemoteSwiftPackageReference "SwiftEntryKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/huri000/SwiftEntryKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		E286693B2724D7DF00833B6B /* XCRemoteSwiftPackageReference "Nuke" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kean/Nuke.git";
@@ -1098,6 +1110,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E25070892724883200013FF1 /* XCRemoteSwiftPackageReference "SwiftyBeaver" */;
 			productName = SwiftyBeaver;
+		};
+		E27171622728F7E800E3C1ED /* SwiftEntryKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E27171612728F7E800E3C1ED /* XCRemoteSwiftPackageReference "SwiftEntryKit" */;
+			productName = SwiftEntryKit;
 		};
 		E286693C2724D7DF00833B6B /* Nuke */ = {
 			isa = XCSwiftPackageProductDependency;
