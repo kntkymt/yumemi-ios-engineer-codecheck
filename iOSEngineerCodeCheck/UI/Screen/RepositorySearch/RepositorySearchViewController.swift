@@ -22,6 +22,17 @@ final class RepositorySearchViewController: UITableViewController, Storyboardabl
         return searchController
     }()
 
+    private lazy var indicatorView: UIActivityIndicatorView = {
+        let indicatorView = UIActivityIndicatorView()
+        indicatorView.style = .large
+        indicatorView.color = .systemGray
+        indicatorView.backgroundColor = .clear
+        indicatorView.frame.size.height = 50
+        indicatorView.hidesWhenStopped = true
+
+        return indicatorView
+    }()
+
     private lazy var emptyViewController = EmptyViewController.build(emptyTitle: "リポジトリがありません")
     private lazy var errorViewController = ErrorViewController.build(refreshTitle: "再読み込み", hideRefreshButton: false)
 
@@ -35,6 +46,8 @@ final class RepositorySearchViewController: UITableViewController, Storyboardabl
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        tableView.addSubview(indicatorView, constraints: .center())
 
         tableView.register(RepositoryTableViewCell.self)
 
@@ -103,11 +116,13 @@ final class RepositorySearchViewController: UITableViewController, Storyboardabl
 extension RepositorySearchViewController: RepositorySearchView {
 
     func showTableViewLoading() {
-        tableView.showLoading()
+        indicatorView.startAnimating()
+        tableView.isUserInteractionEnabled = false
     }
 
     func hideTableViewLoading() {
-        tableView.hideLoading()
+        indicatorView.stopAnimating()
+        tableView.isUserInteractionEnabled = true
     }
 
     func tableViewScrollToTop(animated: Bool) {
