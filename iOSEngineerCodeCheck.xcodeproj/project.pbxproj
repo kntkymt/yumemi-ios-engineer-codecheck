@@ -58,7 +58,7 @@
 		E27087D62727E7E000AE7223 /* WebViewShowable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27087D52727E7E000AE7223 /* WebViewShowable.swift */; };
 		E27087DA272847DD00AE7223 /* EmptyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27087D9272847DD00AE7223 /* EmptyViewController.swift */; };
 		E27087DD2728483600AE7223 /* EmptyViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E27087DC2728483600AE7223 /* EmptyViewController.storyboard */; };
-		E27093E12729B2880014E5D1 /* SearchGitHubRepositoriesUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27093E02729B2880014E5D1 /* SearchGitHubRepositoriesUITest.swift */; };
+		E27093E12729B2880014E5D1 /* SearchGitHubRepositoriesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27093E02729B2880014E5D1 /* SearchGitHubRepositoriesUITests.swift */; };
 		E271715E2728C05D00E3C1ED /* UIView+LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E271715D2728C05D00E3C1ED /* UIView+LoadingIndicator.swift */; };
 		E27171602728E93600E3C1ED /* ispinner.css in Resources */ = {isa = PBXBuildFile; fileRef = E271715F2728E93600E3C1ED /* ispinner.css */; };
 		E27171632728F7E800E3C1ED /* SwiftEntryKit in Frameworks */ = {isa = PBXBuildFile; productRef = E27171622728F7E800E3C1ED /* SwiftEntryKit */; };
@@ -166,7 +166,7 @@
 		E27087D52727E7E000AE7223 /* WebViewShowable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewShowable.swift; sourceTree = "<group>"; };
 		E27087D9272847DD00AE7223 /* EmptyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyViewController.swift; sourceTree = "<group>"; };
 		E27087DC2728483600AE7223 /* EmptyViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EmptyViewController.storyboard; sourceTree = "<group>"; };
-		E27093E02729B2880014E5D1 /* SearchGitHubRepositoriesUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchGitHubRepositoriesUITest.swift; sourceTree = "<group>"; };
+		E27093E02729B2880014E5D1 /* SearchGitHubRepositoriesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchGitHubRepositoriesUITests.swift; sourceTree = "<group>"; };
 		E271715D2728C05D00E3C1ED /* UIView+LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+LoadingIndicator.swift"; sourceTree = "<group>"; };
 		E271715F2728E93600E3C1ED /* ispinner.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = ispinner.css; sourceTree = "<group>"; };
 		E27171642728F84000E3C1ED /* MessageBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageBanner.swift; sourceTree = "<group>"; };
@@ -280,7 +280,7 @@
 			isa = PBXGroup;
 			children = (
 				E2717182272997FA00E3C1ED /* ShowGitHubRepositoryDetailUITests.swift */,
-				E27093E02729B2880014E5D1 /* SearchGitHubRepositoriesUITest.swift */,
+				E27093E02729B2880014E5D1 /* SearchGitHubRepositoriesUITests.swift */,
 				BFD94602244DC5EC0012785A /* Info.plist */,
 			);
 			path = iOSEngineerCodeCheckUITests;
@@ -848,7 +848,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E27093E12729B2880014E5D1 /* SearchGitHubRepositoriesUITest.swift in Sources */,
+				E27093E12729B2880014E5D1 /* SearchGitHubRepositoriesUITests.swift in Sources */,
 				E2717183272997FA00E3C1ED /* ShowGitHubRepositoryDetailUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
