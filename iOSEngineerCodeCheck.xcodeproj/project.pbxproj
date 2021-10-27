@@ -501,8 +501,8 @@
 		E27171682728F98300E3C1ED /* Error */ = {
 			isa = PBXGroup;
 			children = (
-				E27171692728F99200E3C1ED /* ErrorViewController.swift */,
 				E271716B2728F9EC00E3C1ED /* ErrorViewController.storyboard */,
+				E27171692728F99200E3C1ED /* ErrorViewController.swift */,
 			);
 			path = Error;
 			sourceTree = "<group>";
