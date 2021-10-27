@@ -23,6 +23,7 @@ final class RepositorySearchViewController: UITableViewController, Storyboardabl
     }()
 
     private lazy var emptyViewController = EmptyViewController.build(emptyTitle: "リポジトリがありません")
+    private lazy var errorViewController = ErrorViewController.build(refreshTitle: "再読み込み", hideRefreshButton: false)
 
     // MARK: - Build
 
@@ -36,9 +37,14 @@ final class RepositorySearchViewController: UITableViewController, Storyboardabl
         super.viewDidLoad()
 
         tableView.register(RepositoryTableViewCell.self)
+
         title = "検索"
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
+
+        errorViewController.setRefreshButtonHandler { [weak self] in
+            self?.presenter.errorViewRefreshButtonDidTap()
+        }
         
         presenter.viewDidLoad()
     }
@@ -74,7 +80,13 @@ final class RepositorySearchViewController: UITableViewController, Storyboardabl
     }
 
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return presenter.showEmptyView ? emptyViewController.view : nil
+        if presenter.showErrorView {
+            return errorViewController.view
+        } else if presenter.showEmptyView {
+            return emptyViewController.view
+        } else {
+            return nil
+        }
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -82,7 +94,7 @@ final class RepositorySearchViewController: UITableViewController, Storyboardabl
     }
 
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return presenter.showEmptyView ? tableView.bounds.height : CGFloat.leastNormalMagnitude
+        return presenter.showEmptyView || presenter.showErrorView ? tableView.bounds.height : CGFloat.leastNormalMagnitude
     }
 }
 

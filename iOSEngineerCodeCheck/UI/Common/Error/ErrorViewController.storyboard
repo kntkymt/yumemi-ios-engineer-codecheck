@@ -22,6 +22,7 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vgu-I7-IFD">
                                         <rect key="frame" x="16" y="0.0" width="60" height="60"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="60" id="0Go-e3-687"/>
                                             <constraint firstAttribute="height" constant="60" id="coU-E4-3RB"/>
@@ -45,7 +46,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="WX1-Gz-E0Z"/>
-                        <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="vJW-KI-uSX" firstAttribute="centerX" secondItem="4Jz-OG-ZX7" secondAttribute="centerX" id="Qza-VM-VO6"/>
                             <constraint firstItem="vJW-KI-uSX" firstAttribute="centerY" secondItem="4Jz-OG-ZX7" secondAttribute="centerY" id="Rf9-da-HB3"/>
@@ -64,7 +65,7 @@
     </scenes>
     <resources>
         <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
-        <systemColor name="secondarySystemGroupedBackgroundColor">
+        <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>

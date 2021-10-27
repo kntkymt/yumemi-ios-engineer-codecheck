@@ -29,6 +29,9 @@ protocol RepositorySearchView: AnyObject, BannerShowable {
 
 protocol RepositorySearchPresentation: Presentation {
 
+    /// ErrorViewを表示するかどうか
+    var showErrorView: Bool { get }
+
     /// EmptyViewを表示するかどうか
     var showEmptyView: Bool { get }
 

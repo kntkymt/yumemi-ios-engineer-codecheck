@@ -14,6 +14,7 @@ final class RepositorySearchPresenter: RepositorySearchPresentation {
 
     private weak var view: RepositorySearchView?
 
+    var showErrorView = false
     var showEmptyView = false
 
     var gitHubRepositoriesCount: Int {
@@ -72,6 +73,7 @@ final class RepositorySearchPresenter: RepositorySearchPresentation {
             do {
                 self.gitHubRepositories = try await gitHubRepositorySearchUsecase.searchGitHubRepositories(by: searchText)
                 showEmptyView = self.gitHubRepositories.isEmpty
+                showErrorView = false
 
                 DispatchQueue.main.async { [weak self] in
                     self?.view?.hideTableViewLoading()
@@ -79,10 +81,13 @@ final class RepositorySearchPresenter: RepositorySearchPresentation {
                     self?.view?.tableViewScrollToTop(animated: false)
                 }
             } catch {
+                showErrorView = true
+
                 DispatchQueue.main.async { [weak self] in
                     self?.view?.hideTableViewLoading()
+                    self?.view?.tableViewReloadData()
                 }
-                
+
                 Logger.error(error)
                 handle(error)
             }
@@ -102,6 +107,14 @@ final class RepositorySearchPresenter: RepositorySearchPresentation {
         }
     }
 
+    func errorViewRefreshButtonDidTap() {
+        if initialGitHubRepositories == nil {
+            setInitialGitHubRepositories()
+        } else {
+            searchBarSearchButtonDidTap()
+        }
+    }
+
     // MARK: - Private
 
     private func setInitialGitHubRepositories() {
@@ -109,6 +122,8 @@ final class RepositorySearchPresenter: RepositorySearchPresentation {
         if let initialGitHubRepositories = initialGitHubRepositories {
             gitHubRepositories = initialGitHubRepositories
             showEmptyView = gitHubRepositories.isEmpty
+            showErrorView = false
+
             DispatchQueue.main.async { [weak self] in
                 self?.view?.tableViewReloadData()
                 self?.view?.tableViewScrollToTop(animated: false)
@@ -123,7 +138,9 @@ final class RepositorySearchPresenter: RepositorySearchPresentation {
                     let initialGitHubRepositories = try await gitHubRepositorySearchUsecase.getTrendingGitHubRepositories()
                     self.initialGitHubRepositories = initialGitHubRepositories
                     gitHubRepositories = initialGitHubRepositories
+
                     showEmptyView = gitHubRepositories.isEmpty
+                    showErrorView = false
 
                     DispatchQueue.main.async { [weak self] in
                         self?.view?.hideTableViewLoading()
@@ -131,8 +148,11 @@ final class RepositorySearchPresenter: RepositorySearchPresentation {
                         self?.view?.tableViewScrollToTop(animated: false)
                     }
                 } catch {
+                    showErrorView = true
+
                     DispatchQueue.main.async { [weak self] in
                         self?.view?.hideTableViewLoading()
+                        self?.view?.tableViewReloadData()
                     }
 
                     Logger.error(error)
