@@ -7,6 +7,7 @@
 //
 
 import Moya
+import Foundation
 
 struct GetGitHubRepositoryReadmeResponse: Codable {
     var content: String
@@ -25,12 +26,17 @@ extension GetGitHubRepositoryReadmeRequest: APITargetType {
         return "/repos/\(owner)/\(repository)/readme"
     }
 
-    var method: Method {
+    var method: Moya.Method {
         return .get
     }
 
     var task: Task {
         return .requestPlain
+    }
+
+    var sampleData: Data {
+        let path = Bundle.main.path(forResource: "GetGitHubRepositoryReadmeRequestStub", ofType: "json")!
+        return FileHandle(forReadingAtPath: path)!.readDataToEndOfFile()
     }
 }
 
