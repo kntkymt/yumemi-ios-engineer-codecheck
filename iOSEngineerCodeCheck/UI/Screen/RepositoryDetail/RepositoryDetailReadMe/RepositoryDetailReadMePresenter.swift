@@ -70,6 +70,11 @@ final  class RepositoryDetailReadMePresenter: RepositoryDetailReadmePresentation
         }
     }
 
+    func webViewDidFailEvaluateJavaScript(with error: Error) {
+        Logger.error(error)
+        handle(error)
+    }
+
     func webViewCanNavigate(to url: URL) -> Bool {
         // 初期読み込みは許可
         if url == readmeBaseHtmlURL {
@@ -117,10 +122,45 @@ final  class RepositoryDetailReadMePresenter: RepositoryDetailReadmePresentation
                     }
                 } else {
                     Logger.error(apierror)
+                    handle(apierror)
                 }
             } catch {
                 Logger.error(error)
+                handle(error)
             }
+        }
+    }
+
+    private func handle(_ error: Error) {
+
+        let title: String
+        let message: String
+
+        if let apiErorr = error as? APIError {
+            switch apiErorr {
+            case .statusCode(let statusCodeError):
+                title = "システムエラー"
+                message = "再度お試しください。\n\(statusCodeError._domain), \(statusCodeError._code)"
+
+            case .response(let error):
+                title = "ネットワークエラー"
+                message = "通信状況をお確かめの上、再度お試しください。\n\(error._domain), \(error._code)"
+
+            case .decode(let error):
+                title = "パースエラー"
+                message = "再度お試しください。\n\(error._domain), \(error._code)"
+
+            case .base64Decode:
+                title = "パースエラー"
+                message = "再度お試しください。\n\(error._domain), \(error._code)"
+            }
+        } else {
+            title = "システムエラー"
+            message = "再度お試しください。\n\(error._domain), \(error._code)"
+        }
+
+        DispatchQueue.main.async { [weak self] in
+            self?.view?.showErrorBanner(title, with: message)
         }
     }
 }
