@@ -43,11 +43,42 @@ final class SearchGitHubRepositoriesUITests: XCTestCase {
         _ = app.waitForExistence(timeout: 2)
 
         // 検索結果が10秒以内に表示される
-        XCTContext.runActivity(named: "show search results in 10 seconds") { _ in
-            let initialItemCell = app.tables.firstMatch.children(matching: .cell).firstMatch.waitForExistence(timeout: 10)
+        let initialItemCell = app.tables.firstMatch.children(matching: .cell).firstMatch.waitForExistence(timeout: 10)
+        XCTAssertTrue(initialItemCell)
+    }
 
-            XCTAssertNotNil(initialItemCell)
-        }
+    func testWhenSearchResultIsEmpty() {
+        // 初回表示が終わるまで待つ
+        _ = app.waitForExistence(timeout: 5)
+
+        // 検索結果が空になる文字を打つ
+        let searchField = app.searchFields.firstMatch
+        searchField.tap()
+        searchField.typeText("あeueｗぃえ")
+        app.buttons["search"].tap()
+
+        // 検索ボタンを押した直後は初回表示のセルが残っているので少し待つ
+        _ = app.waitForExistence(timeout: 2)
+
+        let emptyViewTitle = app.tables.staticTexts.firstMatch.label
+        XCTAssertEqual(emptyViewTitle, "リポジトリがありません")
+    }
+
+    func testWhenSearchResultIsError() {
+        // 初回表示が終わるまで待つ
+        _ = app.waitForExistence(timeout: 5)
+
+        // 検索結果がエラーになる文字を打つ
+        let searchField = app.searchFields.firstMatch
+        searchField.tap()
+        searchField.typeText("    ")
+        app.buttons["search"].tap()
+
+        // 検索ボタンを押した直後は初回表示のセルが残っているので少し待つ
+        _ = app.waitForExistence(timeout: 2)
+
+        let errorViewTitle = app.tables.staticTexts.firstMatch.label
+        XCTAssertEqual(errorViewTitle, "再読み込み")
     }
 }
 
