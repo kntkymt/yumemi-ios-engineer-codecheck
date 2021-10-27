@@ -64,6 +64,8 @@
 		E27171632728F7E800E3C1ED /* SwiftEntryKit in Frameworks */ = {isa = PBXBuildFile; productRef = E27171622728F7E800E3C1ED /* SwiftEntryKit */; };
 		E27171652728F84000E3C1ED /* MessageBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27171642728F84000E3C1ED /* MessageBanner.swift */; };
 		E27171672728F8B600E3C1ED /* BannerShowable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27171662728F8B600E3C1ED /* BannerShowable.swift */; };
+		E271716A2728F99200E3C1ED /* ErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27171692728F99200E3C1ED /* ErrorViewController.swift */; };
+		E271716C2728F9EC00E3C1ED /* ErrorViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E271716B2728F9EC00E3C1ED /* ErrorViewController.storyboard */; };
 		E28669352724D52E00833B6B /* RepositoryDetailProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28669342724D52E00833B6B /* RepositoryDetailProtocol.swift */; };
 		E28669372724D5E700833B6B /* RepositoryDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28669362724D5E700833B6B /* RepositoryDetailPresenter.swift */; };
 		E286693D2724D7DF00833B6B /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = E286693C2724D7DF00833B6B /* Nuke */; };
@@ -160,6 +162,8 @@
 		E271715F2728E93600E3C1ED /* ispinner.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = ispinner.css; sourceTree = "<group>"; };
 		E27171642728F84000E3C1ED /* MessageBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageBanner.swift; sourceTree = "<group>"; };
 		E27171662728F8B600E3C1ED /* BannerShowable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerShowable.swift; sourceTree = "<group>"; };
+		E27171692728F99200E3C1ED /* ErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewController.swift; sourceTree = "<group>"; };
+		E271716B2728F9EC00E3C1ED /* ErrorViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ErrorViewController.storyboard; sourceTree = "<group>"; };
 		E28669342724D52E00833B6B /* RepositoryDetailProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailProtocol.swift; sourceTree = "<group>"; };
 		E28669362724D5E700833B6B /* RepositoryDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailPresenter.swift; sourceTree = "<group>"; };
 		E286693F2724D80F00833B6B /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
@@ -494,6 +498,15 @@
 			path = Empty;
 			sourceTree = "<group>";
 		};
+		E27171682728F98300E3C1ED /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				E27171692728F99200E3C1ED /* ErrorViewController.swift */,
+				E271716B2728F9EC00E3C1ED /* ErrorViewController.storyboard */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
 		E28669412725A5DC00833B6B /* Component */ = {
 			isa = PBXGroup;
 			children = (
@@ -506,6 +519,7 @@
 		E286694A2725F62600833B6B /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				E27171682728F98300E3C1ED /* Error */,
 				E27087DB2728482100AE7223 /* Empty */,
 				E286694B2725F63E00833B6B /* VStackViewController.swift */,
 				E27171642728F84000E3C1ED /* MessageBanner.swift */,
@@ -660,6 +674,7 @@
 				E25070582724491600013FF1 /* RootViewController.storyboard in Resources */,
 				E250705F27244BED00013FF1 /* SplashViewController.storyboard in Resources */,
 				E28669582725FEE400833B6B /* RepositoryDetailCountViewController.storyboard in Resources */,
+				E271716C2728F9EC00E3C1ED /* ErrorViewController.storyboard in Resources */,
 				E27087BD2726894E00AE7223 /* RepositoryDetailReadmeViewController.storyboard in Resources */,
 				E27087CA27276B4600AE7223 /* mdbase.html in Resources */,
 				E27171602728E93600E3C1ED /* ispinner.css in Resources */,
@@ -732,6 +747,7 @@
 				E27087CE2727A09100AE7223 /* RepositoryDetailReadMePresenter.swift in Sources */,
 				E250707D27247BD200013FF1 /* GitHubRepositorySearchUsecase.swift in Sources */,
 				E25070522724476C00013FF1 /* Storyboardable.swift in Sources */,
+				E271716A2728F99200E3C1ED /* ErrorViewController.swift in Sources */,
 				E2507092272494BA00013FF1 /* SplashProtocol.swift in Sources */,
 				E250706B27246FB100013FF1 /* AppError.swift in Sources */,
 				E250706D2724712100013FF1 /* APITargetType.swift in Sources */,
