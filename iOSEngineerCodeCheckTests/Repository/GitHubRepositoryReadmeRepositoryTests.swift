@@ -25,7 +25,7 @@ final class GitHubRepositoryReadmeRepositoryTests: XCTestCase {
 
     // MARK: - Test
 
-    func testSearchGitHubRepositories() {
+    func testGitHubRepositoryReadme() {
         let expectation = expectation(description: "getGitHubRepositoryReadme")
 
         Task {
@@ -59,7 +59,7 @@ final class GitHubRepositoryReadmeRepositoryWithStubTests: XCTestCase {
 
     // MARK: - Test
 
-    func testSearchGitHubRepositories() {
+    func testGitHubRepositoryReadme() {
         let expectation = expectation(description: "getGitHubRepositoryReadme")
 
         Task {
