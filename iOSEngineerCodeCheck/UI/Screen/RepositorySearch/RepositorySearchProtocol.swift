@@ -15,6 +15,9 @@ protocol RepositorySearchView: AnyObject, BannerShowable {
     func hideTableViewLoading()
 
     /// TableViewを最上部までスクロールする
+    ///
+    /// - parameters:
+    ///     - animated: アニメーションをするかどうか
     func tableViewScrollToTop(animated: Bool)
 
     /// TableViewをリロードする

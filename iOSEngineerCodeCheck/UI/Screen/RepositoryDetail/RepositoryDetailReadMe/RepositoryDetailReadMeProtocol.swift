@@ -11,6 +11,7 @@ import Foundation
 protocol RepositoryDetailReadmeView: AnyObject, WebViewShowable, BannerShowable {
 
     /// WebViewをセットアップする
+    /// 
     /// - parameters:
     ///     - url: 初期読み込みのurl
     func setupWebView(url: URL)
