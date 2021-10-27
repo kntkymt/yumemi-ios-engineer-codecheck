@@ -1,5 +1,5 @@
 //
-//  Get GitHubRepositoryReadmeRepositoryTest.swift
+//  GitHubRepositoryReadmeRepositoryTests.swift
 //  iOSEngineerCodeCheckTests
 //
 //  Created by kntk on 2021/10/27.
