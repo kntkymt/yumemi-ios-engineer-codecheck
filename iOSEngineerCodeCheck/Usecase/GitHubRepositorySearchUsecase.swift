@@ -8,8 +8,16 @@
 
 protocol GitHubReposiotySearchUsecase {
 
+    /// 指定された検索語でGitHubのリポジトリを検索する
+    ///
+    /// - parameters:
+    ///     - word: 検索語
+    /// - returns: 検索結果
     func searchGitHubRepositories(by word: String) async throws -> [GitHubRepository]
 
+    /// GitHubのリポジトリのトレンドを取得する
+    ///
+    /// - returns: トレンドのGitHubリポジトリ
     func getTrendingGitHubRepositories() async throws -> [GitHubRepository]
 }
 
