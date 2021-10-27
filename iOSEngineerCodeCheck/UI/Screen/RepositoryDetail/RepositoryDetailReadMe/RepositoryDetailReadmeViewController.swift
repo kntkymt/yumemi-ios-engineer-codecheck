@@ -26,10 +26,26 @@ final class RepositoryDetailReadmeViewController: UIViewController, Storyboardab
 
     private var webViewContntObservation: NSKeyValueObservation?
 
+    // MARK: - Property
+
+    var presenter: RepositoryDetailReadmePresentation!
+
+    private lazy var errorViewController = ErrorViewController.build(refreshTitle: "再読み込み", hideRefreshButton: false)
+
+    // MARK: - Build
+
+    static func build() -> Self {
+        return initViewController()
+    }
+
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        errorViewController.setRefreshButtonHandler { [weak self] in
+            self?.presenter.errorViewRefreshButtonDidTap()
+        }
 
         // ScrollViewのcontentの高さをobserveし、WebViewの高さとcontentの高さを常に一致させる
         webViewContntObservation = webView.scrollView.observe(\.contentSize) { [weak self] scrollView, _ in
@@ -57,16 +73,6 @@ final class RepositoryDetailReadmeViewController: UIViewController, Storyboardab
     deinit {
         presenter.viewDidStop()
     }
-
-    // MARK: - Property
-
-    var presenter: RepositoryDetailReadmePresentation!
-
-    // MARK: - Build
-
-    static func build() -> Self {
-        return initViewController()
-    }
 }
 
 // MARK: - GitHubRepositoryDetailReadmeView
@@ -74,14 +80,13 @@ final class RepositoryDetailReadmeViewController: UIViewController, Storyboardab
 extension RepositoryDetailReadmeViewController: RepositoryDetailReadmeView {
 
     func evaluateJavaScriptToWebView(javaScript: String) {
-        webView.evaluateJavaScript(javaScript) { _, error in
+        webView.evaluateJavaScript(javaScript) { [weak self] _, error in
             if let error = error {
-                Logger.error(error)
+                self?.presenter.webViewDidFailEvaluateJavaScript(with: error)
                 return
             }
         }
     }
-
 
     func hideReadmeViewController() {
         view.isHidden = true
@@ -89,6 +94,14 @@ extension RepositoryDetailReadmeViewController: RepositoryDetailReadmeView {
 
     func setupWebView(url: URL) {
         webView.load(URLRequest(url: url))
+    }
+
+    func showErrorView() {
+        webView.addSubview(errorViewController.view, constraints: .allEdges())
+    }
+
+    func hideErrorView() {
+        errorViewController.view.removeFromSuperview()
     }
 }
 

@@ -14,6 +14,7 @@ final class RepositorySearchPresenter: RepositorySearchPresentation {
 
     private weak var view: RepositorySearchView?
 
+    var showErrorView = false
     var showEmptyView = false
 
     var gitHubRepositoriesCount: Int {
@@ -25,6 +26,8 @@ final class RepositorySearchPresenter: RepositorySearchPresentation {
 
     // 非検索状態で表示される「おすすめ」的な立ち位置のリポジトリ一覧
     private var initialGitHubRepositories: [GitHubRepository]?
+
+    private var searchText = ""
 
     private var searchTask: Task<Void, Error>?
 
@@ -61,7 +64,34 @@ final class RepositorySearchPresenter: RepositorySearchPresentation {
         }
     }
 
-    func searchBarSearchButtonDidTap(searchText: String) {
+    func searchBarSearchButtonDidTap() {
+        searchGitHubRepositories()
+    }
+
+    func searchBarCancelButtonDidTap() {
+        searchTask?.cancel()
+        setInitialGitHubRepositories()
+    }
+
+    func searchBarSearchTextDidChange(searchText: String) {
+        self.searchText = searchText
+        searchTask?.cancel()
+        DispatchQueue.main.async { [weak self] in
+            self?.view?.hideTableViewLoading()
+        }
+    }
+
+    func errorViewRefreshButtonDidTap() {
+        if initialGitHubRepositories == nil {
+            setInitialGitHubRepositories()
+        } else {
+            searchGitHubRepositories()
+        }
+    }
+
+    // MARK: - Private
+
+    private func searchGitHubRepositories() {
         DispatchQueue.main.async { [weak self] in
             self?.view?.showTableViewLoading()
         }
@@ -70,6 +100,7 @@ final class RepositorySearchPresenter: RepositorySearchPresentation {
             do {
                 self.gitHubRepositories = try await gitHubRepositorySearchUsecase.searchGitHubRepositories(by: searchText)
                 showEmptyView = self.gitHubRepositories.isEmpty
+                showErrorView = false
 
                 DispatchQueue.main.async { [weak self] in
                     self?.view?.hideTableViewLoading()
@@ -77,33 +108,27 @@ final class RepositorySearchPresenter: RepositorySearchPresentation {
                     self?.view?.tableViewScrollToTop(animated: false)
                 }
             } catch {
+                self.gitHubRepositories = []
+                showErrorView = true
+
                 DispatchQueue.main.async { [weak self] in
                     self?.view?.hideTableViewLoading()
+                    self?.view?.tableViewReloadData()
                 }
+
                 Logger.error(error)
+                handle(error)
             }
         }
     }
-
-    func searchBarCancelButtonDidTap() {
-        searchTask?.cancel()
-        setInitialGitHubRepositories()
-    }
-
-    func searchBarSearchTextDidChange() {
-        searchTask?.cancel()
-        DispatchQueue.main.async { [weak self] in
-            self?.view?.hideTableViewLoading()
-        }
-    }
-
-    // MARK: - Private
 
     private func setInitialGitHubRepositories() {
         // 既に取得してある場合は使い回す
         if let initialGitHubRepositories = initialGitHubRepositories {
             gitHubRepositories = initialGitHubRepositories
             showEmptyView = gitHubRepositories.isEmpty
+            showErrorView = false
+
             DispatchQueue.main.async { [weak self] in
                 self?.view?.tableViewReloadData()
                 self?.view?.tableViewScrollToTop(animated: false)
@@ -118,7 +143,9 @@ final class RepositorySearchPresenter: RepositorySearchPresentation {
                     let initialGitHubRepositories = try await gitHubRepositorySearchUsecase.getTrendingGitHubRepositories()
                     self.initialGitHubRepositories = initialGitHubRepositories
                     gitHubRepositories = initialGitHubRepositories
+
                     showEmptyView = gitHubRepositories.isEmpty
+                    showErrorView = false
 
                     DispatchQueue.main.async { [weak self] in
                         self?.view?.hideTableViewLoading()
@@ -126,12 +153,50 @@ final class RepositorySearchPresenter: RepositorySearchPresentation {
                         self?.view?.tableViewScrollToTop(animated: false)
                     }
                 } catch {
+                    showErrorView = true
+
                     DispatchQueue.main.async { [weak self] in
                         self?.view?.hideTableViewLoading()
+                        self?.view?.tableViewReloadData()
                     }
+
                     Logger.error(error)
+                    handle(error)
                 }
             }
+        }
+    }
+
+    private func handle(_ error: Error) {
+
+        let title: String
+        let message: String
+
+        if let apiErorr = error as? APIError {
+            switch apiErorr {
+            case .statusCode(let statusCodeError):
+                title = "システムエラー"
+                message = "再度お試しください。\n\(statusCodeError._domain), \(statusCodeError._code)"
+
+            case .response(let error):
+                title = "ネットワークエラー"
+                message = "通信状況をお確かめの上、再度お試しください。\n\(error._domain), \(error._code)"
+
+            case .decode(let error):
+                title = "パースエラー"
+                message = "再度お試しください。\n\(error._domain), \(error._code)"
+
+            case .base64Decode:
+                title = "パースエラー"
+                message = "再度お試しください。\n\(error._domain), \(error._code)"
+            }
+        } else {
+            title = "システムエラー"
+            message = "再度お試しください。\n\(error._domain), \(error._code)"
+        }
+
+        DispatchQueue.main.async { [weak self] in
+            self?.view?.showErrorBanner(title, with: message)
         }
     }
 }

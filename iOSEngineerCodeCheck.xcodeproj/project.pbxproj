@@ -61,6 +61,11 @@
 		E27087DD2728483600AE7223 /* EmptyViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E27087DC2728483600AE7223 /* EmptyViewController.storyboard */; };
 		E271715E2728C05D00E3C1ED /* UIView+LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E271715D2728C05D00E3C1ED /* UIView+LoadingIndicator.swift */; };
 		E27171602728E93600E3C1ED /* ispinner.css in Resources */ = {isa = PBXBuildFile; fileRef = E271715F2728E93600E3C1ED /* ispinner.css */; };
+		E27171632728F7E800E3C1ED /* SwiftEntryKit in Frameworks */ = {isa = PBXBuildFile; productRef = E27171622728F7E800E3C1ED /* SwiftEntryKit */; };
+		E27171652728F84000E3C1ED /* MessageBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27171642728F84000E3C1ED /* MessageBanner.swift */; };
+		E27171672728F8B600E3C1ED /* BannerShowable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27171662728F8B600E3C1ED /* BannerShowable.swift */; };
+		E271716A2728F99200E3C1ED /* ErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27171692728F99200E3C1ED /* ErrorViewController.swift */; };
+		E271716C2728F9EC00E3C1ED /* ErrorViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E271716B2728F9EC00E3C1ED /* ErrorViewController.storyboard */; };
 		E28669352724D52E00833B6B /* RepositoryDetailProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28669342724D52E00833B6B /* RepositoryDetailProtocol.swift */; };
 		E28669372724D5E700833B6B /* RepositoryDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28669362724D5E700833B6B /* RepositoryDetailPresenter.swift */; };
 		E286693D2724D7DF00833B6B /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = E286693C2724D7DF00833B6B /* Nuke */; };
@@ -155,6 +160,10 @@
 		E27087DC2728483600AE7223 /* EmptyViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EmptyViewController.storyboard; sourceTree = "<group>"; };
 		E271715D2728C05D00E3C1ED /* UIView+LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+LoadingIndicator.swift"; sourceTree = "<group>"; };
 		E271715F2728E93600E3C1ED /* ispinner.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = ispinner.css; sourceTree = "<group>"; };
+		E27171642728F84000E3C1ED /* MessageBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageBanner.swift; sourceTree = "<group>"; };
+		E27171662728F8B600E3C1ED /* BannerShowable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerShowable.swift; sourceTree = "<group>"; };
+		E27171692728F99200E3C1ED /* ErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewController.swift; sourceTree = "<group>"; };
+		E271716B2728F9EC00E3C1ED /* ErrorViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ErrorViewController.storyboard; sourceTree = "<group>"; };
 		E28669342724D52E00833B6B /* RepositoryDetailProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailProtocol.swift; sourceTree = "<group>"; };
 		E28669362724D5E700833B6B /* RepositoryDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailPresenter.swift; sourceTree = "<group>"; };
 		E286693F2724D80F00833B6B /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
@@ -177,6 +186,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E27171632728F7E800E3C1ED /* SwiftEntryKit in Frameworks */,
 				E286693D2724D7DF00833B6B /* Nuke in Frameworks */,
 				E250706727246E9700013FF1 /* Moya in Frameworks */,
 				E250708E272488E000013FF1 /* SwiftyBeaver in Frameworks */,
@@ -261,6 +271,7 @@
 				E25070512724476C00013FF1 /* Storyboardable.swift */,
 				E28669462725AE3200833B6B /* NibInstantiatable.swift */,
 				E27087D52727E7E000AE7223 /* WebViewShowable.swift */,
+				E27171662728F8B600E3C1ED /* BannerShowable.swift */,
 				E250708F272492B200013FF1 /* Presentation.swift */,
 				E286694A2725F62600833B6B /* Common */,
 				E25070492724467500013FF1 /* Screen */,
@@ -487,6 +498,15 @@
 			path = Empty;
 			sourceTree = "<group>";
 		};
+		E27171682728F98300E3C1ED /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				E27171692728F99200E3C1ED /* ErrorViewController.swift */,
+				E271716B2728F9EC00E3C1ED /* ErrorViewController.storyboard */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
 		E28669412725A5DC00833B6B /* Component */ = {
 			isa = PBXGroup;
 			children = (
@@ -499,8 +519,10 @@
 		E286694A2725F62600833B6B /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				E27171682728F98300E3C1ED /* Error */,
 				E27087DB2728482100AE7223 /* Empty */,
 				E286694B2725F63E00833B6B /* VStackViewController.swift */,
+				E27171642728F84000E3C1ED /* MessageBanner.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -547,6 +569,7 @@
 				E250706627246E9700013FF1 /* Moya */,
 				E250708D272488E000013FF1 /* SwiftyBeaver */,
 				E286693C2724D7DF00833B6B /* Nuke */,
+				E27171622728F7E800E3C1ED /* SwiftEntryKit */,
 			);
 			productName = iOSEngineerCodeCheck;
 			productReference = BFD945DB244DC5E80012785A /* iOSEngineerCodeCheck.app */;
@@ -624,6 +647,7 @@
 				E250706527246E9600013FF1 /* XCRemoteSwiftPackageReference "Moya" */,
 				E25070892724883200013FF1 /* XCRemoteSwiftPackageReference "SwiftyBeaver" */,
 				E286693B2724D7DF00833B6B /* XCRemoteSwiftPackageReference "Nuke" */,
+				E27171612728F7E800E3C1ED /* XCRemoteSwiftPackageReference "SwiftEntryKit" */,
 			);
 			productRefGroup = BFD945DC244DC5E80012785A /* Products */;
 			projectDirPath = "";
@@ -650,6 +674,7 @@
 				E25070582724491600013FF1 /* RootViewController.storyboard in Resources */,
 				E250705F27244BED00013FF1 /* SplashViewController.storyboard in Resources */,
 				E28669582725FEE400833B6B /* RepositoryDetailCountViewController.storyboard in Resources */,
+				E271716C2728F9EC00E3C1ED /* ErrorViewController.storyboard in Resources */,
 				E27087BD2726894E00AE7223 /* RepositoryDetailReadmeViewController.storyboard in Resources */,
 				E27087CA27276B4600AE7223 /* mdbase.html in Resources */,
 				E27171602728E93600E3C1ED /* ispinner.css in Resources */,
@@ -689,6 +714,7 @@
 				E28669442725A64900833B6B /* RepositoryTableViewCell.swift in Sources */,
 				E250709827249DE700013FF1 /* RepositorySearchPresenter.swift in Sources */,
 				E28669472725AE3200833B6B /* NibInstantiatable.swift in Sources */,
+				E27171672728F8B600E3C1ED /* BannerShowable.swift in Sources */,
 				BF0A658D244F2A3B00280FA6 /* RepositoryDetailHeadingViewController.swift in Sources */,
 				E250708227247E8800013FF1 /* LoggerPlugin.swift in Sources */,
 				E25070772724775F00013FF1 /* User.swift in Sources */,
@@ -721,6 +747,7 @@
 				E27087CE2727A09100AE7223 /* RepositoryDetailReadMePresenter.swift in Sources */,
 				E250707D27247BD200013FF1 /* GitHubRepositorySearchUsecase.swift in Sources */,
 				E25070522724476C00013FF1 /* Storyboardable.swift in Sources */,
+				E271716A2728F99200E3C1ED /* ErrorViewController.swift in Sources */,
 				E2507092272494BA00013FF1 /* SplashProtocol.swift in Sources */,
 				E250706B27246FB100013FF1 /* AppError.swift in Sources */,
 				E250706D2724712100013FF1 /* APITargetType.swift in Sources */,
@@ -730,6 +757,7 @@
 				BFD945E1244DC5E80012785A /* SceneDelegate.swift in Sources */,
 				E250709627249C1500013FF1 /* RepositorySearchProtocol.swift in Sources */,
 				E250705A2724497E00013FF1 /* MainViewController.swift in Sources */,
+				E27171652728F84000E3C1ED /* MessageBanner.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1078,6 +1106,14 @@
 				minimumVersion = 1.9.5;
 			};
 		};
+		E27171612728F7E800E3C1ED /* XCRemoteSwiftPackageReference "SwiftEntryKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/huri000/SwiftEntryKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		E286693B2724D7DF00833B6B /* XCRemoteSwiftPackageReference "Nuke" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kean/Nuke.git";
@@ -1098,6 +1134,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E25070892724883200013FF1 /* XCRemoteSwiftPackageReference "SwiftyBeaver" */;
 			productName = SwiftyBeaver;
+		};
+		E27171622728F7E800E3C1ED /* SwiftEntryKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E27171612728F7E800E3C1ED /* XCRemoteSwiftPackageReference "SwiftEntryKit" */;
+			productName = SwiftEntryKit;
 		};
 		E286693C2724D7DF00833B6B /* Nuke */ = {
 			isa = XCSwiftPackageProductDependency;

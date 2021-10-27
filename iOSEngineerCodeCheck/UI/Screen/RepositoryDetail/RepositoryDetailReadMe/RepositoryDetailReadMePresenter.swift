@@ -54,20 +54,17 @@ final  class RepositoryDetailReadMePresenter: RepositoryDetailReadmePresentation
         webViewSetuped = true
 
         // 先にreadmeを取得できていた場合
-        if let readme = readme {
-            DispatchQueue.main.async { [weak self] in
-                guard let self = self else { return }
-                // MEMO: multiline stringであるバッククオートを使うと
-                // マークダウン内に含まれるバッククオート, JSの文字列展開である「${}」と競合するので
-                // マークダウン内のバッククオート, $をエスケープする
-                let escapedContent = readme
-                    .replacingOccurrences(of: "`", with: "\\`")
-                    .replacingOccurrences(of: "$", with: "\\$")
-                let javaScript = "insert(`\(escapedContent)`);"
-
-                self.view?.evaluateJavaScriptToWebView(javaScript: javaScript)
-            }
+        if readme != nil {
+            evaluateJavaScriptToWebView()
         }
+    }
+
+    func webViewDidFailEvaluateJavaScript(with error: Error) {
+        DispatchQueue.main.async { [weak self] in
+            self?.view?.showErrorView()
+        }
+        Logger.error(error)
+        handle(error)
     }
 
     func webViewCanNavigate(to url: URL) -> Bool {
@@ -87,6 +84,14 @@ final  class RepositoryDetailReadMePresenter: RepositoryDetailReadmePresentation
         return false
     }
 
+    func errorViewRefreshButtonDidTap() {
+        if readme == nil {
+            getReadme()
+        } else {
+            evaluateJavaScriptToWebView()
+        }
+    }
+
     // MARK: - Private
 
     private func getReadme() {
@@ -97,17 +102,7 @@ final  class RepositoryDetailReadMePresenter: RepositoryDetailReadmePresentation
 
                 // 先にWebViewのsetupが終わっていた場合
                 if webViewSetuped {
-                    DispatchQueue.main.async { [weak self] in
-                        // MEMO: multiline stringであるバッククオートを使うと
-                        // マークダウン内に含まれるバッククオート, JSの文字列展開である「${}」と競合するので
-                        // マークダウン内のバッククオート, $をエスケープする
-                        let escapedContent = readme
-                            .replacingOccurrences(of: "`", with: "\\`")
-                            .replacingOccurrences(of: "$", with: "\\$")
-                        let javaScript = "insert(`\(escapedContent)`);"
-
-                        self?.view?.evaluateJavaScriptToWebView(javaScript: javaScript)
-                    }
+                    evaluateJavaScriptToWebView()
                 }
             } catch let apierror as APIError {
                 // 404の場合はReadmeが存在しないのでViewController自体を隠す
@@ -116,11 +111,70 @@ final  class RepositoryDetailReadMePresenter: RepositoryDetailReadmePresentation
                         self?.view?.hideReadmeViewController()
                     }
                 } else {
+                    DispatchQueue.main.async { [weak self] in
+                        self?.view?.showErrorView()
+                    }
                     Logger.error(apierror)
+                    handle(apierror)
                 }
             } catch {
+                DispatchQueue.main.async { [weak self] in
+                    self?.view?.showErrorView()
+                }
                 Logger.error(error)
+                handle(error)
             }
+        }
+    }
+
+    private func evaluateJavaScriptToWebView() {
+        guard let readme = readme else { return }
+
+        DispatchQueue.main.async { [weak self] in
+            self?.view?.hideErrorView()
+
+            // MEMO: multiline stringであるバッククオートを使うと
+            // マークダウン内に含まれるバッククオート, JSの文字列展開である「${}」と競合するので
+            // マークダウン内のバッククオート, $をエスケープする
+            let escapedContent = readme
+                .replacingOccurrences(of: "`", with: "\\`")
+                .replacingOccurrences(of: "$", with: "\\$")
+            let javaScript = "insert(`\(escapedContent)`);"
+
+            self?.view?.evaluateJavaScriptToWebView(javaScript: javaScript)
+        }
+    }
+
+    private func handle(_ error: Error) {
+
+        let title: String
+        let message: String
+
+        if let apiErorr = error as? APIError {
+            switch apiErorr {
+            case .statusCode(let statusCodeError):
+                title = "システムエラー"
+                message = "再度お試しください。\n\(statusCodeError._domain), \(statusCodeError._code)"
+
+            case .response(let error):
+                title = "ネットワークエラー"
+                message = "通信状況をお確かめの上、再度お試しください。\n\(error._domain), \(error._code)"
+
+            case .decode(let error):
+                title = "パースエラー"
+                message = "再度お試しください。\n\(error._domain), \(error._code)"
+
+            case .base64Decode:
+                title = "パースエラー"
+                message = "再度お試しください。\n\(error._domain), \(error._code)"
+            }
+        } else {
+            title = "システムエラー"
+            message = "再度お試しください。\n\(error._domain), \(error._code)"
+        }
+
+        DispatchQueue.main.async { [weak self] in
+            self?.view?.showErrorBanner(title, with: message)
         }
     }
 }

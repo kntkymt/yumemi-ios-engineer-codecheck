@@ -6,7 +6,7 @@
 //  Copyright © 2021 YUMEMI Inc. All rights reserved.
 //
 
-protocol RepositorySearchView: AnyObject {
+protocol RepositorySearchView: AnyObject, BannerShowable {
 
     /// TablewViewのロード表示をする
     func showTableViewLoading()
@@ -28,6 +28,9 @@ protocol RepositorySearchView: AnyObject {
 }
 
 protocol RepositorySearchPresentation: Presentation {
+
+    /// ErrorViewを表示するかどうか
+    var showErrorView: Bool { get }
 
     /// EmptyViewを表示するかどうか
     var showEmptyView: Bool { get }
@@ -52,12 +55,15 @@ protocol RepositorySearchPresentation: Presentation {
     ///
     /// - parameters:
     ///     - searchText: 検索語
-    func searchBarSearchButtonDidTap(searchText: String)
+    func searchBarSearchButtonDidTap()
 
     /// キャンセルボタンが押された
     func searchBarCancelButtonDidTap()
 
     /// 検索文字が変更された
-    func searchBarSearchTextDidChange()
+    func searchBarSearchTextDidChange(searchText: String)
+
+    /// ErroViewのリフレッシュボタンが押された
+    func errorViewRefreshButtonDidTap()
 }
 
