@@ -27,10 +27,14 @@ extension UIView {
         }
     }
 
-    func showLoading() {
+    func showLoading(disableUserIteraction: Bool = true) {
         if let addedIndicatorView = getAddedIndicatorView() {
             addedIndicatorView.isHidden = false
-            isUserInteractionEnabled = false
+
+            if disableUserIteraction {
+                isUserInteractionEnabled = false
+            }
+
             addedIndicatorView.startAnimating()
         } else {
             let indicatorView = indicatorView
@@ -39,7 +43,10 @@ extension UIView {
 
             self.addSubview(indicatorView, constraints: .center())
 
-            isUserInteractionEnabled = false
+            if disableUserIteraction {
+                isUserInteractionEnabled = false
+            }
+
             indicatorView.startAnimating()
         }
     }
