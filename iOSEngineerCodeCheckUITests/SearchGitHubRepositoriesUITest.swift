@@ -29,7 +29,7 @@ final class SearchGitHubRepositoriesUITests: XCTestCase {
 
     // MARK: - Test
 
-    // 通常の検索のテスト
+    // 検索結果が表示されることを確認するテスト
     func testSearchRepositories() {
         // 初回表示が終わるまで待つ
         _ = app.waitForExistence(timeout: 5)
@@ -48,7 +48,7 @@ final class SearchGitHubRepositoriesUITests: XCTestCase {
         XCTAssertTrue(initialItemCell)
     }
 
-    // 検索結果が空だった場合のテスト
+    // 検索結果が空だった場合にEmptyViewが表示されることを確認するテスト
     func testWhenSearchResultIsEmpty() {
         // 初回表示が終わるまで待つ
         _ = app.waitForExistence(timeout: 5)
@@ -66,7 +66,7 @@ final class SearchGitHubRepositoriesUITests: XCTestCase {
         XCTAssertEqual(emptyViewTitle, "リポジトリがありません")
     }
 
-    // 検索結果がエラーだった場合のテスト
+    // 検索結果がエラーだった場合にErrorViewが表示されることを確認するテスト
     func testWhenSearchResultIsError() {
         // 初回表示が終わるまで待つ
         _ = app.waitForExistence(timeout: 5)
