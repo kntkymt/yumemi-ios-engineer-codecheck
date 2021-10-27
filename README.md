@@ -80,6 +80,20 @@
 - [テストを追加/API・Repository・Usecaseの単体テスト,結合テスト](https://github.com/kntkymt/yumemi-ios-engineer-codecheck/pull/17)
 - [テストを追加/UIテストを追加する](https://github.com/kntkymt/yumemi-ios-engineer-codecheck/pull/18)
 
+### 使用ライブラリ
+
+| ライブラリ名 | 用途 |
+| ------ | ------ |
+| [Moya](https://github.com/Moya/Moya.git) | ネットワーク通信 |
+| [SwiftyBeaver](https://github.com/SwiftyBeaver/SwiftyBeaver.git) | ログ出力等 |
+| [Nuke](https://github.com/kean/Nuke.git) | 画像取得 |
+| [SwiftEntryKit](https://github.com/huri000/SwiftEntryKit.git) | エラーバナー表示 |
+| [marked](https://github.com/markedjs/marked) | マークダウンをhtmlに変換 |
+| [github-markdown-css](https://github.com/sindresorhus/github-markdown-css) | htmlをgithubのmarkdown風に装飾 |
+| [ispinner](https://github.com/swordray/ispinner) | html,cssで`UIActivityIndicator`を再現 |
+
+`marked`, `github-markdown-css`, `ispinner`はダウンロードして直接プロジェクトファイルに追加
+
 ## 課題について
 
 - 各PRに関係する課題をラベルとしてつけてあります。
