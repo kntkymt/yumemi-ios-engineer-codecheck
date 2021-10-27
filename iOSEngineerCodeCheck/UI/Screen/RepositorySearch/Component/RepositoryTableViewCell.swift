@@ -36,6 +36,17 @@ final class RepositoryTableViewCell: UITableViewCell {
 
     @IBOutlet private weak var languageIconImageView: UIImageView!
     @IBOutlet private weak var languageLabel: UILabel!
+
+    // MARK: - Lifecycle
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+
+        // 実行中にdark/lightテーマを切り替えた場合
+        // UIColor.systemGray3.cgColorがCellを初期化した時と違う色になるため
+        // reuseするたびに設定し直す
+        cardView.layer.shadowColor = UIColor.systemGray3.cgColor
+    }
 }
 
 // MARK: - NibInstantiatable
