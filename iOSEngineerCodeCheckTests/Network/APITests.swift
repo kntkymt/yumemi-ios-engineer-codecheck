@@ -11,11 +11,15 @@ import XCTest
 
 final class APITests: XCTestCase {
 
+    // MARK: - Lifecycle
+
     override class func setUp() {
         super.setUp()
 
         API.setup(provider: APIProviderFactory.createService())
     }
+
+    // MARK: - Test
 
     func testSearchGitHubRepositoryRequest() {
         let expectation = expectation(description: "SearchGitHubRepositoryRequest")
