@@ -9,8 +9,17 @@
 import SafariServices
 
 protocol WebViewShowable {
+
+    /// SafariアプリでURLを開く
+    ///
+    /// - parameters:
+    ///     - url: 開くURL
     func openSafariApp(url: URL)
 
+    /// SafariViewControllerでURLを開く
+    ///
+    /// - parameters:
+    ///     - url: 開くURL
     func presentSafariViewController(url: URL)
 }
 

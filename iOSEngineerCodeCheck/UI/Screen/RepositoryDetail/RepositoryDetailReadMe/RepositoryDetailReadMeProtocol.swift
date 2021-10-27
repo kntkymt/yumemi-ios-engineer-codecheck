@@ -11,6 +11,7 @@ import Foundation
 protocol RepositoryDetailReadmeView: AnyObject, WebViewShowable, BannerShowable {
 
     /// WebViewをセットアップする
+    /// 
     /// - parameters:
     ///     - url: 初期読み込みのurl
     func setupWebView(url: URL)
@@ -37,6 +38,9 @@ protocol RepositoryDetailReadmePresentation: Presentation {
     func webViewDidFinishSetup()
 
     /// WebViewがJavaScriptの実行に失敗した
+    ///
+    /// - parameters:
+    ///     - error: 原因のエラー
     func webViewDidFailEvaluateJavaScript(with error: Error)
 
     /// WebViewがURLの読み込みをして良いかどうか

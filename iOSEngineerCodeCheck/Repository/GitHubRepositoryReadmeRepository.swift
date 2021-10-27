@@ -10,6 +10,12 @@ import Foundation
 
 protocol GitHubRepositoryReadmeRepository {
 
+    /// 特定のGitHubのリポジトリのReadmeを取得する
+    ///
+    /// - parameters:
+    ///     - repository: リポジトリ名
+    ///     - owner: 所有者名
+    /// - returns: Readmeの文字列
     func getGitHubRepositoryReadme(repository: String, owner: String) async throws -> String
 }
 

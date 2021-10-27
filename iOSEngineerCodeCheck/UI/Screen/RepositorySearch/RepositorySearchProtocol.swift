@@ -15,6 +15,9 @@ protocol RepositorySearchView: AnyObject, BannerShowable {
     func hideTableViewLoading()
 
     /// TableViewを最上部までスクロールする
+    ///
+    /// - parameters:
+    ///     - animated: アニメーションをするかどうか
     func tableViewScrollToTop(animated: Bool)
 
     /// TableViewをリロードする
@@ -52,15 +55,15 @@ protocol RepositorySearchPresentation: Presentation {
     func tableViewDidSelectRow(at index: Int)
 
     /// 検索ボタンが押された
-    ///
-    /// - parameters:
-    ///     - searchText: 検索語
     func searchBarSearchButtonDidTap()
 
     /// キャンセルボタンが押された
     func searchBarCancelButtonDidTap()
 
     /// 検索文字が変更された
+    /// 
+    /// - parameters:
+    ///     - searchText: 検索語
     func searchBarSearchTextDidChange(searchText: String)
 
     /// ErroViewのリフレッシュボタンが押された
